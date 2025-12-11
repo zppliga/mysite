@@ -11,36 +11,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Подключаем Font Awesome для иконок (если понадобятся) -->
+    <!-- Подключаем Font Awesome для иконок -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-    <!-- Шапка сайта -->
-    <header class="header">
-        <div class="container header-container">
-            <!-- Логотип -->
-            <a href="/" class="logo">
-                <i class="fas fa-balance-scale"></i> <!-- Иконка весов -->
-                <span>Лига защитников потребителей</span>
-            </a>
-            
-            <!-- Навигационное меню -->
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="/" class="nav-link active"><i class="fas fa-home"></i> Главная</a></li>
-                    <li><a href="consumer.html" class="nav-link"><i class="fas fa-user-shield"></i> Потребителю</a></li>
-                    <li><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> О нас</a></li>
-                    <li><a href="contacts.html" class="nav-link"><i class="fas fa-envelope"></i> Контакты</a></li>
-                </ul>
-            </nav>
-            
-            <!-- Кнопка мобильного меню (видна только на мобильных) -->
-            <button class="menu-toggle" aria-label="Открыть меню">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </header>
+        <!-- Подключаем загрузчик шапки и меню -->
 
+</head>
+
+<body>
+    <!-- Контейнер для шапки -->
+    <div id="header-container"></div>
+    
     <!-- Основной контент страницы -->
     <main class="main">
         <!-- Герой-секция (главный баннер) -->
@@ -90,7 +70,7 @@
                         </div>
                     </article>
                     
-                    <!-- Карточка статьи 3 -->
+                    <!-- Законодательство -->
                     <article class="article-card">
                         <div class="article-category">Законодательство</div>
                         <h3 class="article-title">
@@ -114,59 +94,64 @@
                 </div>
             </div>
         </section>
-
-        <!-- Секция с основными законами (светлый фон) -->
+        
+        <!-- Секция "Услуги" -->
         <section class="content-section bg-light">
             <div class="container">
-                <h2>Основные законы</h2>
-                <div class="laws-list">
-                    <!-- Элемент закона 1 -->
-                    <a href="https://www.consultant.ru/document/cons_doc_LAW_305/" class="law-item" target="_blank" rel="noopener">
-                        <i class="far fa-file" style="color: #3498db;"></i>
-                        <div class="law-text">
-                            <strong>Закон РФ "О защите прав потребителей"</strong>
-                            <span>№ 2300-1 от 07.02.1992 (актуальная редакция)</span>
+                <h2>Чем мы можем вам помочь?</h2>
+                <div class="articles-grid">
+                    <!-- Карточка 1: Консультация -->
+                    <article class="article-card">
+                        <div class="article-category">Узнайте о своих правах!</div>
+                        <h3 class="article-title">Проконсультируем</h3>
+                        <div class="article-text">
+                            <p>Расскажем о ваших правах и поможем разобраться в ситуации:</p>
+                            <ul class="article-features">
+                                <li><i class="fas fa-check-circle"></i> Как вернуть деньги за бракованный товар?</li>
+                                <li><i class="fas fa-check-circle"></i> Как обменять качественный товар, который не подошел?</li>
+                                <li><i class="fas fa-check-circle"></i> Как получить неустойку за нарушение сроков?</li>
+                            </ul>
                         </div>
-                        <i class="fas fa-external-link-alt law-icon"></i>
-                    </a>
-                    
-                    <!-- Элемент закона 2 -->
-                    <a href="https://www.consultant.ru/document/cons_doc_LAW_496218/" class="law-item" target="_blank" rel="noopener">
-                        <i class="far fa-file" style="color: #3498db;"></i>
-                        <div class="law-text">
-                            <strong>Единые правила в области защиты прав потребителей</strong>
-                            <span>Общие положения об ответственности за причинение вреда</span>
+                    </article>
+
+                    <!-- Карточка 2: Подготовка документов -->
+                    <article class="article-card">
+                        <div class="article-category">Заявите о своих правах!</div>
+                        <h3 class="article-title">Напишем документы</h3>
+                        <div class="article-text">
+                            <p>Подготовим все документы для защиты ваших прав:</p>
+                            <ul class="article-features">
+                                <li><i class="fas fa-check-circle"></i> Досудебную претензию к продавцам и исполнителям</li>
+                                <li><i class="fas fa-check-circle"></i> Исковое заявления в суд</li>
+                                <li><i class="fas fa-check-circle"></i> Жалобы в Роспотребнадзор и прокуратуру</li>
+                            </ul>
                         </div>
-                        <i class="fas fa-external-link-alt law-icon"></i>
-                    </a>
-                    
-                    <!-- Элемент закона 3 -->
-                    <a href="https://www.consultant.ru/document/cons_doc_LAW_34661/" class="law-item" target="_blank" rel="noopener">
-                        <i class="far fa-file" style="color: #3498db;"></i>
-                        <div class="law-text">
-                            <strong>КоАП РФ (Статья 14.7)</strong>
-                            <span>Обман потребителей. Штрафы для продавцов и исполнителей.</span>
+                    </article>
+
+                    <!-- Карточка 3: Судебная защита -->
+                    <article class="article-card">
+                        <div class="article-category">Отстаивайте свои права!</div>
+                        <h3 class="article-title">Защитим в суде</h3>
+                        <div class="article-text">
+                            <p>Представим ваши интересы в суде и поможем добиться справедливости:</p>
+                            <ul class="article-features">
+                                <li><i class="fas fa-check-circle"></i> Вернем потраченные деньги за некачественный товар</li>
+                                <li><i class="fas fa-check-circle"></i> Взыщем неустойку и убытки</li>
+                                <li><i class="fas fa-check-circle"></i> Добьемся выплаты компенсацию морального вреда и штрафа</li>
+                            </ul>
                         </div>
-                        <i class="fas fa-external-link-alt law-icon"></i>
-                    </a>
+                    </article>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Подвал сайта -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <!-- Информация об авторских правах -->
-                <div class="footer-info">
-                    <p>© <span id="currentYear"></span> Лига защитников потребителей.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Подключаем JavaScript файл -->
-    <script src="script.js"></script>
+    <!-- Контейнер для подвала -->
+    <div id="footer-container"></div>
+    
+    <!-- Подключение скриптов -->
+    <script src="load-header.js"></script>
+    <script src="load-footer.js"></script>
+    <script src="script.js"></script> 
 </body>
 </html>

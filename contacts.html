@@ -10,30 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 <body>
-    <!-- Шапка -->
-    <header class="header">
-        <div class="container header-container">
-            <a href="index.html" class="logo">
-                <i class="fas fa-balance-scale"></i>
-                <span>Лига защитников потребителей</span>
-            </a>
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Главная</a></li>
-                    <li><a href="consumer.html" class="nav-link"><i class="fas fa-user-shield"></i> Потребителю</a></li>
-                    <li><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> О нас</a></li>
-                    <li><a href="contacts.html" class="nav-link active"><i class="fas fa-envelope"></i> Контакты</a></li>
-                </ul>
-            </nav>
-            <button class="menu-toggle" aria-label="Открыть меню">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </header>
-
-    <!-- Основной контент -->
+ <!-- Основной контент -->
     <main class="main">
         <!-- Единый заголовок страницы -->
 <section class="page-header">
@@ -170,90 +150,12 @@
                     </div>
                 </div>
 
-                <!-- Карта (заглушка) -->
-                <div class="map-section">
-                    <h2>Как нас найти</h2>
-                    <div class="map-placeholder">
-                        <div class="map-info">
-                            <i class="fas fa-map"></i>
-                            <h3>Наш офис на карте</h3>
-                            <p>г. Белгород, ул. Князя Трубецкого, д. 17</p>
-                            <p>Остановка общественного транспорта: "Улица Князя Трубецкого"</p>
-                        </div>
-                        <div class="map-note">
-                            <p><i class="fas fa-car"></i> Рядом есть парковка</p>
-                            <p><i class="fas fa-bus"></i> Автобусы: 12, 17, 25, 33</p>
-                            <p><i class="fas fa-tram"></i> Трамвай: 1, 4, 7</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Форма обратной связи -->
-                <div class="form-section">
-                    <h2>Обратная связь</h2>
-                    <p class="form-description">Заполните форму ниже, и мы свяжемся с вами в ближайшее время</p>
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name">Ваше имя *</label>
-                                <input type="text" id="name" name="name" required placeholder="Иван Иванов">
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Телефон</label>
-                                <input type="tel" id="phone" name="phone" placeholder="+7 (XXX) XXX-XX-XX">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Электронная почта *</label>
-                            <input type="email" id="email" name="email" required placeholder="example@mail.ru">
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Тема обращения</label>
-                            <select id="subject" name="subject">
-                                <option value="">Выберите тему</option>
-                                <option value="consultation">Юридическая консультация</option>
-                                <option value="complaint">Жалоба на продавца/исполнителя</option>
-                                <option value="documents">Помощь с документами</option>
-                                <option value="other">Другое</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Сообщение *</label>
-                            <textarea id="message" name="message" required rows="5" placeholder="Опишите вашу ситуацию..."></textarea>
-                        </div>
-                        <div class="form-footer">
-                            <div class="form-note">
-                                <p><i class="fas fa-info-circle"></i> Поля, отмеченные *, обязательны для заполнения</p>
-                                <p><i class="fas fa-shield-alt"></i> Ваши данные защищены и не передаются третьим лицам</p>
-                            </div>
-                            <button type="submit" class="button">
-                                <i class="fas fa-paper-plane"></i> Отправить сообщение
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Подвал -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <p>© <span id="currentYear"></span> Лига защитников потребителей.</p>
-                    <p>Информация предоставляется в ознакомительных целях.</p>
-                </div>
-                <div class="footer-contacts">
-                    <h3>Контакты</h3>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:zppliga@mail.ru">zppliga@mail.ru</a></p>
-                    <p><i class="fas fa-phone"></i> <a href="tel:+79803816854">+7 (980) 381-68-54</a></p>
-                    <p><i class="fas fa-map-marker-alt"></i> г. Белгород, ул. Князя Трубецкого, д. 17</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+    <!-- Контейнер для подвала -->
+    <div id="footer-container"></div>
+    
+    <!-- Подключение скриптов -->
+    <script src="load-header.js"></script>
+    <script src="load-footer.js"></script>
+    <script src="script.js"></script> 
 </body>
 </html>

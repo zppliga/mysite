@@ -1,0 +1,18 @@
+<!-- ====================================
+   ПРОСТОЙ ПОДВАЛ САЙТА (footer.html)
+   Минималистичный стиль
+====================================== -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-content">
+            <p class="footer-text">
+                © <span id="currentYear"></span>, БРОО "Лига защитников потребителей"
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Автоматически подставляем текущий год
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>
