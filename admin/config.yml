@@ -1,0 +1,43 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Настройки для медиафайлов
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+
+# Безопасность
+publish_mode: editorial_workflow
+
+# Настройки сайта
+site_url: "https://strong-marigold-d24cd9.netlify.app"
+logo_url: "/images/logo.svg"
+
+# Коллекции (что можно редактировать)
+collections:
+  # Простые страницы
+  - name: "pages"
+    label: "Страницы"
+    editor:
+      preview: false
+    files:
+      - label: "Главная страница"
+        name: "home"
+        file: "index.html"
+        fields:
+          - {label: "Заголовок сайта", name: "title", widget: "string", default: "Лига защитников потребителей"}
+          - {label: "Описание", name: "description", widget: "text", default: "Правовое просвещение потребителей в РФ"}
+          - {label: "Ключевые слова", name: "keywords", widget: "string", default: "защита прав потребителей, юридическая помощь, консультация"}
+
+  # Статьи (будущий блог)
+  - name: "blog"
+    label: "Статьи"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Название", name: "title", widget: "string"}
+      - {label: "Дата публикации", name: "date", widget: "datetime"}
+      - {label: "Категория", name: "category", widget: "select", options: ["Новости", "Статьи", "Практика"]}
+      - {label: "Краткое описание", name: "excerpt", widget: "text"}
+      - {label: "Содержимое", name: "body", widget: "markdown"}
