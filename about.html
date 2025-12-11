@@ -10,36 +10,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <!-- Подключаем загрузчик шапки и меню -->
+        <script src="load-header.js" defer></script>
 </head>
 <body>
-    <!-- Шапка -->
-    <header class="header">
-        <div class="container header-container">
-            <a href="index.html" class="logo">
-                <i class="fas fa-balance-scale"></i>
-                <span>Лига защитников потребителей</span>
-            </a>
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Главная</a></li>
-                    <li><a href="consumer.html" class="nav-link"><i class="fas fa-user-shield"></i> Потребителю</a></li>
-                    <li><a href="about.html" class="nav-link active"><i class="fas fa-info-circle"></i> О нас</a></li>
-                    <li><a href="contacts.html" class="nav-link"><i class="fas fa-envelope"></i> Контакты</a></li>
-                </ul>
-            </nav>
-            <button class="menu-toggle" aria-label="Открыть меню">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </header>
-
     <!-- Основной контент -->
     <main class="main">
         <!-- Единый заголовок страницы -->
         <section class="page-header">
             <div class="container">
                 <h1 class="page-title">О нас</h1>
-                <p class="page-subtitle">Правозащитная деятельность с 1997 года</p>
+                <p class="page-subtitle">Профессиональная помощь в защите прав потребителей</p>
             </div>
         </section>
 
@@ -47,155 +28,88 @@
         <section class="content-section">
             <div class="container">
                 <div class="page-intro">
-                    <p class="page-intro-text">Профессиональная помощь в защите прав потребителей с 1997 года</p>
+                    <h2 class="full-card-title">«Лига защитников потребителей»</h2>
+                    <div class="page-intro-text">
+                        <p>Это объединение профессиональных юристов по защите прав потребителей.</p>
+                        <p>Мы ведем правозащитную деятельность с <strong>1997 года</strong>, начав как </p>
+                        <p>региональное отделение «Всероссийской лиги защитников потребителей».</p>
+                        <p><strong>Более 28 лет</strong> оказываем юридическую помощь гражданам, предпринимателям и организациям.</p>
+                    </div>      
                 </div>
 
-                <!-- Плитка 1: О нас (одна плитка в ряд) -->
-                <div class="single-column-grid">
-                    <article class="full-width-card no-icon-card">
-                        <h2 class="full-card-title">«Лига защитников потребителей»</h2>
-                        <div class="full-card-content">
-                            <p>Это объединение профессиональных юристов по защите прав потребителей.</p>
-                            <p>Мы ведем правозащитную деятельность с <strong>1997 года</strong>, начав как региональное отделение «Всероссийской лиги защитников потребителей».</p>
-                            <p><strong>Более 28 лет</strong> оказываем юридическую помощь гражданам, предпринимателям и организациям.</p>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- Плитка 2: Наши цели (одна плитка в ряд) -->
+                <!-- Наши цели  -->
                 <div class="single-column-grid">
                     <article class="full-width-card">
-                        <div class="full-card-icon">
-                            <i class="fas fa-bullseye"></i>
-                        </div>
-                        <h2 class="full-card-title">Наши цели</h2>
-                        <div class="full-card-content">
-                            <ul class="icon-list">
-                                <li>
-                                    <i class="fas fa-shield-alt"></i>
-                                    <span>Защита прав и интересов потребителей</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-handshake"></i>
-                                    <span>Оказание юридической помощи на безвозмездной или на льготной основе гражданам и некоммерческим организациям</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-graduation-cap"></i>
-                                    <span>Правовое просвещение населения и повышение уровня правовой грамотности</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-lightbulb"></i>
-                                    <span>Распространение знаний, опыта, формирование умений, навыков, ценностных установок в целях интеллектуального развития человека, удовлетворения его образовательных потребностей и интересов</span>
-                                </li>
+                        <h2 class="full-card-title"> Какие у нас цели?</h2>
+                            <ul class="article-features">
+                                <li><i class="fas fa-check-circle"></i> защита прав и интересов потребителей;</li>
+                                <li><i class="fas fa-check-circle"></i> оказание юридической помощи на безвозмездной или на льготной основе гражданам и некоммерческим организациям;</li>
+                                <li><i class="fas fa-check-circle"></i> правовое просвещение населения и повышение уровня правовой грамотности;</li>
+                                <li><i class="fas fa-check-circle"></i> распространение знаний, опыта, формирование умений, навыков, ценностных установок в целях интеллектуального развития человека, удовлетворения его образовательных потребностей и интересов;</li>
                             </ul>
-                        </div>
                     </article>
                 </div>
 
-                <!-- Плитка 3: Наша деятельность (одна плитка в ряд) -->
+                <!-- Наша деятельность  -->
                 <div class="single-column-grid">
                     <article class="full-width-card">
-                        <div class="full-card-icon">
-                            <i class="fas fa-tasks"></i>
-                        </div>
-                        <h2 class="full-card-title">Наша деятельность</h2>
-                        <div class="full-card-content">
-                            <ul class="icon-list">
-                                <li>
-                                    <i class="fas fa-envelope-open-text"></i>
-                                    <span>Принимаем и рассматриваем обращения граждан о нарушении прав потребителей</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-comments"></i>
-                                    <span>Содействуем в решении споров во внесудебном порядке посредством проведения переговоров, направления досудебных претензий</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-gavel"></i>
-                                    <span>Содействуем потребителям в защите их нарушенных прав и законных интересов</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-eye"></i>
-                                    <span>Осуществляем общественный контроль за соблюдением прав потребителей</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-balance-scale-left"></i>
-                                    <span>Обращаемся в суды с заявлениями в защиту прав потребителей и законных интересов отдельных потребителей (группы потребителей, неопределенного круга потребителей)</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-hand-holding-heart"></i>
-                                    <span>Содействуем в реализации прав потребителей, в том числе на просвещение в области защиты прав потребителей, на безопасность товара (работы, услуги), на информацию об изготовителе (исполнителе, продавце) и о товарах (работах, услугах), на качество и безопасность товара (работы, услуги)</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-hands-helping"></i>
-                                    <span>Оказываем юридическую помощь на безвозмездной или льготной основе гражданам с низким уровнем доходов (малообеспеченным), пенсионерам, инвалидам, многодетным и другим незащищенным категориям граждан, оказавшихся в трудной жизненной ситуации, некоммерческим организациям</span>
-                                </li>
-                            </ul>
-                        </div>
+                        <h2 class="full-card-title"> Чем мы занимаемся?</h2>
+                        <ul class="article-features">
+                            <li><i class="fas fa-check-circle"></i> принимаем и рассматриваем обращения граждан о нарушении прав потребителей;</li>
+                            <li><i class="fas fa-check-circle"></i> содействуем в решении споров во внесудебном порядке посредством проведения переговоров, направления досудебных претензий;</li>
+                            <li><i class="fas fa-check-circle"></i> содействуем потребителям в защите их нарушенных прав и законных интересов;</li>
+                            <li><i class="fas fa-check-circle"></i> осуществляем общественный контроль за соблюдением прав потребителей;</li>
+                            <li><i class="fas fa-check-circle"></i> обращаемся в суды с заявлениями в защиту прав потребителей и законных интересов отдельных потребителей (группы потребителей, неопределенного круга потребителей);</li>
+                            <li><i class="fas fa-check-circle"></i> содействуем в реализации прав потребителей, в том числе на просвещение в области защиты прав потребителей, на безопасность товара (работы, услуги), на информацию об изготовителе (исполнителе, продавце) и о товарах (работах, услугах), на качество и безопасность товара (работы, услуги);</li>
+                            <li><i class="fas fa-check-circle"></i> оказываем юридическую помощь на безвозмездной или льготной основе гражданам с низким уровнем доходов (малообеспеченным), пенсионерам, инвалидам, многодетным и другим незащищенным категориям граждан, оказавшихся в трудной жизненной ситуации, некоммерческим организациям;</li>
+                        </ul>
                     </article>
                 </div>
-
-                <!-- Достижения в одну строку -->
+                <!-- Юридическая информация  -->
                 <div class="single-column-grid">
-                    <article class="full-width-card no-icon-card">
-                        <h2 class="full-card-title">Наши достижения</h2>
-                        <div class="full-width-achievements">
-                            <div class="achievement-item">
-                                <div class="achievement-number">28+</div>
-                                <div class="achievement-text">лет опыта</div>
+                    <article class="full-width-card">
+                        <h2 class="full-card-title">Юридическая информация</h2>
+                        <ul class="article-features">
+                            <div class="legal-info-table">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Полное название:</strong></td>
+                                            <td>Белгородская региональная общественная организация «Лига защитников потребителей»</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Сокращенное название:</strong></td>
+                                            <td>БРОО ЛЗП</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Местонахождение:</strong></td>
+                                            <td>308009, Белгородская область, г. Белгород, ул. Князя Трубецкого, д. 17, помещ. 909</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Реквизиты:</strong></td>
+                                            <td>ИНН 3123466051, ОГРН 1203100001499, КПП 312301001</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>ОКВЭД 94.99</strong></td>
+                                            <td>Деятельность прочих общественных организаций и некоммерческих организаций, кроме религиозных и политических организаций</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Председатель организации:</strong></td>
+                                            <td>Филин Александр Сергеевич</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Регистрация:</strong></td>
+                                            <td>
+                                                16.01.2020 Управление Министерства юстиции Российской Федерации по Белгородской области приняло решение о государственной регистрации Организации. Учетный номер в Управлении Минюста № 3112010638.<br>
+                                                27.01.2020 Организация зарегистрирована Управлением Федеральной налоговой службы по Белгородской области
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                            <div class="achievement-item">
-                                <div class="achievement-number">10,000+</div>
-                                <div class="achievement-text">успешных дел</div>
-                            </div>
-                            <div class="achievement-item">
-                                <div class="achievement-number">95%</div>
-                                <div class="achievement-text">довольных клиентов</div>
-                            </div>
-                            <div class="achievement-item">
-                                <div class="achievement-number">24/7</div>
-                                <div class="achievement-text">поддержка</div>
-                            </div>
-                        </div>
+                        </ul>
                     </article>
                 </div>
-
-                <!-- Принципы работы в две колонки -->
-                <div class="single-column-grid">
-                    <article class="full-width-card no-icon-card">
-                        <h2 class="full-card-title">Наши принципы работы</h2>
-                        <div class="full-width-principles">
-                            <div class="principle-card">
-                                <div class="principle-icon">
-                                    <i class="fas fa-user-check"></i>
-                                </div>
-                                <h3>Профессионализм</h3>
-                                <p>Высшее юридическое образование и многолетний опыт работы в сфере защиты прав потребителей.</p>
-                            </div>
-                            <div class="principle-card">
-                                <div class="principle-icon">
-                                    <i class="fas fa-heart"></i>
-                                </div>
-                                <h3>Доступность</h3>
-                                <p>Помощь на безвозмездной или льготной основе незащищенным категориям граждан.</p>
-                            </div>
-                            <div class="principle-card">
-                                <div class="principle-icon">
-                                    <i class="fas fa-lock"></i>
-                                </div>
-                                <h3>Конфиденциальность</h3>
-                                <p>Полная конфиденциальность всей информации, полученной от клиентов.</p>
-                            </div>
-                            <div class="principle-card">
-                                <div class="principle-icon">
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <h3>Качество</h3>
-                                <p>Максимальный результат в каждом деле, независимо от его сложности.</p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
                 <!-- Кнопка для связи -->
                 <div class="text-center" style="margin-top: 40px;">
                     <a href="contacts.html" class="button">

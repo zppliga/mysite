@@ -5,9 +5,10 @@
 
 /* Сброс стандартных отступов браузера для всех элементов */
 * {
-    margin: 0;                           /* Убираем внешние отступы */
-    padding: 0;                          /* Убираем внутренние отступы */
-    box-sizing: border-box;              /* Padding и border включаются в ширину элемента */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
 }
 
 /* Основные настройки для всей страницы */
@@ -62,10 +63,11 @@ a:hover {
 
 /* Центрирующий контейнер для ограничения ширины контента */
 .container {
-    width: 100%;                         /* Ширина 100% от родительского элемента */
-    max-width: 1200px;                   /* Максимальная ширина контента на больших экранах */
-    margin: 0 auto;                      /* Автоматические отступы слева/справа для центрирования */
-    padding: 0 20px;                     /* Отступы по бокам на мобильных устройствах */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+
 }
 
 /* Утилитарный класс для центрирования текста */
@@ -133,7 +135,7 @@ a:hover {
 .article-card, .contact-card, .full-width-card, .step, .faq-item, .principle-card, .achievement-item {
     background: #fff;                    /* Белый фон карточки */
     border: 1px solid #e9ecef;           /* Светло-серая тонкая рамка */
-    border-radius: 8px;                  /* Скругление углов карточки */
+    border-radius: 10px;                  /* Скругление углов карточки */
     padding: 25px;                       /* Внутренние отступы внутри карточки */
     transition: all 0.3s ease;           /* Плавная анимация всех свойств карточки */
 }
@@ -161,11 +163,12 @@ a:hover {
 .icon-list, .article-features {
     list-style: none;                    /* Убираем стандартные маркеры списка */
     padding: 0;                          /* Убираем стандартные отступы списка */
+    margin: 8px 0 8px
 }
 
 /* Стиль для каждого элемента списка с иконкой */
 .icon-list li, .article-features li {
-    margin-bottom: 15px;                 /* Отступ между элементами списка */
+    margin: 5px 0 5px 0;                 /* Отступ между элементами списка */
     padding-left: 0;                     /* Убираем отступ слева для выравнивания */
     display: flex;                       /* Flex для выравнивания иконки и текста */
     align-items: flex-start;             /* Выравнивание по верхнему краю */
@@ -186,7 +189,7 @@ a:hover {
 .article-features i {
     color: #2ecc71;                      /* Зеленый цвет иконок преимуществ */
     font-size: 14px;                     /* Размер иконок */
-    margin-top: 2px;                     /* Небольшой отступ сверху для выравнивания */
+    margin: 5px 0 5px;                     /* Небольшой отступ сверху для выравнивания */
 }
 
 /* ========== ИКОНКИ В КРУГЕ: общий стиль для круглых иконок на сайте ========== */
@@ -219,7 +222,7 @@ a:hover {
 /* ========== ЗАГОЛОВКИ В КАРТОЧКАХ: общий стиль для заголовков внутри карточек ========== */
 .article-title, .card-title, .contact-title, .full-card-title, .step h3, .faq-item h3, .principle-card h3 {
     color: #2c3e50;                      /* Темно-синий цвет заголовков карточек */
-    margin-bottom: 15px;                 /* Отступ снизу после заголовка */
+    margin: 10px 0 10px;                 /* Отступ снизу и сверху от заголовка */
     flex-grow: 1;                        /* Заголовок занимает доступное пространство */
 }
 
@@ -245,9 +248,9 @@ a:hover {
 .article-category, .card-label, .label-text {
     display: inline-block;               /* Элемент как блок, но в строке */
     font-weight: 600;                    /* Полужирное начертание текста метки */
-    padding: 6px 15px;                   /* Внутренние отступы метки */
-    border-radius: 20px;                 /* Сильно скругленные углы (капсула) */
-    margin-bottom: 15px;                 /* Отступ снизу после метки */
+    padding: 5px 15px;                   /* Внутренние отступы метки */
+    border-radius: 10px;                 /* Сильно скругленные углы (капсула) */
+    margin: 5px 0 5px;                 /* Отступ снизу и сверху после метки */
     align-self: flex-start;              /* Выравнивание по левому краю карточки */
 }
 
@@ -260,13 +263,13 @@ a:hover {
 
 /* Стиль для текстовых меток (темный фон) */
 .label-text {
-    background: #2c3e50;                 /* Темно-синий фон метки */
+    background: #9ec0e2;                 /* Темно-синий фон метки */
     color: white;                        /* Белый текст метки */
-    font-size: 12px;                     /* Меньший размер шрифта */
+    font-size: 10px;                     /* Меньший размер шрифта */
     letter-spacing: 1px;                 /* Разрядка между буквами для акцента */
     text-transform: uppercase;           /* Все буквы заглавные */
     text-align: center;                  /* Выравнивание текста по центру */
-    margin: 15px 0;                      /* Отступы сверху и снизу */
+    margin: 5px 0;                      /* Отступы сверху и снизу */
 }
 
 /* ========== ФУТЕРЫ КАРТОЧЕК: общий стиль для нижних частей карточек ========== */
@@ -413,7 +416,7 @@ a:hover {
    Стандартизированный заголовок страницы с градиентной линией
 ====================================== */
 .page-header {
-    padding: 30px 0 0px;
+    padding: 30px 0 10px;
     margin-bottom: 0px;
 
 }
@@ -454,7 +457,7 @@ a:hover {
 .page-intro {
     background-color: #f8f9fa;           /* Светло-серый фон интро-блока */
     padding: 25px;                       /* Внутренние отступы блока */
-    border-radius: 8px;                  /* Скругление углов блока */
+    border-radius: 10px;                  /* Скругление углов блока */
     margin-bottom: 30px;                 /* Отступ снизу перед основным контентом */
     border-left: 4px solid #3498db;      /* Синяя вертикальная линия слева для акцента */
 }
@@ -472,7 +475,7 @@ a:hover {
    Контейнеры для основного содержимого каждой страницы
 ====================================== */
 .content-section {
-    padding: 10px 0;
+    padding: 10px 0 40px;
 
 }
 
@@ -711,8 +714,8 @@ a:hover {
 /* ========== ДЛЯ СТРАНИЦЫ "ПОТРЕБИТЕЛЮ" ========== */
 /* Контейнер для метки в карточке статьи */
 .article-label {
-    margin: 15px 0;                      /* Отступы сверху и снизу у метки */
-    text-align: center;                  /* Центрирование текста метки */
+    margin: 5px 0;                      /* Отступы сверху и снизу у метки */
+    text-align: right;                  /* Центрирование текста метки */
 }
 
 /* Номер шага в инструкции (круг с цифрой) */
@@ -767,15 +770,16 @@ a:hover {
 
 /* Элемент списка законов (ссылка на закон) */
 .law-item {
-    display: flex;                       /* Flex для расположения иконки и текста */
-    align-items: center;                 /* Вертикальное центрирование содержимого */
-    background: #fff;                    /* Белый фон элемента закона */
-    border: 1px solid #e9ecef;           /* Светло-серая рамка вокруг элемента */
-    border-radius: 10px;                  /* Скругление углов элемента */
-    padding: 18px 20px;                  /* Внутренние отступы: 18px сверху/снизу, 20px слева/справа */
-    transition: all 0.3s ease;           /* Плавная анимация всех свойств при изменении */
-    text-decoration: none;               /* Убираем подчеркивание у ссылки */
-    margin-bottom: 10px; 
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 18px 20px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin-bottom: 10px;
+
 }
 
 /* Эффект при наведении на элемент закона */
@@ -1039,4 +1043,24 @@ a:hover {
     .article-icon i, .contact-icon i, .full-card-icon i, .about-icon i, .principle-icon i {
         font-size: 20px;                 /* Уменьшенный размер иконки */
     }
+}
+.legal-info-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.legal-info-table td {
+    padding: 8px 12px;
+    vertical-align: top;
+    border-bottom: 1px solid #eee;
+}
+
+.legal-info-table td:first-child {
+    width: 30%;
+    font-weight: 600;
+    color: #333;
+}
+
+.legal-info-table tr:last-child td {
+    border-bottom: none;
 }

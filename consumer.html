@@ -10,29 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <!-- Подключаем загрузчик шапки и меню -->
+        <script src="load-header.js" defer></script>
 </head>
 <body>
-    <!-- Шапка -->
-    <header class="header">
-        <div class="container header-container">
-            <a href="index.html" class="logo">
-                <i class="fas fa-balance-scale"></i>
-                <span>Лига защитников потребителей</span>
-            </a>
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Главная</a></li>
-                    <li><a href="consumer.html" class="nav-link active"><i class="fas fa-user-shield"></i> Потребителю</a></li>
-                    <li><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> О нас</a></li>
-                    <li><a href="contacts.html" class="nav-link"><i class="fas fa-envelope"></i> Контакты</a></li>
-                </ul>
-            </nav>
-            <button class="menu-toggle" aria-label="Открыть меню">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </header>
-
     <!-- Основной контент -->
     <main class="main">
         <!-- Единый заголовок страницы -->
@@ -49,75 +30,57 @@
                 <div class="articles-grid">
                     <!-- Плитка 1: Статьи -->
                     <article class="article-card">
-                        <div class="article-category">Статьи</div>
-                        <div class="article-icon">
-                            <i class="fas fa-newspaper"></i>
-                        </div>
-                        <h3 class="article-title">Найдите ответы на свои вопросы</h3>
+                        <div class="article-category">Практично</div>
+                        <h3 class="article-title">Статьи</h3>
                         <div class="article-text">
-                            <p>Узнайте, как суды защищают права потребителей. Читайте актуальные материалы, аналитические обзоры и практические рекомендации.</p>
+                            <p>Найдите ответы на свои вопросы. Узнайте, как суды защищают права потребителей.</p>
                             <ul class="article-features">
                                 <li><i class="fas fa-check-circle"></i> Анализ судебной практики</li>
                                 <li><i class="fas fa-check-circle"></i> Разъяснения законодательства</li>
                                 <li><i class="fas fa-check-circle"></i> Советы экспертов</li>
                             </ul>
                         </div>
-                        <div class="article-label">
-                            <span class="label-text">ПРАКТИЧНО</span>
-                        </div>
                         <div class="article-action">
-                            <a href="articles.html" class="button button-small">
-                                <i class="fas fa-book-open"></i> Читать статьи
+                            <a href="articles.html" class="button button-small">Далее
+                                <i class="fa-solid fa-circle-arrow-right"></i>
                             </a>
                         </div>
                     </article>
 
                     <!-- Плитка 2: Законодательство -->
                     <article class="article-card">
-                        <div class="article-category">Законодательство</div>
-                        <div class="article-icon">
-                            <i class="fas fa-gavel"></i>
-                        </div>
-                        <h3 class="article-title">Применяйте законы и правила</h3>
+                        <div class="article-category">Актуально</div>
+                        <h3 class="article-title">Законодательство</h3>
                         <div class="article-text">
-                            <p>Чтобы отстоять свои права и интересы, нужно знать законы. Изучайте нормативные акты и комментарии к ним.</p>
+                            <p>Применяйте законы и правила, чтобы отстоять свои права и интересы</p>
                             <ul class="article-features">
                                 <li><i class="fas fa-check-circle"></i> Закон о защите прав потребителей</li>
-                                <li><i class="fas fa-check-circle"></i> Гражданский кодекс РФ</li>
-                                <li><i class="fas fa-check-circle"></i> Подзаконные акты и правила</li>
+                                <li><i class="fas fa-check-circle"></i> Правила продажи товаров</li>
+                                <li><i class="fas fa-check-circle"></i> Судебная практика</li>
                             </ul>
                         </div>
-                        <div class="article-label">
-                            <span class="label-text">АКТУАЛЬНО</span>
-                        </div>
                         <div class="article-action">
-                            <a href="law.html" class="button button-small">
-                                <i class="fas fa-scale-balanced"></i> Изучить законы
+                            <a href="articles.html" class="button button-small">Далее
+                                <i class="fa-solid fa-circle-arrow-right"></i>
                             </a>
                         </div>
                     </article>
 
                     <!-- Плитка 3: Образцы документов -->
                     <article class="article-card">
-                        <div class="article-category">Образцы документов</div>
-                        <div class="article-icon">
-                            <i class="fas fa-file-contract"></i>
-                        </div>
-                        <h3 class="article-title">Используйте шаблоны юридических документов</h3>
+                        <div class="article-category">Бесплатно</div>
+                        <h3 class="article-title">Образцы документов</h3>
                         <div class="article-text">
-                            <p>Для самостоятельной защиты: претензии, иски, жалобы и т.п. Готовые образцы с комментариями по заполнению.</p>
+                            <p>Используйте шаблоны юридических документов для самостоятельной защиты</p>
                             <ul class="article-features">
-                                <li><i class="fas fa-check-circle"></i> Претензии к продавцам</li>
+                                <li><i class="fas fa-check-circle"></i> Претензии к продавцам и исполнителям</li>
                                 <li><i class="fas fa-check-circle"></i> Исковые заявления в суд</li>
                                 <li><i class="fas fa-check-circle"></i> Жалобы в контролирующие органы</li>
                             </ul>
                         </div>
-                        <div class="article-label">
-                            <span class="label-text">БЕСПЛАТНО</span>
-                        </div>
                         <div class="article-action">
-                            <a href="templates.html" class="button button-small">
-                                <i class="fas fa-download"></i> Скачать образцы
+                            <a href="articles.html" class="button button-small">Далее
+                                <i class="fa-solid fa-circle-arrow-right"></i>
                             </a>
                         </div>
                     </article>
