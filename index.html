@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лига защитников потребителей | Правовое просвещение в РФ</title>
+    <meta name="description" content="Публикации о защите прав потребителей: статьи, судебная практика, анализ законодательства РФ. Помощь и правовое просвещение.">
+    <!-- Подключаем стили -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Подключаем шрифт Montserrat с Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Подключаем Font Awesome для иконок (если понадобятся) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container header-container">
+            <!-- Логотип -->
+            <a href="/" class="logo">
+                <i class="fas fa-balance-scale"></i> <!-- Иконка весов -->
+                <span>Лига защитников потребителей</span>
+            </a>
+            
+            <!-- Навигационное меню -->
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="/" class="nav-link active"><i class="fas fa-home"></i> Главная</a></li>
+                    <li><a href="consumer.html" class="nav-link"><i class="fas fa-user-shield"></i> Потребителю</a></li>
+                    <li><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> О нас</a></li>
+                    <li><a href="contacts.html" class="nav-link"><i class="fas fa-envelope"></i> Контакты</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Кнопка мобильного меню (видна только на мобильных) -->
+            <button class="menu-toggle" aria-label="Открыть меню">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Основной контент страницы -->
+    <main class="main">
+        <!-- Герой-секция (главный баннер) -->
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero-title">Защита ваших прав — наш приоритет</h1>
+                <p class="hero-text">Актуальные статьи, анализ судебной практики и комментарии законодательства РФ о защите прав потребителей. Просто о сложном.</p>
+                <!-- Кнопка призыва к действию -->
+                <a href="#articles" class="button hero-button">
+                    <i class="fas fa-book-open"></i> Читать статьи
+                </a>
+            </div>
+        </section>
+
+        <!-- Секция с последними публикациями -->
+        <section class="content-section" id="articles">
+            <div class="container">
+                <h2>Последние публикации</h2>
+                <div class="articles-grid">
+                    <!-- Карточка статьи 1 -->
+                    <article class="article-card">
+                        <div class="article-category">Актуальная тема</div>
+                        <h3 class="article-title">
+                            <a href="article-1.html">
+                                <i class="fas fa-file-contract"></i> Возврат технически сложного товара
+                            </a>
+                        </h3>
+                        <p class="article-excerpt">Как изменилась практика возврата смартфонов, ноутбуков и другой техники после Постановления Пленума ВС № 17.</p>
+                        <div class="article-footer">
+                            <time datetime="2023-10-26" class="article-date">26 октября 2023</time>
+                            <span class="read-time">5 мин чтения</span>
+                        </div>
+                    </article>
+                    
+                    <!-- Карточка статьи 2 -->
+                    <article class="article-card">
+                        <div class="article-category">Судебная практика</div>
+                        <h3 class="article-title">
+                            <a href="article-2.html">
+                                <i class="fas fa-gavel"></i> Взыскание неустойки по ЗоЗПП
+                            </a>
+                        </h3>
+                        <p class="article-excerpt">Обзор дела № 33-12345/2023: почему иск правильно подавать в суд по месту жительства потребителя.</p>
+                        <div class="article-footer">
+                            <time datetime="2023-10-20" class="article-date">20 октября 2023</time>
+                            <span class="read-time">7 мин чтения</span>
+                        </div>
+                    </article>
+                    
+                    <!-- Карточка статьи 3 -->
+                    <article class="article-card">
+                        <div class="article-category">Законодательство</div>
+                        <h3 class="article-title">
+                            <a href="article-3.html">
+                                <i class="fas fa-scale-balanced"></i> Изменения в закон о защите прав потребителей
+                            </a>
+                        </h3>
+                        <p class="article-excerpt">Краткий обзор Федерального закона от 24.04.2023 № 123-ФЗ: новые права, обязанности продавцов и ответственность.</p>
+                        <div class="article-footer">
+                            <time datetime="2023-10-15" class="article-date">15 октября 2023</time>
+                            <span class="read-time">4 мин чтения</span>
+                        </div>
+                    </article>
+                </div>
+                
+                <!-- Кнопка для перехода ко всем статьям -->
+                <div class="text-center">
+                    <a href="articles.html" class="button button-outline">
+                        <i class="fas fa-list"></i> Все статьи
+                    </a>
+                </div>
+            </div>
+        </section>
+
+<!-- Секция Законодательство и судебная практика -->
+<section class="content-section bg-light">
+    <div class="container">
+        <div class="laws-list">
+            
+            <!-- Группа 1: Законодательство -->
+            <div class="law-group">
+                <h3>Законодательство о защите прав потребителей</h3>
+                
+                <a href="https://www.consultant.ru/document/cons_doc_LAW_496218/" class="law-item" target="_blank" rel="noopener">
+                    <i class="far fa-file" style="color: #3498db;"></i>
+                    <div class="law-text">
+                        <strong>Единые правила в области защиты прав потребителей Союзного государства</strong>
+                        <span>Утверждены Декретом Высшего Государственного Совета Союзного государства № 6 от 06.12.2024</span>
+                    </div>
+                    <i class="fas fa-external-link-alt law-icon"></i>
+                </a>
+                
+                <a href="https://www.consultant.ru/document/cons_doc_LAW_305/" class="law-item" target="_blank" rel="noopener">
+                    <i class="far fa-file" style="color: #3498db;"></i>
+                    <div class="law-text">
+                        <strong>Закон РФ «О защите прав потребителей» № 2300-1 от 07.02.1992</strong>
+                        <span>Редакция от 08.08.2024</span>
+                    </div>
+                    <i class="fas fa-external-link-alt law-icon"></i>
+                </a>
+                
+                <a href="#" class="law-item" target="_blank" rel="noopener">
+                    <i class="far fa-file" style="color: #3498db;"></i>
+                    <div class="law-text">
+                        <strong>Правила продажи товаров по договору розничной купли-продажи</strong>
+                        <span>Утверждены постановлением Правительства РФ № 2463 от 31.12.2020, редакция от 17.05.2024</span>
+                    </div>
+                    <i class="fas fa-external-link-alt law-icon"></i>
+                </a>
+                
+                <a href="#" class="law-item" target="_blank" rel="noopener">
+                    <i class="far fa-file" style="color: #3498db;"></i>
+                    <div class="law-text">
+                        <strong>Перечень технически сложных товаров</strong>
+                        <span>Утвержден постановлением Правительства РФ от 10.11.2011 № 924, редакция от 27.03.2019</span>
+                    </div>
+                    <i class="fas fa-external-link-alt law-icon"></i>
+                </a>
+                
+                <a href="#" class="law-item" target="_blank" rel="noopener">
+                    <i class="far fa-file" style="color: #3498db;"></i>
+                    <div class="law-text">
+                        <strong>Перечень непродовольственных товаров надлежащего качества, не подлежащих обмену</strong>
+                        <span>Утвержден постановлением Правительства РФ № 2463 от 31.12.2020, редакция от 17.05.2024</span>
+                    </div>
+                    <i class="fas fa-external-link-alt law-icon"></i>
+                </a>
+                
+                <a href="#" class="law-item" target="_blank" rel="noopener">
+                    <i class="far fa-file" style="color: #3498db;"></i>
+                    <div class="law-text">
+                        <strong>Перечень товаров длительного пользования, на которые не распространяется требование потребителя о безвозмездном предоставлении аналогичного товара на период ремонта или замены</strong>
+                        <span>Утвержден постановлением Правительства РФ № 2463 от 31.12.2020, редакция от 17.05.2024</span>
+                    </div>
+                    <i class="fas fa-external-link-alt law-icon"></i>
+                </a>
+            </div>
+            
+            <!-- Группа 2: Судебная практика -->
+            <div class="law-group">
+                <h3>Судебная практика</h3>
+                
+                <a href="#" class="law-item" target="_blank" rel="noopener">
+                    <i class="far fa-file" style="color: #3498db;"></i>
+                    <div class="law-text">
+                        <strong>Постановление Пленума Верховного Суда РФ от 28.06.2012 № 17 "О рассмотрении судами гражданских дел по спорам о защите прав потребителей"</strong>
+                        <span></span>
+                    </div>
+                    <i class="fas fa-external-link-alt law-icon"></i>
+                </a>
+                
+                <a href="#" class="law-item" target="_blank" rel="noopener">
+                    <i class="far fa-file" style="color: #3498db;"></i>
+                    <div class="law-text">
+                        <strong>Обзор судебной практики по делам о защите прав потребителей</strong>
+                        <span>Утвержден Президиумом Верховного Суда РФ 23.10.2024</span>
+                    </div>
+                    <i class="fas fa-external-link-alt law-icon"></i>
+                </a>
+                
+                <a href="#" class="law-item" target="_blank" rel="noopener">
+                    <i class="far fa-file" style="color: #3498db;"></i>
+                    <div class="law-text">
+                        <strong>Обзор судебной практики по делам о защите прав потребителей</strong>
+                        <span>Утвержден Президиумом Верховного Суда РФ 18.10.2023</span>
+                    </div>
+                    <i class="fas fa-external-link-alt law-icon"></i>
+                </a>
+                
+                <a href="#" class="law-item" target="_blank" rel="noopener">
+                    <i class="far fa-file" style="color: #3498db;"></i>
+                    <div class="law-text">
+                        <strong>Обзор судебной практики по делам о защите прав потребителей</strong>
+                        <span>Утвержден Президиумом Верховного Суда РФ 19.10.2022</span>
+                    </div>
+                    <i class="fas fa-external-link-alt law-icon"></i>
+                </a>
+                
+                <a href="#" class="law-item" target="_blank" rel="noopener">
+                    <i class="far fa-file" style="color: #3498db;"></i>
+                    <div class="law-text">
+                        <strong>Обзор судебной практики по делам о защите прав потребителей</strong>
+                        <span>Утвержден Президиумом Верховного Суда РФ 20.10.2021</span>
+                    </div>
+                    <i class="fas fa-external-link-alt law-icon"></i>
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</section>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Информация об авторских правах -->
+                <div class="footer-info">
+                    <p>© <span id="currentYear"></span> БРОО "Лига защитников потребителей"</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Подключаем JavaScript файл -->
+    <script src="script.js"></script>
+</body>
+</html>

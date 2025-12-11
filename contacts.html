@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты | Лига защитников потребителей</title>
+    <meta name="description" content="Контакты Лиги защитников потребителей. Телефоны, адрес, график работы. Бесплатная консультация.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-balance-scale"></i>
+                <span>Лига защитников потребителей</span>
+            </a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Главная</a></li>
+                    <li><a href="consumer.html" class="nav-link"><i class="fas fa-user-shield"></i> Потребителю</a></li>
+                    <li><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> О нас</a></li>
+                    <li><a href="contacts.html" class="nav-link active"><i class="fas fa-envelope"></i> Контакты</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Открыть меню">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="main">
+        <!-- Единый заголовок страницы -->
+<section class="page-header">
+    <div class="container">
+        <h1 class="page-title">Контакты</h1>
+        <p class="page-subtitle">Свяжитесь с нами удобным для вас способом</p>
+    </div>
+</section>
+
+        <!-- Контакты в плитках -->
+        <section class="content-section">
+            <div class="container">
+                <!-- Сетка контактов -->
+                <div class="contacts-grid">
+                    <!-- Плитка 1: Телефоны -->
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3 class="contact-title">Звоните</h3>
+                        <div class="contact-content">
+                            <div class="contact-item">
+                                <i class="fas fa-mobile-alt"></i>
+                                <div class="contact-text">
+                                    <strong>Мобильный телефон</strong>
+                                    <a href="tel:+79803816854">+7 (980) 381-68-54</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div class="contact-text">
+                                    <strong>Городской телефон</strong>
+                                    <a href="tel:+74722337264">+7 (4722) 33-72-64</a>
+                                </div>
+                            </div>
+                            <p class="contact-note">
+                                <i class="fas fa-clock"></i>
+                                Звонки принимаются в рабочее время
+                            </p>
+                        </div>
+                        <div class="contact-action">
+                            <a href="tel:+79803816854" class="button button-small">
+                                <i class="fas fa-phone"></i> Позвонить
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Плитка 2: Email -->
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="contact-title">Пишите</h3>
+                        <div class="contact-content">
+                            <div class="contact-item">
+                                <i class="fas fa-at"></i>
+                                <div class="contact-text">
+                                    <strong>Электронная почта</strong>
+                                    <a href="mailto:zppliga@mail.ru">zppliga@mail.ru</a>
+                                </div>
+                            </div>
+                            <div class="contact-info">
+                                <p><i class="fas fa-paper-plane"></i> Отправляйте письма с вопросами, жалобами или документами</p>
+                                <p><i class="fas fa-reply"></i> Ответим в течение 1-2 рабочих дней</p>
+                            </div>
+                        </div>
+                        <div class="contact-action">
+                            <a href="mailto:zppliga@mail.ru" class="button button-small button-outline">
+                                <i class="fas fa-envelope"></i> Написать письмо
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Плитка 3: Адрес -->
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 class="contact-title">Приходите</h3>
+                        <div class="contact-content">
+                            <div class="contact-item">
+                                <i class="fas fa-building"></i>
+                                <div class="contact-text">
+                                    <strong>Адрес офиса</strong>
+                                    <span>308009, г. Белгород, ул. Князя Трубецкого, д. 17, оф. 909</span>
+                                </div>
+                            </div>
+                            <div class="contact-details">
+                                <p><i class="fas fa-door-open"></i> 1 этаж, левый угол</p>
+                                <p><i class="fas fa-sign-in-alt"></i> Вход со стороны улицы</p>
+                                <p><i class="fas fa-wheelchair"></i> Доступна безбарьерная среда</p>
+                            </div>
+                        </div>
+                        <div class="contact-action">
+                            <button class="button button-small" onclick="copyAddress()">
+                                <i class="fas fa-copy"></i> Скопировать адрес
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Плитка 4: График работы -->
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3 class="contact-title">Планируйте</h3>
+                        <div class="contact-content">
+                            <div class="contact-item">
+                                <i class="fas fa-business-time"></i>
+                                <div class="contact-text">
+                                    <strong>График работы</strong>
+                                </div>
+                            </div>
+                            <div class="schedule">
+                                <div class="schedule-day">
+                                    <span class="day-name">Понедельник – пятница</span>
+                                    <span class="day-time">с 9:00 до 17:00</span>
+                                </div>
+                                <div class="schedule-day">
+                                    <span class="day-name">Суббота и воскресенье</span>
+                                    <span class="day-time day-off">выходные</span>
+                                </div>
+                                <div class="schedule-note">
+                                    <p><i class="fas fa-coffee"></i> Обеденный перерыв: 13:00-14:00</p>
+                                    <p><i class="fas fa-calendar-check"></i> Прием по предварительной записи</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-action">
+                            <button class="button button-small" onclick="downloadSchedule()">
+                                <i class="fas fa-download"></i> Скачать график
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карта (заглушка) -->
+                <div class="map-section">
+                    <h2>Как нас найти</h2>
+                    <div class="map-placeholder">
+                        <div class="map-info">
+                            <i class="fas fa-map"></i>
+                            <h3>Наш офис на карте</h3>
+                            <p>г. Белгород, ул. Князя Трубецкого, д. 17</p>
+                            <p>Остановка общественного транспорта: "Улица Князя Трубецкого"</p>
+                        </div>
+                        <div class="map-note">
+                            <p><i class="fas fa-car"></i> Рядом есть парковка</p>
+                            <p><i class="fas fa-bus"></i> Автобусы: 12, 17, 25, 33</p>
+                            <p><i class="fas fa-tram"></i> Трамвай: 1, 4, 7</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Форма обратной связи -->
+                <div class="form-section">
+                    <h2>Обратная связь</h2>
+                    <p class="form-description">Заполните форму ниже, и мы свяжемся с вами в ближайшее время</p>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Ваше имя *</label>
+                                <input type="text" id="name" name="name" required placeholder="Иван Иванов">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Телефон</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+7 (XXX) XXX-XX-XX">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Электронная почта *</label>
+                            <input type="email" id="email" name="email" required placeholder="example@mail.ru">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Тема обращения</label>
+                            <select id="subject" name="subject">
+                                <option value="">Выберите тему</option>
+                                <option value="consultation">Юридическая консультация</option>
+                                <option value="complaint">Жалоба на продавца/исполнителя</option>
+                                <option value="documents">Помощь с документами</option>
+                                <option value="other">Другое</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Сообщение *</label>
+                            <textarea id="message" name="message" required rows="5" placeholder="Опишите вашу ситуацию..."></textarea>
+                        </div>
+                        <div class="form-footer">
+                            <div class="form-note">
+                                <p><i class="fas fa-info-circle"></i> Поля, отмеченные *, обязательны для заполнения</p>
+                                <p><i class="fas fa-shield-alt"></i> Ваши данные защищены и не передаются третьим лицам</p>
+                            </div>
+                            <button type="submit" class="button">
+                                <i class="fas fa-paper-plane"></i> Отправить сообщение
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>© <span id="currentYear"></span> Лига защитников потребителей.</p>
+                    <p>Информация предоставляется в ознакомительных целях.</p>
+                </div>
+                <div class="footer-contacts">
+                    <h3>Контакты</h3>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:zppliga@mail.ru">zppliga@mail.ru</a></p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+79803816854">+7 (980) 381-68-54</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> г. Белгород, ул. Князя Трубецкого, д. 17</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
