@@ -10,30 +10,40 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 </head>
 <body>
- <!-- Основной контент -->
+    <!-- Хлебные крошки -->
+    <nav class="breadcrumbs">
+        <div class="container">
+            <a href="index.html"><i class="fas fa-home"></i> Главная</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Контакты</span>
+        </div>
+    </nav>
+    
+    <!-- Основной контент -->
     <main class="main">
         <!-- Единый заголовок страницы -->
-<section class="page-header">
-    <div class="container">
-        <h1 class="page-title">Контакты</h1>
-        <p class="page-subtitle">Свяжитесь с нами удобным для вас способом</p>
-    </div>
-</section>
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Контакты</h1>
+                <p class="page-subtitle">Свяжитесь с нами удобным для вас способом</p>
+            </div>
+        </section>
 
         <!-- Контакты в плитках -->
         <section class="content-section">
             <div class="container">
-                <!-- Сетка контактов -->
+                <!-- Сетка контактов - 2x2 -->
                 <div class="contacts-grid">
                     <!-- Плитка 1: Телефоны -->
                     <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone-alt"></i>
+                        <div class="contact-card-header">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <h3 class="contact-title">Звоните</h3>
                         </div>
-                        <h3 class="contact-title">Звоните</h3>
                         <div class="contact-content">
                             <div class="contact-item">
                                 <i class="fas fa-mobile-alt"></i>
@@ -63,10 +73,12 @@
 
                     <!-- Плитка 2: Email -->
                     <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
+                        <div class="contact-card-header">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h3 class="contact-title">Пишите</h3>
                         </div>
-                        <h3 class="contact-title">Пишите</h3>
                         <div class="contact-content">
                             <div class="contact-item">
                                 <i class="fas fa-at"></i>
@@ -89,10 +101,12 @@
 
                     <!-- Плитка 3: Адрес -->
                     <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
+                        <div class="contact-card-header">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3 class="contact-title">Приходите</h3>
                         </div>
-                        <h3 class="contact-title">Приходите</h3>
                         <div class="contact-content">
                             <div class="contact-item">
                                 <i class="fas fa-building"></i>
@@ -116,10 +130,12 @@
 
                     <!-- Плитка 4: График работы -->
                     <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-calendar-alt"></i>
+                        <div class="contact-card-header">
+                            <div class="contact-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <h3 class="contact-title">Планируйте</h3>
                         </div>
-                        <h3 class="contact-title">Планируйте</h3>
                         <div class="contact-content">
                             <div class="contact-item">
                                 <i class="fas fa-business-time"></i>
@@ -149,13 +165,16 @@
                         </div>
                     </div>
                 </div>
-
-    <!-- Контейнер для подвала -->
-    <div id="footer-container"></div>
+            </div>
+        </section>
+        
+        <!-- Подключение подвала -->
+        <div id="footer-container"></div>
+    </main>
     
     <!-- Подключение скриптов -->
-    <script src="load-header.js"></script>
-    <script src="load-footer.js"></script>
-    <script src="script.js"></script> 
+    <script src="load-header.js" defer></script>
+    <script src="load-footer.js" defer></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

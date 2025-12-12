@@ -1,4 +1,50 @@
 /* ==================================================
+   ЦВЕТОВАЯ СИСТЕМА (CSS Variables)
+===================================================== */
+
+:root {
+    /* === ОСНОВНАЯ ЦВЕТОВАЯ ПАЛИТРА (оптимизированная) === */
+    
+    /* ПЕРВИЧНЫЙ АКЦЕНТНЫЙ ЦВЕТ */
+    --color-primary2: #2c5aa0;           /* Основной синий - старый */
+    --color-primary: #3f75c5;           /* Основной синий - профессиональный */
+    --color-primary-hover: #1e3d6f;     /* Темнее для hover состояний */
+    --color-primary-light: rgba(44, 90, 160, 0.1); /* Легкий фон для меток */
+    
+    /* ФОНЫ */
+    --color-bg-main: #ffffff;           /* Основной фон страницы */
+    --color-bg-light: #f8fafc;          /* Светлый фон секций */
+    --color-bg-card: #ffffff;           /* Фон карточек */
+    
+    /* ТЕКСТ */
+    --color-text-primary: #1e293b;      /* Основной текст (темный) */
+    --color-text-secondary: #64748b;    /* Вторичный текст */
+    --color-text-muted: #94a3b8;        /* Неактивный текст */
+    
+    /* ГРАНИЦЫ И РАЗДЕЛИТЕЛИ */
+    --color-border: #e2e8f0;            /* Единый цвет всех границ */
+    --color-border-hover: rgba(44, 90, 160, 0.3); /* Граница при наведении */
+    
+    /* ФУНКЦИОНАЛЬНЫЕ ЦВЕТА */
+    --color-success: #10b981;           /* Зеленый для успеха/подтверждения */
+    --color-warning: #ef4444;           /* Красный для предупреждений */
+    
+    /* ГРАДИЕНТ (сохраняем!) */
+    --gradient-primary: linear-gradient(to right, #3f75c5, #5b8cda, #ffffff);
+    
+    /* ТЕНИ */
+    --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 5px 15px rgba(44, 90, 160, 0.15);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.05);
+    
+    /* АНИМАЦИИ */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* ==================================================
    ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ СТРАНИЦ
 ===================================================== */
 
@@ -13,17 +59,17 @@
 body {
     font-family: 'Montserrat', sans-serif; /* Основной шрифт */
     line-height: 1.6; /* Межстрочный интервал */
-    color: #333; /* Основной цвет текста */
-    background-color: #fff; /* Белый фон страницы */
+    color: var(--color-text-primary); /* Основной цвет текста */
+    background-color: var(--color-bg-main); /* Белый фон страницы */
 }
 
 /* Заголовки всех уровней */
 h1, h2, h3 {
     font-family: 'Montserrat', sans-serif; /* Наследование шрифта */
-    font-weight: 500; /* Средняя толщина */
+    font-weight: 600; /* Полужирный для лучшей иерархии */
     line-height: 1.3; /* Уменьшенный межстрочный интервал */
     margin-bottom: 20px; /* Отступ снизу */
-    color: #2c3e50; /* Темно-синий цвет */
+    color: var(--color-text-primary); /* Единый цвет заголовков */
 }
 
 /* Размеры заголовков */
@@ -31,27 +77,32 @@ h1 {
     font-size: 36px; /* Крупный заголовок */
 }
 h2 {
-    font-size: 25px; /* Средний заголовок */
+    font-size: 28px; /* Увеличен для лучшей иерархии */
     margin-top: 20px; /* Отступ сверху */
 }
 h3 { 
-    font-size: 24px; /* Меньший заголовок */
+    font-size: 22px; /* Слегка уменьшен */
 }
 
 /* Параграфы */
 p {
-    margin-bottom: 0px; /* Без отступа снизу */
-    color: #555; /* Серый цвет текста */
+    margin: 0px 0px 0px 0px; /* отступ */
+    color: var(--color-text-secondary); /* Вторичный цвет текста */
+}
+
+/* Последний параграф без отступа */
+p:last-child {
+    margin-bottom: 0;
 }
 
 /* Ссылки */
 a {
-    color: #3498db; /* Синий цвет ссылок */
+    color: var(--color-primary); /* Синий цвет ссылок */
     text-decoration: none; /* Без подчеркивания */
-    transition: color 0.3s ease; /* Плавное изменение цвета */
+    transition: color var(--transition-fast); /* Быстрое изменение цвета */
 }
 a:hover {
-    color: #2980b9; /* Темно-синий при наведении */
+    color: var(--color-primary-hover); /* Темно-синий при наведении */
 }
 
 /* ==================================================
@@ -69,12 +120,16 @@ a:hover {
 /* Выравнивание текста по центру */
 .text-center {
     text-align: center; /* Центрирование текста */
-    margin-top: 30px; /* Отступ сверху */
+}
+
+/* Отступ сверху для центрированных элементов */
+.text-center.mt-30 {
+    margin-top: 30px;
 }
 
 /* Светлый фон */
 .bg-light {
-    background-color: #f8f9fa; /* Светло-серый фон */
+    background-color: var(--color-bg-light); /* Светлый фон */
 }
 
 /* ==================================================
@@ -83,13 +138,13 @@ a:hover {
 
 /* Основной блок шапки */
 .header {
-    background-color: #fff; /* Белый фон */
-    border-bottom: 1px solid #ecf0f1; /* Светлая граница снизу */
+    background-color: var(--color-bg-main); /* Белый фон */
+    border-bottom: 1px solid var(--color-border); /* Граница снизу */
     padding: 15px 0; /* Вертикальные отступы */
     position: sticky; /* Липкая шапка */
     top: 0; /* Прилипает к верху */
     z-index: 100; /* Поверх других элементов */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Легкая тень */
+    box-shadow: var(--shadow-sm); /* Легкая тень */
 }
 
 /* Контейнер внутри шапки */
@@ -104,12 +159,12 @@ a:hover {
     display: flex; /* Гибкое расположение */
     align-items: center; /* Выравнивание по вертикали */
     gap: 10px; /* Расстояние между элементами */
-    font-size: 20px; /* Размер шрифта */
-    font-weight: 500; /* Средняя толщина */
-    color: #2c3e50; /* Темно-синий цвет */
+    font-size: 18px; /* Размер шрифта */
+    font-weight: 500; /* Полужирный */
+    color: var(--color-text-primary); /* Основной цвет текста */
 }
 .logo i {
-    color: #3498db; /* Синий цвет иконки */
+    color: var(--color-primary); /* Синий цвет иконки */
     font-size: 24px; /* Размер иконки */
 }
 
@@ -117,37 +172,37 @@ a:hover {
 .nav-list {
     display: flex; /* Горизонтальное меню */
     list-style: none; /* Без маркеров списка */
-    gap: 30px; /* Расстояние между пунктами */
+    gap: 20px; /* Уменьшил расстояние между пунктами */
 }
 
 /* Ссылки в меню */
 .nav-link {
-    color: #7f8c8d; /* Серый цвет */
+    color: var(--color-text-secondary); /* Серый цвет */
     font-weight: 500; /* Средняя толщина */
     padding: 8px 16px; /* Внутренние отступы */
-    border-radius: 4px; /* Скругленные углы */
+    border-radius: 10px; /* Скругленные углы */
     display: flex; /* Гибкое расположение */
     align-items: center; /* Выравнивание по вертикали */
     gap: 8px; /* Расстояние между иконкой и текстом */
-    transition: all 0.3s ease; /* Плавные переходы */
+    transition: all var(--transition-base); /* Плавные переходы */
 }
 
 /* Активный пункт меню */
 .nav-link.active {
-    color: #fff; /* Белый текст */
-    background-color: #3498db; /* Синий фон */
+    color: var(--color-bg-main); /* Белый текст */
+    background-color: var(--color-primary); /* Синий фон */
 }
 
 /* Эффект при наведении на пункт меню */
 .nav-link:hover {
-    color: #3498db; /* Синий цвет текста */
-    background-color: #f8f9fa; /* Светлый фон */
+    color: var(--color-primary); /* Синий цвет текста */
+    background-color: var(--color-primary-light); /* Легкий синий фон */
 }
 
 /* Активный пункт при наведении */
 .nav-link.active:hover {
-    background-color: #2980b9; /* Темно-синий фон */
-    color: #fff; /* Белый текст */
+    background-color: var(--color-primary-hover); /* Темно-синий фон */
+    color: var(--color-bg-main); /* Белый текст */
 }
 
 /* Кнопка меню для мобильных (скрыта на ПК) */
@@ -157,7 +212,7 @@ a:hover {
     border: none; /* Без рамки */
     font-size: 24px; /* Размер иконки */
     cursor: pointer; /* Указатель при наведении */
-    color: #2c3e50; /* Цвет иконки */
+    color: var(--color-text-primary); /* Цвет иконки */
     padding: 5px; /* Внутренние отступы */
 }
 
@@ -171,48 +226,45 @@ a:hover {
     align-items: center; /* Выравнивание по вертикали */
     justify-content: center; /* Выравнивание по горизонтали */
     gap: 10px; /* Расстояние между иконкой и текстом */
-    background-color: #3498db; /* Синий фон */
-    color: white; /* Белый текст */
-    padding: 12px 30px; /* Внутренние отступы */
-    border-radius: 10px; /* Скругленные углы */
-    font-weight: 600; /* Полужирный текст */
+    background-color: var(--color-primary); /* Синий фон */
+    color: var(--color-bg-main); /* Белый текст */
+    padding: 10px 30px; /* внутренний отступ  */
+    border-radius: 10px; /* скругление */
+    font-weight: 500; /* Полужирный текст */
     border: none; /* Без рамки */
     cursor: pointer; /* Указатель при наведении */
-    transition: all 0.3s ease; /* Плавные переходы */
+    transition: all var(--transition-base); /* Плавные переходы */
     text-decoration: none; /* Без подчеркивания */
-    font-size: 16px; /* Размер шрифта */
+    font-size: 15px; /* Размер шрифта */
+    font-family: 'Montserrat', sans-serif; /* Наследование шрифта */
 }
 
 /* Эффект при наведении на кнопку */
 .button:hover {
-    background-color: #2980b9; /* Темно-синий фон */
+    background-color: var(--color-primary-hover); /* Темно-синий фон */
     transform: translateY(-2px); /* Сдвиг вверх */
-    box-shadow: 0 5px 15px rgba(41, 128, 185, 0.2); /* Тень */
-    color: white; /* Белый текст */
+    box-shadow: var(--shadow-md); /* Тень */
+    color: var(--color-bg-main); /* Белый текст */
 }
 
-/* Контурная кнопка */
+/* Контурная кнопка (обводка) */
 .button-outline {
     background-color: transparent; /* Прозрачный фон */
-    color: #3498db; /* Синий текст */
-    border: 2px solid #3498db; /* Синяя рамка */
+    color: var(--color-primary); /* Синий текст */
+    border: 2px solid var(--color-primary); /* Синяя рамка */
 }
 
-/* Контурная кнопка при наведении */
+/* Контурная кнопка (обводка) при наведении */
 .button-outline:hover {
-    background-color: #3498db; /* Синий фон */
-    color: white; /* Белый текст */
+    background-color: var(--color-primary); /* Синий фон */
+    color: var(--color-bg-main); /* Белый текст */
+    border-color: var(--color-primary); /* Цвет рамки */
 }
 
 /* Маленькая кнопка */
 .button-small {
-    padding: 10px 20px; /* Меньшие отступы */
+    padding: 10px 25px; /* Меньшие отступы */
     font-size: 14px; /* Меньший шрифт */
-}
-
-/* Кнопка в герой-секции */
-.hero-button {
-    margin-top: 20px; /* Отступ сверху */
 }
 
 /* ==================================================
@@ -220,24 +272,25 @@ a:hover {
 ===================================================== */
 
 .hero {
-    background-color: #f8f9fa; /* Светлый фон */
-    padding: 30px 0; /* Вертикальные отступы */
+    background-color: var(--color-bg-light); /* Светлый фон */
+    padding: 60px 0; /* Увеличил вертикальные отступы */
     text-align: center; /* Текст по центру */
-    border-bottom: 1px solid #e9ecef; /* Граница снизу */
+    border-bottom: 1px solid var(--color-border); /* Граница снизу */
 }
 
 /* Заголовок герой-секции */
 .hero-title {
-    color: #2c3e50; /* Темно-синий цвет */
+    color: var(--color-text-primary); /* Основной цвет текста */
     margin-bottom: 20px; /* Отступ снизу */
 }
 
 /* Текст герой-секции */
 .hero-text {
     font-size: 18px; /* Увеличенный шрифт */
-    color: #7f8c8d; /* Серый цвет */
+    color: var(--color-text-secondary); /* Вторичный цвет текста */
     max-width: 800px; /* Максимальная ширина */
-    margin: 0 auto 25px; /* Центрирование и отступ */
+    margin: 0 auto 30px; /* Центрирование и отступ */
+    line-height: 1.7; /* Увеличил межстрочный интервал */
 }
 
 /* ==================================================
@@ -245,15 +298,15 @@ a:hover {
 ===================================================== */
 
 .page-header {
-    padding: 30px 0 10px; /* Вертикальные отступы */
-    margin-bottom: 0px; /* Без отступа снизу */
+    padding: 40px 0 10px; /* Увеличил вертикальные отступы */
+    margin-bottom: 10px; /* Добавил отступ снизу */
 }
 
 /* Заголовок страницы */
 .page-title {
-    color: #2c3e50; /* Темно-синий цвет */
-    font-size: 30px; /* Размер шрифта */
-    font-weight: 500; /* Средняя толщина */
+    color: var(--color-text-primary); /* Основной цвет текста */
+    font-size: 30px; /* Увеличил размер */
+    font-weight: 500; /* Полужирный */
     margin-bottom: 15px; /* Отступ снизу */
     padding-bottom: 15px; /* Отступ внутри снизу */
     position: relative; /* Для псевдоэлемента */
@@ -267,16 +320,17 @@ a:hover {
     left: 0; /* Прижато к левому краю */
     width: 100%; /* Полная ширина */
     height: 3px; /* Высота линии */
-    background: linear-gradient(to right, #3498db, #99d6ff, #ffffff); /* Градиент */
+    background: var(--gradient-primary); /* Градиент */
     border-radius: 2px; /* Скругленные края */
 }
 
 /* Подзаголовок страницы */
 .page-subtitle {
-    color: #7f8c8d; /* Серый цвет */
+    color: var(--color-text-secondary); /* Вторичный цвет текста */
     font-size: 18px; /* Размер шрифта */
     margin-top: 10px; /* Отступ сверху */
     font-weight: 400; /* Обычная толщина */
+    line-height: 1.5; /* Межстрочный интервал */
 }
 
 /* ==================================================
@@ -284,7 +338,7 @@ a:hover {
 ===================================================== */
 
 .content-section {
-    padding: 10px 0 40px; /* Вертикальные отступы */
+    padding: 0px 0; /*  вертикальные отступы */
 }
 
 /* ==================================================
@@ -293,19 +347,20 @@ a:hover {
 
 /* Базовый стиль для всех карточек */
 .article-card, .contact-card, .full-width-card, .step, .faq-item {
-    background: #fff; /* Белый фон */
-    border: 1px solid #e9ecef; /* Светлая рамка */
+    background: var(--color-bg-card); /* Белый фон */
+    border: 1px solid var(--color-border); /* Светлая рамка */
     border-radius: 10px; /* Скругленные углы */
     padding: 25px; /* Внутренние отступы */
-    transition: all 0.3s ease; /* Плавные переходы */
+    transition: all var(--transition-base); /* Плавные переходы */
+    box-shadow: var(--shadow-card); /* Легкая тень по умолчанию */
 }
 
 /* Эффект при наведении на карточки */
 .article-card:hover, .contact-card:hover, .full-width-card:hover, 
 .step:hover, .faq-item:hover {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Тень */
-    transform: translateY(-5px); /* Сдвиг вверх */
-    border-color: #3498db; /* Синяя рамка */
+    box-shadow: var(--shadow-lg); /* Усиленная тень */
+    transform: translateY(-4px); /* Сдвиг вверх */
+    border-color: var(--color-border-hover); /* Измененная граница */
 }
 
 /* Карточки статей и контактов */
@@ -326,9 +381,11 @@ a:hover {
 
 .article-title, .contact-title, .full-card-title, 
 .step h3, .faq-item h3 {
-    color: #2c3e50; /* Темно-синий цвет */
+    color: var(--color-text-primary); /* Основной цвет текста */
     margin: 10px 0 10px; /* Вертикальные отступы */
     flex-grow: 1; /* Занимает доступное пространство */
+    font-size: 20px; /* Увеличил размер заголовков в карточках */
+    font-weight: 600; /* Полужирный */
 }
 
 /* Ссылки в заголовках статей */
@@ -337,15 +394,17 @@ a:hover {
     display: flex; /* Гибкое расположение */
     align-items: center; /* Выравнивание по вертикали */
     gap: 10px; /* Расстояние между иконкой и текстом */
+    transition: color var(--transition-fast); /* Быстрое изменение цвета */
 }
 .article-title a:hover {
-    color: #3498db; /* Синий цвет при наведении */
+    color: var(--color-primary); /* Синий цвет при наведении */
 }
 
 /* Заголовок карточки на всю ширину */
 .full-card-title {
     padding-bottom: 15px; /* Отступ снизу */
-    border-bottom: 2px solid #f0f0f0; /* Граница снизу */
+    border-bottom: 2px solid var(--color-border); /* Граница снизу */
+    margin-bottom: 20px; /* Отступ снизу */
 }
 
 /* ==================================================
@@ -354,14 +413,25 @@ a:hover {
 
 .article-text, .contact-content, .full-card-content, 
 .step p, .faq-item p {
-    color: #555; /* Серый цвет текста */
+    color: var(--color-text-secondary); /* Вторичный цвет текста */
     line-height: 1.6; /* Межстрочный интервал */
     flex-grow: 2; /* Занимает доступное пространство */
+    margin: 5px 0 5px; /* Отступ снизу */
+}
+
+/* Убираем отступ у последнего параграфа */
+.article-text p:last-child,
+.contact-content p:last-child,
+.full-card-content p:last-child,
+.step p:last-child,
+.faq-item p:last-child {
+    margin-bottom: 0;
 }
 
 /* Краткое описание статьи */
 .article-excerpt {
-    color: #7f8c8d; /* Светло-серый цвет */
+    color: var(--color-text-muted); /* Третичный цвет текста */
+    margin-bottom: 16px; /* Отступ снизу */
 }
 
 /* ==================================================
@@ -370,14 +440,16 @@ a:hover {
 
 .article-category {
     display: inline-block; /* Блочно-строчный элемент */
-    font-weight: 600; /* Полужирный текст */
-    padding: 5px 15px; /* Внутренние отступы */
-    border-radius: 10px; /* Скругленные углы */
-    margin: 5px 0 5px; /* Отступы */
-    align-self: flex-start; /* Выравнивание по началу */
-    background-color: #e3f2fd; /* Светло-синий фон */
-    color: #1565c0; /* Синий текст */
-    font-size: 14px; /* Меньший шрифт */
+    font-weight: 500; /* Полужирный текст */
+    padding: 5px 10px; /* Внутренние отступы */
+    border-radius: 8px; /* Скругленные углы */
+    margin: 0 0 0; /* Отступы */
+    align-self: flex-end; /* Выравнивание по началу */
+    background-color: var(--color-primary-light); /* Легкий синий фон */
+    color: var(--color-primary); /* Синий текст */
+    font-size: 13px; /* Меньший шрифт */
+    text-transform: none; /* Заглавные буквы */
+    letter-spacing: 0.3px; /* Разряженный текст */
 }
 
 /* ==================================================
@@ -389,8 +461,8 @@ a:hover {
     justify-content: space-between; /* Распределение по краям */
     align-items: center; /* Выравнивание по вертикали */
     margin-top: auto; /* Прижато к низу карточки */
-    padding-top: 15px; /* Отступ сверху */
-    border-top: 1px solid #e9ecef; /* Граница сверху */
+    padding-top: 16px; /* Отступ сверху */
+    border-top: 1px solid var(--color-border); /* Граница сверху */
 }
 
 /* Действие в карточке контакта */
@@ -400,14 +472,15 @@ a:hover {
 
 /* Дата статьи */
 .article-date {
-    color: #95a5a6; /* Серый цвет */
+    color: var(--color-text-muted); /* Третичный цвет текста */
     font-size: 14px; /* Меньший шрифт */
 }
 
 /* Время чтения */
 .read-time {
-    color: #3498db; /* Синий цвет */
+    color: var(--color-primary); /* Основной цвет */
     font-weight: 500; /* Средняя толщина */
+    font-size: 14px; /* Меньший шрифт */
 }
 
 /* ==================================================
@@ -417,25 +490,26 @@ a:hover {
 .article-features {
     list-style: none; /* Без маркеров */
     padding: 0; /* Без отступов */
-    margin: 8px 0 8px; /* Вертикальные отступы */
+    margin: 10px 0; /* Вертикальные отступы */
 }
 
 /* Элементы списка */
 .article-features li {
-    margin: 5px 0 5px 0; /* Отступы между элементами */
+    margin: 8px 0; /* Отступы между элементами */
     padding-left: 0; /* Без левого отступа */
     display: flex; /* Гибкое расположение */
     align-items: flex-start; /* Выравнивание по верху */
     gap: 12px; /* Расстояние до иконки */
-    color: #555; /* Серый цвет текста */
-    line-height: 1.6; /* Межстрочный интервал */
+    color: var(--color-text-secondary); /* Вторичный цвет текста */
+    line-height: 1.5; /* Межстрочный интервал */
 }
 
 /* Иконки в списке */
 .article-features i {
-    color: #2ecc71; /* Зеленый цвет */
+    color: var(--color-success); /* Зеленый цвет */
     font-size: 14px; /* Размер иконки */
-    margin: 5px 0 5px 0; /* Отступы */
+    margin-top: 2px; /* Выравнивание по верху */
+    flex-shrink: 0; /* Не сжимается */
 }
 
 /* ==================================================
@@ -445,16 +519,24 @@ a:hover {
 .contact-icon {
     width: 60px; /* Ширина */
     height: 60px; /* Высота */
-    background: #e3f2fd; /* Светло-синий фон */
+    background: var(--color-primary-light); /* Легкий синий фон */
     border-radius: 50%; /* Круглая форма */
     display: flex; /* Гибкое расположение */
     align-items: center; /* Центрирование по вертикали */
     justify-content: center; /* Центрирование по горизонтали */
     margin: 0 auto 20px; /* Центрирование и отступ снизу */
+    transition: background-color var(--transition-base); /* Плавный переход */
+}
+.contact-card:hover .contact-icon {
+    background-color: var(--color-primary); /* Синий фон при наведении */
+}
+.contact-card:hover .contact-icon i {
+    color: var(--color-bg-main); /* Белый цвет иконки при наведении */
 }
 .contact-icon i {
     font-size: 24px; /* Размер иконки */
-    color: #3498db; /* Синий цвет */
+    color: var(--color-primary); /* Синий цвет */
+    transition: color var(--transition-base); /* Плавный переход */
 }
 
 /* ==================================================
@@ -462,18 +544,18 @@ a:hover {
 ===================================================== */
 
 .page-intro {
-    background-color: #f8f9fa; /* Светлый фон */
+    background-color: var(--color-bg-light); /* Светлый фон */
     padding: 25px; /* Внутренние отступы */
     border-radius: 10px; /* Скругленные углы */
     margin-bottom: 30px; /* Отступ снизу */
-    border-left: 4px solid #3498db; /* Синяя линия слева */
+    border-left: 4px solid var(--color-primary); /* Синяя линия слева */
 }
 
 /* Текст интро-блока */
 .page-intro-text {
-    color: #555; /* Серый цвет */
+    color: var(--color-text-secondary); /* Вторичный цвет текста */
     font-size: 16px; /* Размер шрифта */
-    line-height: 1.6; /* Межстрочный интервал */
+    line-height: 1.7; /* Увеличил межстрочный интервал */
     margin: 0; /* Без отступов */
 }
 
@@ -484,7 +566,7 @@ a:hover {
 .laws-list {
     display: flex; /* Гибкое расположение */
     flex-direction: column; /* Вертикальное направление */
-    margin-top: 30px; /* Отступ сверху */
+    margin-top: 20px; /* Отступ сверху */
 }
 
 /* Группа законов */
@@ -499,60 +581,69 @@ a:hover {
 .law-group h3 {
     margin-bottom: 20px; /* Отступ снизу */
     padding-bottom: 10px; /* Внутренний отступ снизу */
-    border-bottom: 2px solid #e9ecef; /* Граница снизу */
-    color: #2c3e50; /* Темно-синий цвет */
+    border-bottom: 2px solid var(--color-border); /* Граница снизу */
+    color: var(--color-text-primary); /* Основной цвет текста */
 }
 
 /* Элемент закона */
 .law-item {
     display: flex; /* Гибкое расположение */
     align-items: center; /* Выравнивание по вертикали */
-    background: #fff; /* Белый фон */
-    border: 1px solid #e9ecef; /* Светлая рамка */
-    border-radius: 10px; /* Скругленные углы */
+    background: var(--color-bg-card); /* Белый фон */
+    border: 1px solid var(--color-border); /* Светлая рамка */
+    border-radius: 8px; /* Скругленные углы */
     padding: 18px 20px; /* Внутренние отступы */
-    transition: all 0.3s ease; /* Плавные переходы */
+    transition: all var(--transition-base); /* Плавные переходы */
     text-decoration: none; /* Без подчеркивания */
     margin-bottom: 10px; /* Отступ снизу */
+}
+.law-item:last-child {
+    margin-bottom: 0; /* Без отступа у последнего элемента */
 }
 
 /* Эффект при наведении на элемент закона */
 .law-item:hover {
-    background-color: #f8f9fa; /* Светлый фон */
-    border-color: #3498db; /* Синяя рамка */
+    background-color: var(--color-bg-light); /* Светлый фон */
+    border-color: var(--color-primary); /* Синяя рамка */
     text-decoration: none; /* Без подчеркивания */
 }
 
 /* Иконка документа */
 .law-item > i:first-child {
-    color: #3498db; /* Синий цвет */
-    font-size: 20px; /* Размер иконки */
-    margin-right: 15px; /* Отступ справа */
+    color: var(--color-text-muted); /* Синий цвет */
+    font-size: 40px; /* Размер иконки */
+    margin-right: 25px; /* Отступ справа */
+    flex-shrink: 0; /* Не сжимается */
 }
 
 /* Текст закона */
 .law-text {
     flex-grow: 1; /* Занимает доступное пространство */
-    margin: 5px 0; /* Вертикальные отступы */
+    margin: 0; /* Убрал вертикальные отступы */
+    min-width: 0; /* Для корректного переноса текста */
 }
 
 /* Название закона */
 .law-text strong {
     display: block; /* Блочный элемент */
-    color: #2c3e50; /* Темно-синий цвет */
-    margin-bottom: 5px; /* Отступ снизу */
+    color: var(--color-text-primary); /* Основной цвет текста */
+    margin-bottom: 4px; /* Уменьшил отступ */
+    font-size: 16px; /* Размер шрифта */
 }
 
 /* Описание закона */
 .law-text span {
     font-size: 14px; /* Меньший шрифт */
-    color: #7f8c8d; /* Серый цвет */
+    color: var(--color-text-muted); /* Третичный цвет текста */
+    line-height: 1.5; /* Межстрочный интервал */
 }
 
 /* Иконка внешней ссылки */
 .law-icon {
-    color: #95a5a6; /* Серый цвет */
+    color: var(--color-text-muted); /* Третичный цвет текста */
     font-size: 14px; /* Размер иконки */
+    margin-left: 10px; /* Отступ слева */
+    flex-shrink: 0; /* Не сжимается */
 }
 
 /* ==================================================
@@ -561,7 +652,8 @@ a:hover {
 
 /* Действие в карточке */
 .article-action {
-    margin-top: 20px; /* Отступ сверху */
+    margin: 5px 0 5px; /* Отступ */
+    justify-content: flex-end;
 }
 
 /* Информационный блок */
@@ -574,8 +666,8 @@ a:hover {
 .step-number {
     width: 40px; /* Ширина */
     height: 40px; /* Высота */
-    background: #3498db; /* Синий фон */
-    color: white; /* Белый текст */
+    background: var(--color-primary); /* Синий фон */
+    color: var(--color-bg-main); /* Белый текст */
     border-radius: 50%; /* Круглая форма */
     display: flex; /* Гибкое расположение */
     align-items: center; /* Центрирование по вертикали */
@@ -597,11 +689,13 @@ a:hover {
     display: flex; /* Гибкое расположение */
     align-items: flex-start; /* Выравнивание по верху */
     gap: 10px; /* Расстояние до иконки */
+    margin-bottom: 12px; /* Отступ снизу */
 }
 .faq-item h3 i {
-    color: #3498db; /* Синий цвет иконки */
+    color: var(--color-primary); /* Синий цвет иконки */
     font-size: 16px; /* Размер иконки */
     margin-top: 2px; /* Смещение вниз */
+    flex-shrink: 0; /* Не сжимается */
 }
 
 /* ==================================================
@@ -615,27 +709,33 @@ a:hover {
     gap: 15px; /* Расстояние до иконки */
     margin-bottom: 20px; /* Отступ снизу */
     padding-bottom: 20px; /* Внутренний отступ снизу */
-    border-bottom: 1px solid #f0f0f0; /* Граница снизу */
+    border-bottom: 1px solid var(--color-border); /* Граница снизу */
 }
 .contact-item:last-child {
     border-bottom: none; /* Без границы у последнего */
+    margin-bottom: 0; /* Без отступа снизу */
+    padding-bottom: 0; /* Без внутреннего отступа */
 }
 
 /* Текст контакта */
 .contact-text {
     flex-grow: 1; /* Занимает доступное пространство */
+    min-width: 0; /* Для корректного переноса текста */
 }
 .contact-text strong {
     display: block; /* Блочный элемент */
-    color: #2c3e50; /* Темно-синий цвет */
-    margin-bottom: 5px; /* Отступ снизу */
-    font-size: 15px; /* Размер шрифта */
+    color: var(--color-text-primary); /* Основной цвет текста */
+    margin-bottom: 4px; /* Уменьшил отступ */
+    font-size: 16px; /* Размер шрифта */
 }
 .contact-text a, .contact-text span {
     display: block; /* Блочный элемент */
-    color: #555; /* Серый цвет */
+    color: var(--color-text-secondary); /* Вторичный цвет текста */
     font-size: 16px; /* Размер шрифта */
     line-height: 1.5; /* Межстрочный интервал */
+}
+.contact-text a:hover {
+    color: var(--color-primary); /* Синий при наведении */
 }
 
 /* График работы */
@@ -644,7 +744,7 @@ a:hover {
     justify-content: space-between; /* Распределение по краям */
     align-items: center; /* Выравнивание по вертикали */
     padding: 12px 0; /* Вертикальные отступы */
-    border-bottom: 1px solid #f0f0f0; /* Граница снизу */
+    border-bottom: 1px solid var(--color-border); /* Граница снизу */
 }
 .schedule-day:last-child {
     border-bottom: none; /* Без границы у последнего */
@@ -652,19 +752,20 @@ a:hover {
 
 /* Название дня */
 .day-name {
-    color: #555; /* Серый цвет */
+    color: var(--color-text-secondary); /* Вторичный цвет текста */
     font-weight: 500; /* Средняя толщина */
 }
 
 /* Время работы */
 .day-time {
-    color: #2c3e50; /* Темно-синий цвет */
+    color: var(--color-text-primary); /* Основной цвет текста */
     font-weight: 600; /* Полужирный текст */
 }
 
 /* Выходной день */
 .day-off {
-    color: #e74c3c; /* Красный цвет */
+    color: var(--color-warning); /* Красный цвет */
+    font-weight: 600; /* Полужирный текст */
 }
 
 /* Примечания */
@@ -672,14 +773,15 @@ a:hover {
     display: flex; /* Гибкое расположение */
     align-items: flex-start; /* Выравнивание по верху */
     gap: 10px; /* Расстояние до иконки */
-    color: #666; /* Серый цвет */
+    color: var(--color-text-muted); /* Третичный цвет текста */
     font-size: 14px; /* Меньший шрифт */
-    margin: 10px 0; /* Вертикальные отступы */
+    margin: 12px 0 0; /* Отступы */
 }
 .contact-note i, .schedule-note i {
-    color: #3498db; /* Синий цвет иконки */
+    color: var(--color-primary); /* Синий цвет иконки */
     font-size: 14px; /* Размер иконки */
     margin-top: 2px; /* Смещение вниз */
+    flex-shrink: 0; /* Не сжимается */
 }
 
 /* Дополнительная информация */
@@ -687,14 +789,15 @@ a:hover {
     display: flex; /* Гибкое расположение */
     align-items: flex-start; /* Выравнивание по верху */
     gap: 10px; /* Расстояние до иконки */
-    color: #555; /* Серый цвет */
+    color: var(--color-text-secondary); /* Вторичный цвет текста */
     margin: 8px 0; /* Вертикальные отступы */
     font-size: 15px; /* Размер шрифта */
 }
 .contact-info i, .contact-details i {
-    color: #3498db; /* Синий цвет иконки */
+    color: var(--color-primary); /* Синий цвет иконки */
     font-size: 14px; /* Размер иконки */
     margin-top: 2px; /* Смещение вниз */
+    flex-shrink: 0; /* Не сжимается */
 }
 
 /* ==================================================
@@ -702,28 +805,36 @@ a:hover {
 ===================================================== */
 
 /* Таблица юридической информации */
+.legal-info-table {
+    overflow-x: auto; /* Горизонтальная прокрутка при необходимости */
+    margin: 10px 0; /* Вертикальные отступы */
+}
 .legal-info-table table {
     width: 100%; /* Полная ширина */
     border-collapse: collapse; /* Слияние границ */
+    min-width: 600px; /* Минимальная ширина */
 }
 .legal-info-table td {
-    padding: 12px 15px; /* Внутренние отступы */
+    padding: 14px 16px; /* Внутренние отступы */
     vertical-align: top; /* Выравнивание по верху */
-    border-bottom: 1px solid #eee; /* Граница снизу */
-    transition: border-color 0.3s ease; /* Плавное изменение границы */
+    border-bottom: 1px solid var(--color-border); /* Граница снизу */
+    transition: border-color var(--transition-fast); /* Плавное изменение границы */
 }
 .legal-info-table td:first-child {
-    width: 30%; /* Ширина первой колонки */
+    width: 20%; /* Ширина первой колонки */
     font-weight: 600; /* Полужирный текст */
-    color: #333; /* Темный цвет */
+    color: var(--color-text-primary); /* Основной цвет текста */
+    background-color: var(--color-bg-light); /* Светлый фон */
 }
 .legal-info-table tr:last-child td {
     border-bottom: none; /* Без границы у последней строки */
 }
 
 /* Эффект при наведении на строку таблицы */
+.legal-info-table tr:hover td {
+    background-color: var(--color-bg-light); /* Светлый фон */
+}
 .legal-info-table tr:hover {
-    background-color: #f8f9fa; /* Светлый фон */
     cursor: pointer; /* Указатель при наведении */
 }
 
@@ -736,35 +847,37 @@ a:hover {
 .info-steps, .faq-grid {
     display: grid; /* CSS Grid */
     gap: 30px; /* Расстояние между элементами */
-    margin-top: 30px; /* Отступ сверху */
+    margin-top: 10px; /* Отступ сверху */
 }
 
 /* Сетка статей */
 .articles-grid {
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Адаптивные колонки */
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); /* Адаптивные колонки */
 }
 
-/* Сетка контактов */
+/* Сетка контактов (блоки) */
 .contacts-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Адаптивные колонки */
-    margin: 30px 0 50px; /* Вертикальные отступы */
+    display: grid;
+    gap: 30px;
+    margin: 0px 0;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Автоподбор */
 }
 
 /* Сетка в один столбец */
 .single-column-grid {
     grid-template-columns: 1fr; /* Одна колонка */
-    margin: 30px 0 40px; /* Вертикальные отступы */
+    margin: 30px 0; /* Вертикальные отступы */
 }
 
 /* Сетка шагов */
 .info-steps {
-    grid-template-columns: repeat(3, 1fr); /* Три колонки */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Адаптивные колонки */
     margin-top: 30px; /* Отступ сверху */
 }
 
 /* Сетка FAQ */
 .faq-grid {
-    grid-template-columns: repeat(2, 1fr); /* Две колонки */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Адаптивные колонки */
     margin-top: 30px; /* Отступ сверху */
 }
 
@@ -773,19 +886,21 @@ a:hover {
 ===================================================== */
 
 .site-footer {
-    background: #f8f9fa; /* Светлый фон */
-    border-top: 1px solid #e9ecef; /* Граница сверху */
-    padding: 20px 0; /* Вертикальные отступы */
-    margin-top: 50px; /* Отступ сверху */
+    background: var(--color-bg-light); /* Светлый фон */
+    border-top: 1px solid var(--color-border); /* Граница сверху */
+    padding: 30px 0; /* Увеличил вертикальные отступы */
+    margin-top: 60px; /* Отступ сверху */
     text-align: center; /* Текст по центру */
 }
 
 /* Текст подвала */
 .footer-text {
-    color: #7f8c8d; /* Серый цвет */
+    color: var(--color-text-muted); /* Третичный цвет текста */
     font-size: 14px; /* Меньший шрифт */
     margin: 0; /* Без отступов */
+    line-height: 1.5; /* Межстрочный интервал */
 }
+
 
 /* ==================================================
    АДАПТИВНОСТЬ (мобильные устройства)
@@ -800,9 +915,9 @@ a:hover {
         top: 100%; /* Под шапкой */
         left: 0; /* Прижато к левому краю */
         right: 0; /* Прижато к правому краю */
-        background-color: white; /* Белый фон */
+        background-color: var(--color-bg-main); /* Белый фон */
         padding: 20px; /* Внутренние отступы */
-        border-top: 1px solid #e5e7eb; /* Граница сверху */
+        border-top: 1px solid var(--color-border); /* Граница сверху */
         box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); /* Тень */
         z-index: 99; /* Поверх контента */
     }
@@ -811,7 +926,7 @@ a:hover {
     }
     .nav-list {
         flex-direction: column; /* Вертикальное меню */
-        gap: 15px; /* Расстояние между пунктами */
+        gap: 12px; /* Уменьшил расстояние между пунктами */
     }
     .menu-toggle {
         display: block; /* Показываем кнопку меню */
@@ -819,13 +934,24 @@ a:hover {
     
     /* Типографика */
     h1 { 
-        font-size: 30px; /* Уменьшенный заголовок */
+        font-size: 32px; /* Уменьшенный заголовок */
     }
     h2 { 
         font-size: 26px; /* Уменьшенный заголовок */
     }
+    h3 {
+        font-size: 20px; /* Уменьшенный заголовок */
+    }
     .page-title {
-        font-size: 30px; /* Уменьшенный заголовок страницы */
+        font-size: 28px; /* Уменьшенный заголовок страницы */
+    }
+    .hero-title {
+        font-size: 32px; /* Уменьшенный заголовок героя */
+    }
+    
+    /* Герой-секция */
+    .hero {
+        padding: 40px 0; /* Уменьшил отступы */
     }
     
     /* Сетки */
@@ -844,10 +970,11 @@ a:hover {
     
     /* Таблицы */
     .legal-info-table {
-        overflow-x: auto; /* Горизонтальная прокрутка */
+        margin: 0 -20px; /* Отрицательные отступы для мобильных */
+        padding: 0 20px; /* Компенсируем отступы */
     }
     .legal-info-table td:first-child {
-        width: 40%; /* Ширина первой колонки */
+        width: 40%; /* Увеличил ширину первой колонки */
     }
     
     /* Законодательство */
@@ -864,20 +991,25 @@ a:hover {
         padding: 30px 20px; /* Меньшие отступы */
         margin: 30px 0; /* Меньшие отступы */
     }
+    
+    /* Карточки */
+    .article-card, .contact-card, .full-width-card, .step, .faq-item {
+        padding: 20px; /* Меньшие отступы */
+    }
 }
 
 /* Маленькие мобильные (до 480px) */
 @media (max-width: 480px) {
     .container {
-        padding: 0 15px; /* Меньшие боковые отступы */
+        padding: 0 16px; /* Меньшие боковые отступы */
     }
     
     /* Герой-секция */
     .hero {
-        padding: 40px 0; /* Меньшие отступы */
+        padding: 30px 0; /* Меньшие отступы */
     }
     .hero-title {
-        font-size: 26px; /* Уменьшенный заголовок */
+        font-size: 28px; /* Уменьшенный заголовок */
     }
     .hero-text {
         font-size: 16px; /* Уменьшенный текст */
@@ -885,7 +1017,7 @@ a:hover {
     
     /* Заголовки страниц */
     .page-title {
-        font-size: 26px; /* Уменьшенный заголовок */
+        font-size: 24px; /* Уменьшенный заголовок */
     }
     .page-subtitle {
         font-size: 16px; /* Уменьшенный подзаголовок */
@@ -893,12 +1025,96 @@ a:hover {
     
     /* Интро-блок */
     .page-intro {
-        padding: 20px 15px; /* Меньшие отступы */
+        padding: 20px 16px; /* Меньшие отступы */
     }
     
     /* Карточки */
     .article-card, .contact-card, .full-width-card, .step, .faq-item {
-        padding: 20px; /* Меньшие отступы */
+        padding: 16px; /* Меньшие отступы */
     }
     
     /* Контакты */
+    .contact-item {
+        flex-direction: column; /* Вертикальное расположение */
+        align-items: flex-start; /* Выравнивание по левому краю */
+        gap: 8px; /* Уменьшил расстояние */
+    }
+    .schedule-day {
+        flex-direction: column; /* Вертикальное расположение */
+        align-items: flex-start; /* Выравнивание по левому краю */
+        gap: 4px; /* Уменьшил расстояние */
+    }
+    
+    /* Круглые иконки */
+    .contact-icon {
+        width: 50px; /* Уменьшил ширину */
+        height: 50px; /* Уменьшил высоту */
+        margin-bottom: 16px; /* Уменьшил отступ */
+    }
+    .contact-icon i {
+        font-size: 20px; /* Уменьшил размер иконки */
+    }
+    
+    /* Таблицы */
+    .legal-info-table td:first-child {
+        width: 45%; /* Увеличил ширину первой колонки */
+    }
+    
+    /* Кнопки */
+    .button {
+        padding: 10px 20px; /* Уменьшил отступы */
+        font-size: 15px; /* Уменьшил шрифт */
+    }
+}
+@media (max-width: 768px) {
+    .breadcrumbs {
+        padding: 12px 0;
+        font-size: 13px;
+    }
+    
+    .breadcrumbs .container {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+}
+
+
+/* ==================================================
+   ХЛЕБНЫЕ КРОШКИ (BREADCRUMBS)
+===================================================== */
+
+.breadcrumbs {
+    background-color: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 6px 0;
+    font-size: 12px;
+}
+
+.breadcrumbs .container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.breadcrumbs a {
+    color: #64748b;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s ease;
+}
+
+.breadcrumbs a:hover {
+    color: #2c5aa0;
+}
+
+.breadcrumbs i.fa-chevron-right {
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+.breadcrumbs span {
+    color: #2c5aa0;
+    font-weight: 500;
+}
