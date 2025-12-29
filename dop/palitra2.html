@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цветовая палитра сайта | Лига защитников потребителей</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #7f8c8d;
+            font-size: 18px;
+        }
+        
+        .color-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .color-table th {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .color-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+            vertical-align: top;
+        }
+        
+        .color-table tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .color-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .color-swatch {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            margin-right: 15px;
+            display: inline-block;
+            vertical-align: middle;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .color-info {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        .color-code {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .color-name {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .page-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .badge-index { background-color: #e3f2fd; color: #1565c0; }
+        .badge-consumer { background-color: #e8f5e9; color: #2e7d32; }
+        .badge-about { background-color: #fff3e0; color: #ef6c00; }
+        .badge-contacts { background-color: #f3e5f5; color: #7b1fa2; }
+        .badge-all { background-color: #f5f5f5; color: #616161; }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .color-preview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .color-card {
+            flex: 1;
+            min-width: 200px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+        
+        .color-card-header {
+            height: 100px;
+            padding: 15px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .color-card-body {
+            padding: 15px;
+        }
+        
+        .color-card-body h4 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .color-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .color-card {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Цветовая палитра сайта</h1>
+            <p>Лига защитников потребителей | Документация по дизайну</p>
+        </div>
+        
+        <div class="section">
+            <h2>Основные цвета сайта</h2>
+            <table class="color-table">
+                <thead>
+                    <tr>
+                        <th style="width: 200px;">Цвет</th>
+                        <th>Код цвета и название</th>
+                        <th>Использование</th>
+                        <th>Страницы</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="color-swatch" style="background-color: #3498db;"></div>
+                            <div class="color-info">
+                                <div class="color-code">#3498db</div>
+                                <div class="color-name">Синий</div>
+                            </div>
+                        </td>
+                        <td>
+                            Основной акцентный цвет<br>
+                            Bright Blue / Светло-синий
+                        </td>
+                        <td>
+                            • Основной цвет кнопок<br>
+                            • Активные элементы меню<br>
+                            • Иконки и ссылки при наведении<br>
+                            • Границы при наведении на карточки
+                        </td>
+                        <td>
+                            <span class="page-badge badge-all">Все страницы</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="color-swatch" style="background-color: #2980b9;"></div>
+                            <div class="color-info">
+                                <div class="color-code">#2980b9</div>
+                                <div class="color-name">Темно-синий</div>
+                            </div>
+                        </td>
+                        <td>
+                            Акцентный цвет при наведении<br>
+                            Dark Blue / Темно-синий
+                        </td>
+                        <td>
+                            • Цвет кнопок при наведении<br>
+                            • Активное состояние элементов<br>
+                            • Темный вариант основного синего
+                        </td>
+                        <td>
+                            <span class="page-badge badge-all">Все страницы</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="color-swatch" style="background-color: #2c3e50;"></div>
+                            <div class="color-info">
+                                <div class="color-code">#2c3e50</div>
+                                <div class="color-name">Темно-синий серый</div>
+                            </div>
+                        </td>
+                        <td>
+                            Основной цвет текста заголовков<br>
+                            Dark Slate Gray / Темный аспидный
+                        </td>
+                        <td>
+                            • Заголовки всех уровней (h1, h2, h3)<br>
+                            • Тексты в футерах карточек<br>
+                            • Важные элементы интерфейса
+                        </td>
+                        <td>
+                            <span class="page-badge badge-all">Все страницы</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="color-swatch" style="background-color: #333;"></div>
+                            <div class="color-info">
+                                <div class="color-code">#333</div>
+                                <div class="color-name">Темно-серый</div>
+                            </div>
+                        </td>
+                        <td>
+                            Основной цвет текста<br>
+                            Very Dark Gray / Очень темно-серый
+                        </td>
+                        <td>
+                            • Основной текст на странице<br>
+                            • Параграфы и описания<br>
+                            • Текст в таблицах
+                        </td>
+                        <td>
+                            <span class="page-badge badge-all">Все страницы</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="color-swatch" style="background-color: #555;"></div>
+                            <div class="color-info">
+                                <div class="color-code">#555</div>
+                                <div class="color-name">Серый</div>
+                            </div>
+                        </td>
+                        <td>
+                            Вторичный цвет текста<br>
+                            Dark Gray / Темно-серый
+                        </td>
+                        <td>
+                            • Вторичный текст<br>
+                            • Описания и подписи<br>
+                            • Текст в карточках
+                        </td>
+                        <td>
+                            <span class="page-badge badge-all">Все страницы</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="color-swatch" style="background-color: #7f8c8d;"></div>
+                            <div class="color-info">
+                                <div class="color-code">#7f8c8d</div>
+                                <div class="color-name">Светло-серый</div>
+                            </div>
+                        </td>
+                        <td>
+                            Третичный цвет текста<br>
+                            Gray Ash / Серый пепельный
+                        </td>
+                        <td>
+                            • Подзаголовки страниц<br>
+                            • Краткие описания статей<br>
+                            • Неактивные элементы меню
+                        </td>
+                        <td>
+                            <span class="page-badge badge-all">Все страницы</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="color-swatch" style="background-color: #95a5a6;"></div>
+                            <div class="color-info">
+                                <div class="color-code">#95a5a6</div>
+                                <div class="color-name">Серый</div>
+                            </div>
+                        </td>
+                        <td>
+                            Цвет второстепенного текста<br>
+                            Light Gray / Светло-серый
+                        </td>
+                        <td>
+                            • Даты публикаций<br>
+                            • Иконки внешних ссылок<br>
+                            • Мелкие детали интерфейса
+                        </td>
+                        <td>
+                            <span class="page-badge badge-index">Главная</span>
+                            <span class="page-badge badge-consumer">Потребителю</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="color-swatch" style="background-color: #f8f9fa;"></div>
+                            <div class="color-info">
+                                <div class="color-code">#f8f9fa</div>
+                                <div class="color-name">Светлый серый</div>
+                            </div>
+                        </td>
+                        <td>
+                            Фоновый цвет секций<br>
+                            Light Gray Background / Светло-серый фон
+                        </td>
+                        <td>
+                            • Фон герой-секции<br>
+                            • Фон светлых блоков (.bg-light)<br>
+                            • Фон интро-блока на странице "О нас"
+                        </td>
+                        <td>
+                            <span class="page-badge badge-all">Все страницы</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="color-swatch" style="background-color: #fff;"></div>
+                            <div class="color-info">
+                                <div class="color-code">#fff</div>
+                                <div class="color-name">Белый</div>
+                            </div>
+                        </td>
+                        <td>
+                            Основной фон<br>
+                            White / Белый
+                        </td>
+                        <td>
+                            • Фон страницы<br>
+                            • Фон карточек<br>
+                            • Фон шапки сайта
+                        </td>
+                        <td>
+                            <span class="page-badge badge-all">Все страницы</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2>Дополнительные и акцентные цвета</h2>
+            <table class="color-table">
+                <thead>
+                    <tr>
+                        <th style="width: 200px;">Цвет</th>
+                        <th>Код цвета и название</th>
+                        <th>Использование</th>
+                        <th>Страницы</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="color-swatch" style="background-color: #2ecc71;"></div>
+                            <div class="color-info">
+                                <div class="color-code">#2ecc71</div>
+                                <div class="color-name">Зеленый</div>
+                            </div>
+                        </td>
+                        <td>
+                            Цвет успеха и подтверждения<br>
+                            Emerald / Изумрудный
+                        </td>
+                        <td>
+                            • Иконки в списках преимуществ<br>
+                            • Элементы подтверждения<br>
+                            • Позитивные индикаторы
+                        </td>
+                        <td>
+                            <span class="page-badge badge-all">Все страницы</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="color-swatch" style="background-color: #e74c3c;"></div>
+                            <div class="color-info">
+                                <div class="color-code">#e74c3c</div>
+                                <div class="color-name">Красный</div>
+                            </div>
+                        </td>
+                        <td>
+                            Цвет предупреждения и выходных<br>
+                            Alizarin / Красный
+                        </td>
+                        <td>
+                            • Выходные дни в графике работы<br>
+                            • Сообщения об ошибках<br>
+                            • Важные предупреждения
+                        </td>
+                        <td>
+                            <span class="page-badge badge-contacts">Контакты</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="color-swatch" style="background-color: #e3f2fd;"></div>
+                            <div class="color-info">
+                                <div class="color-code">#e3f2fd</div>
+                                <div class="color-name">Голубой</div>
+                            </div>
+                        </td>
+                        <td>
+                            Фон категорий и меток<br>
+                            Light Blue Background / Светло-голубой фон
+                        </td>
+                        <td>
+                            • Фон меток категорий статей<br>
+                            • Фон круглых иконок контактов<br>
+                            • Легкий акцентный фон
+                        </td>
+                        <td>
+                            <span class="page-badge badge-index">Главная</span>
+                            <span class="page-badge badge-contacts">Контакты</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="color-swatch" style="background-color: #1565c0;"></div>
+                            <div class="color-info">
+                                <div class="color-code">#1565c0</div>
+                                <div class="color-name">Синий</div>
+                            </div>
+                        </td>
+                        <td>
+                            Цвет текста категорий<br>
+                            Dark Blue / Темный синий
+                        </td>
+                        <td>
+                            • Текст меток категорий<br>
+                            • Важные ссылки<br>
+                            • Второстепенные заголовки
+                        </td>
+                        <td>
+                            <span class="page-badge badge-index">Главная</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="color-swatch" style="background-color: #e9ecef;"></div>
+                            <div class="color-info">
+                                <div class="color-code">#e9ecef</div>
+                                <div class="color-name">Светлый серый</div>
+                            </div>
+                        </td>
+                        <td>
+                            Цвет границ и разделителей<br>
+                            Border Gray / Серый для границ
+                        </td>
+                        <td>
+                            • Границы карточек<br>
+                            • Разделители в меню<br>
+                            • Границы таблиц
+                        </td>
+                        <td>
+                            <span class="page-badge badge-all">Все страницы</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="color-swatch" style="background-color: #ecf0f1;"></div>
+                            <div class="color-info">
+                                <div class="color-code">#ecf0f1</div>
+                                <div class="color-name">Серый</div>
+                            </div>
+                        </td>
+                        <td>
+                            Цвет границы шапки<br>
+                            Header Border Gray / Серый для границ шапки
+                        </td>
+                        <td>
+                            • Нижняя граница шапки сайта<br>
+                            • Разделитель между секциями
+                        </td>
+                        <td>
+                            <span class="page-badge badge-all">Все страницы</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2>Градиенты</h2>
+            <div class="color-preview">
+                <div class="color-card">
+                    <div class="color-card-header" style="background: linear-gradient(to right, #3498db, #99d6ff, #ffffff);">
+                        <div class="color-code" style="color: white;">#3498db → #99d6ff → #fff</div>
+                    </div>
+                    <div class="color-card-body">
+                        <h4>Градиент под заголовками</h4>
+                        <p><strong>Использование:</strong> Декоративная линия под заголовками страниц</p>
+                        <p><strong>Страницы:</strong> Все страницы (кроме главной)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Легенда страниц</h2>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <span class="page-badge badge-index">Главная страница (index.html)</span>
+                <span class="page-badge badge-consumer">Потребителю (consumer.html)</span>
+                <span class="page-badge badge-about">О нас (about.html)</span>
+                <span class="page-badge badge-contacts">Контакты (contacts.html)</span>
+                <span class="page-badge badge-all">Все страницы</span>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Цветовая палитра сайта "Лига защитников потребителей" | Обновлено: 2024</p>
+            <p style="margin-top: 10px; font-size: 12px;">Эта страница предназначена для внутреннего использования и документирования дизайна сайта.</p>
+        </div>
+    </div>
+</body>
+</html>

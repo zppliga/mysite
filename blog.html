@@ -1,0 +1,520 @@
+<!-- blog.html - Страница "Блог" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Статьи | Лига защитников потребителей</title>
+    <meta name="description" content="Полезные статьи и материалы о защите прав потребителей. Юридические консультации, разборы ситуаций, практические рекомендации.">
+    
+    <!-- Подключаем стили -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Подключаем шрифт Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Подключаем Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Контейнер для шапки (загружается через JavaScript) -->
+    <div id="header-container"></div>
+    
+    <!-- Хлебные крошки для навигации -->
+    <nav class="breadcrumbs">
+        <div class="container">
+            <a href="index.html"><i class="fas fa-home"></i> Главная</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Блог</span>
+        </div>
+    </nav>
+
+    <!-- Основной контент страницы -->
+    <main class="main">
+        <!-- Заголовок страницы блога -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Статьи</h1>
+                <p class="page-subtitle">Полезные материалы о защите прав потребителей. Разборы ситуаций, юридические консультации и практические рекомендации.</p>
+                
+                <!-- Статистика блога 
+                <div class="blog-stats">
+                    <span><i class="fas fa-newspaper"></i> Статей: 6</span>
+                    <span><i class="fas fa-folder"></i> Категории: 3</span>
+                    <span><i class="fas fa-calendar-alt"></i> Обновлено: сегодня</span>
+                </div> -->
+            </div>
+        </section>
+
+        <!-- Основная секция с статьями -->
+        <section class="content-section">
+            <div class="container">
+                <!-- Универсальная сетка для статей блога -->
+                <div class="universe-grid">
+                    <!-- Статья 1: По какому адресу направлять претензию ИП? -->
+                    <article class="universe-card blog-card">
+                        <div class="universe-category">Претензия</div>
+                        <div class="universe-header">
+                            <div class="universe-icon">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <h3 class="universe-title">По какому адресу направлять претензию ИП?</h3>
+                        </div>
+                        <div class="universe-text">
+                            <p>Разбираемся, как правильно определить юридический адрес индивидуального предпринимателя для отправки претензии. Узнайте, где найти актуальные реквизиты ИП и как избежать ошибок при составлении документов.</p>
+                        </div>
+                        <!-- Теги статьи -->
+                        <div class="blog-tags">
+                            <span class="blog-tag">ИП</span>
+                            <span class="blog-tag">Претензия</span>
+                            <span class="blog-tag">Адреса</span>
+                        </div>
+                        <!-- Ссылка "Читать" с анимацией -->
+                        <div class="universe-footer">
+                            <a href="article.html?id=1" class="universe-next">
+                                Читать <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Статья 2: Зачем нужна претензия? -->
+                    <article class="universe-card blog-card">
+                        <div class="universe-category">Претензия</div>
+                        <div class="universe-header">
+                            <div class="universe-icon">
+                                <i class="fas fa-file-contract"></i>
+                            </div>
+                            <h3 class="universe-title">Зачем нужна претензия?</h3>
+                        </div>
+                        <div class="universe-text">
+                            <p>Объясняем важность досудебного претензионного порядка и как правильно составить претензию. Узнайте, почему этот этап может сэкономить время и деньги при решении споров с продавцами и исполнителями услуг.</p>
+                        </div>
+                        <!-- Теги статьи -->
+                        <div class="blog-tags">
+                            <span class="blog-tag">Претензия</span>
+                            <span class="blog-tag">Досудебный порядок</span>
+                        </div>
+                        <!-- Ссылка "Читать" с анимацией -->
+                        <div class="universe-footer">
+                            <a href="article.html?id=2" class="universe-next">
+                                Читать <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Статья 3: Продавец не принимает претензию -->
+                    <article class="universe-card blog-card">
+                        <div class="universe-category">Проблемы с продавцами</div>
+                        <div class="universe-header">
+                            <div class="universe-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <h3 class="universe-title">Продавец (исполнитель) не принимает претензию. Что делать?</h3>
+                        </div>
+                        <div class="universe-text">
+                            <p>Что делать, если продавец отказывается принимать вашу претензию? Рассматриваем законные способы вручения документов и дальнейшие действия при уклонении продавца от досудебного урегулирования спора.</p>
+                        </div>
+                        <!-- Теги статьи -->
+                        <div class="blog-tags">
+                            <span class="blog-tag">Претензия</span>
+                            <span class="blog-tag">Судебная практика</span>
+                        </div>
+                        <!-- Ссылка "Читать" с анимацией -->
+                        <div class="universe-footer">
+                            <a href="article.html?id=3" class="universe-next">
+                                Читать <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Статья 4: Как вернуть деньги за некачественный товар -->
+                    <article class="universe-card blog-card">
+                        <div class="universe-category">Возврат товаров</div>
+                        <div class="universe-header">
+                            <div class="universe-icon">
+                                <i class="fas fa-undo-alt"></i>
+                            </div>
+                            <h3 class="universe-title">Как вернуть деньги за некачественный товар? Пошаговая инструкция.</h3>
+                        </div>
+                        <div class="universe-text">
+                            <p>Подробная инструкция по возврату денежных средств за товар ненадлежащего качества. От сбора документов до обращения в суд - все этапы разбираем на конкретных примерах с учетом законодательства.</p>
+                        </div>
+                        <!-- Теги статьи -->
+                        <div class="blog-tags">
+                            <span class="blog-tag">Возврат денег</span>
+                            <span class="blog-tag">Инструкция</span>
+                            <span class="blog-tag">Некачественный товар</span>
+                        </div>
+                        <!-- Ссылка "Читать" с анимацией -->
+                        <div class="universe-footer">
+                            <a href="article.html?id=4" class="universe-next">
+                                Читать <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Статья 5: Заказ отменён, а цены выросли -->
+                    <article class="universe-card blog-card">
+                        <div class="universe-category">Онлайн-покупки</div>
+                        <div class="universe-header">
+                            <div class="universe-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <h3 class="universe-title">Заказ отменён, а цены выросли: как вернуть предоплату и получить компенсацию?</h3>
+                        </div>
+                        <div class="universe-text">
+                            <p>Разбираем ситуацию, когда продавец отменяет заказ после повышения цен. Узнайте, как вернуть предоплату и получить компенсацию за необоснованное обогащение продавца, используя нормы гражданского законодательства.</p>
+                        </div>
+                        <!-- Теги статьи -->
+                        <div class="blog-tags">
+                            <span class="blog-tag">Предоплата</span>
+                            <span class="blog-tag">Компенсация</span>
+                            <span class="blog-tag">Онлайн-торговля</span>
+                        </div>
+                        <!-- Ссылка "Читать" с анимацией -->
+                        <div class="universe-footer">
+                            <a href="article.html?id=5" class="universe-next">
+                                Читать <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Статья 6: Сохраняйте чек после покупки! -->
+                    <article class="universe-card blog-card">
+                        <div class="universe-category">Важные документы</div>
+                        <div class="universe-header">
+                            <div class="universe-icon">
+                                <i class="fas fa-receipt"></i>
+                            </div>
+                            <h3 class="universe-title">Сохраняйте чек после покупки!</h3>
+                        </div>
+                        <div class="universe-text">
+                            <p>Почему сохранение чека критически важно для защиты прав потребителя? Рассматриваем альтернативные способы подтверждения покупки и как организовать хранение документов для быстрого решения возможных споров.</p>
+                        </div>
+                        <!-- Теги статьи -->
+                        <div class="blog-tags">
+                            <span class="blog-tag">Чеки</span>
+                            <span class="blog-tag">Документы</span>
+                            <span class="blog-tag">Доказательства</span>
+                        </div>
+                        <!-- Ссылка "Читать" с анимацией -->
+                        <div class="universe-footer">
+                            <a href="article.html?id=6" class="universe-next">
+                                Читать <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+                
+                <!-- Пагинация для блога -->
+                <div class="blog-pagination">
+                    <span class="pagination-current">Страница 1 из 1</span>
+                    <div class="pagination-links">
+                        <a href="#" class="pagination-link active">1</a>
+                        <!-- <a href="#" class="pagination-link">2</a>
+                        <a href="#" class="pagination-link">3</a> -->
+                        <a href="#" class="pagination-link disabled" aria-disabled="true">
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция с популярными тегами -->
+        <section class="content-section bg-light">
+            <div class="container">
+                <h2 class="section-title">Популярные теги</h2>
+                <p class="section-subtitle">Найдите статьи по интересующей вас теме</p>
+                
+                <!-- Облако тегов -->
+                <div class="tag-cloud">
+                    <a href="#" class="tag-item tag-large">Претензия</a>
+                    <a href="#" class="tag-item tag-medium">Возврат денег</a>
+                    <a href="#" class="tag-item tag-small">ИП</a>
+                    <a href="#" class="tag-item tag-medium">Чеки</a>
+                    <a href="#" class="tag-item tag-small">Адреса</a>
+                    <a href="#" class="tag-item tag-large">Досудебный порядок</a>
+                    <a href="#" class="tag-item tag-small">Отказ</a>
+                    <a href="#" class="tag-item tag-medium">Инструкция</a>
+                    <a href="#" class="tag-item tag-small">Вручение</a>
+                    <a href="#" class="tag-item tag-medium">Некачественный товар</a>
+                    <a href="#" class="tag-item tag-small">Судебная практика</a>
+                    <a href="#" class="tag-item tag-medium">Предоплата</a>
+                    <a href="#" class="tag-item tag-small">Онлайн-торговля</a>
+                    <a href="#" class="tag-item tag-medium">Компенсация</a>
+                    <a href="#" class="tag-item tag-small">Споры</a>
+                    <a href="#" class="tag-item tag-small">Документы</a>
+                    <a href="#" class="tag-item tag-small">Доказательства</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Контейнер для подвала (загружается через JavaScript) -->
+    <div id="footer-container"></div>
+    
+    <!-- Подключение скриптов -->
+    <script src="scr/load-header.js" defer></script>
+    <script src="scr/load-footer.js" defer></script>
+    <script src="scr/script.js" defer></script>
+    
+    <!-- Скрипт для работы блога -->
+    <script>  
+            // Обработка кликов по тегам
+            const tagItems = document.querySelectorAll('.tag-item');
+            tagItems.forEach(tag => {
+                tag.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const tagText = this.textContent;
+                    alert('Фильтрация по тегу: ' + tagText + ' (функционал будет реализован позже)');
+                });
+            });
+        });
+    </script>
+    
+    <!-- Дополнительные стили для страницы блога -->
+    <style>
+        /* Стили для статистики блога */
+        .blog-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(63, 117, 197, 0.1);
+            border-radius: 10px;
+            font-size: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .blog-stats span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-text-primary);
+        }
+        
+        .blog-stats i {
+            color: var(--color-primary);
+        }
+        
+        /* Стили для карточек блога */
+        .blog-card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Стили для тегов статей */
+        .blog-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+            padding-top: 15px;
+            border-top: 1px solid var(--color-border);
+        }
+        
+        .blog-tag {
+            background: var(--color-bg-light);
+            color: var(--color-text-secondary);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all var(--transition-base);
+        }
+        
+        .blog-tag:hover {
+            background: var(--color-primary);
+            color: white;
+            cursor: pointer;
+        }
+        
+        /* Стили для даты статьи */
+        .blog-date {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            color: var(--color-text-muted);
+        }
+        
+        /* Стили для ссылки "Читать" с анимацией стрелки */
+        .universe-next {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-primary);
+            font-weight: 500;
+            text-decoration: none;
+            transition: all var(--transition-base);
+            padding: 5px 0;
+        }
+        
+        .universe-next i {
+            transition: transform var(--transition-base);
+            font-size: 14px;
+        }
+        
+        /* Анимация при наведении на ссылку "Читать" */
+        .universe-next:hover {
+            color: var(--color-primary-dark);
+            gap: 12px; /* Отодвигаем стрелку вправо */
+        }
+        
+        .universe-next:hover i {
+            transform: translateX(3px); /* Дополнительное движение стрелки */
+        }
+        
+        /* Стили для пагинации */
+        .blog-pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            padding: 20px 0;
+            border-top: 1px solid var(--color-border);
+        }
+        
+        .pagination-current {
+            color: var(--color-text-secondary);
+            font-size: 14px;
+        }
+        
+        .pagination-links {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .pagination-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: var(--color-bg-light);
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all var(--transition-base);
+        }
+        
+        .pagination-link.active {
+            background: var(--color-primary);
+            color: white;
+        }
+        
+        .pagination-link:hover:not(.active):not(.disabled) {
+            background: var(--color-primary-light);
+            color: var(--color-primary);
+        }
+        
+        .pagination-link.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        /* Стили для облака тегов */
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        
+        .tag-item {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--color-bg-light);
+            color: var(--color-text-secondary);
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all var(--transition-base);
+        }
+        
+        .tag-item:hover {
+            background: var(--color-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Разные размеры тегов */
+        .tag-small {
+            font-size: 13px;
+            padding: 6px 12px;
+        }
+        
+        .tag-medium {
+            font-size: 15px;
+            padding: 8px 16px;
+        }
+        
+        .tag-large {
+            font-size: 17px;
+            padding: 10px 20px;
+        }
+        
+        /* Адаптивность для мобильных */
+        @media (max-width: 768px) {
+            .blog-stats {
+                gap: 15px;
+                font-size: 14px;
+                padding: 12px;
+            }
+            
+            .blog-pagination {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .tag-cloud {
+                gap: 8px;
+            }
+            
+            .tag-item {
+                font-size: 13px;
+                padding: 6px 12px;
+            }
+            
+            .universe-next {
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .blog-tags {
+                gap: 5px;
+            }
+            
+            .blog-tag {
+                font-size: 11px;
+                padding: 3px 8px;
+            }
+            
+            .blog-date {
+                font-size: 13px;
+            }
+            
+            .tag-cloud {
+                justify-content: flex-start;
+            }
+            
+            .universe-next {
+                font-size: 13px;
+            }
+            
+            .universe-next:hover {
+                gap: 10px; /* Меньший отступ для мобильных */
+            }
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Библиотека шаблонов | Лига защитников потребителей</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ==================================================
+           СТИЛИ САМОЙ БИБЛИОТЕКИ (не вставлять на сайт)
+        ================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .library-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 30px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            border-left: 6px solid #2c5aa0;
+        }
+        
+        .library-header h1 {
+            color: #2c5aa0;
+            font-size: 42px;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+        
+        .library-header p {
+            color: #64748b;
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .copy-notice {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 15px;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+        
+        /* Навигация по компонентам */
+        .components-nav {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            z-index: 100;
+        }
+        
+        .components-nav h3 {
+            color: #2c5aa0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+            font-size: 22px;
+        }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px;
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            background: #f8fafc;
+            border-radius: 8px;
+            color: #475569;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .nav-link:hover {
+            background: #2c5aa0;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(44, 90, 160, 0.2);
+        }
+        
+        .nav-link i {
+            font-size: 14px;
+        }
+        
+        /* Карточка компонента */
+        .component-card {
+            background: white;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.07);
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .component-header {
+            background: linear-gradient(to bottom right, #aaccff, #317aef);
+            color: white;
+            padding: 10px 30px;
+        }
+        
+        .component-header h2 {
+            font-size: 28px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .component-header p {
+            color: rgba(255,255,255,0.9);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        .component-body {
+            padding: 30px;
+        }
+        
+        .preview-area {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid #e2e8f0;
+            min-height: 200px;
+        }
+        
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .code-header h4 {
+            color: #334155;
+            font-size: 18px;
+        }
+        
+        .copy-btn {
+            background: #2c5aa0;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+        
+        .copy-btn:hover {
+            background: #1e3d6f;
+            transform: translateY(-1px);
+        }
+        
+        .copy-btn.copied {
+            background: #10b981;
+        }
+        
+        pre {
+            background: #000000;
+            color: #2aff00;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .usage-tips {
+            background: #f0f9ff;
+            border-left: 4px solid #2c5aa0;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 25px;
+        }
+        
+        .usage-tips h4 {
+            color: #2c5aa0;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #e2e8f0;
+            color: #64748b;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .component-header h2 {
+                font-size: 24px;
+            }
+            
+            .preview-area, .component-body {
+                padding: 20px;
+            }
+        }
+        
+        /* ==================================================
+           СТИЛИ КОМПОНЕНТОВ (эти уже в style.css сайта)
+           Для корректного отображения в библиотеке
+        ================================================== */
+        
+        /* Контейнеры и сетки */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .bg-light {
+            background-color: #f8fafc;
+        }
+        
+        /* Карточки */
+        .article-card, .full-width-card, .step, .faq-item {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .article-card:hover, .full-width-card:hover, 
+        .step:hover, .faq-item:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transform: translateY(-4px);
+            border-color: rgba(44, 90, 160, 0.3);
+        }
+        
+        /* Кнопки */
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #2c5aa0;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .button:hover {
+            background-color: #1e3d6f;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(44, 90, 160, 0.15);
+            color: white;
+        }
+        
+        .button-outline {
+            background-color: transparent;
+            color: #2c5aa0;
+            border: 2px solid #2c5aa0;
+        }
+        
+        .button-outline:hover {
+            background-color: #2c5aa0;
+            color: white;
+            border-color: #2c5aa0;
+        }
+        
+        .button-small {
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+        
+        /* Типографика */
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            color: #1e293b;
+        }
+        
+        h1 { font-size: 36px; }
+        h2 { font-size: 28px; margin-top: 20px; }
+        h3 { font-size: 22px; }
+        h4 { font-size: 18px; }
+        
+        p {
+            margin-bottom: 16px;
+            color: #64748b;
+        }
+        
+        a {
+            color: #2c5aa0;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        a:hover {
+            color: #1e3d6f;
+        }
+        
+        /* Списки */
+        .article-features {
+            list-style: none;
+            padding: 0;
+            margin: 16px 0;
+        }
+        
+        .article-features li {
+            margin: 8px 0;
+            padding-left: 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: #64748b;
+            line-height: 1.5;
+        }
+        
+        .article-features i {
+            color: #10b981;
+            font-size: 14px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        
+        /* Сетки */
+        .articles-grid, .info-steps, .faq-grid {
+            display: grid;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .articles-grid {
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        }
+        
+        .info-steps {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+        
+        .faq-grid {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        /* Дополнительные стили для библиотеки */
+        .quote-block {
+            background: linear-gradient(135deg, rgba(44, 90, 160, 0.05), rgba(255,255,255,0.8));
+            border-left: 4px solid #2c5aa0;
+            padding: 25px;
+            border-radius: 0 12px 12px 0;
+            margin: 30px 0;
+        }
+        
+        .quote-text {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #1e293b;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .quote-author {
+            color: #64748b;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .quote-author::before {
+            content: "—";
+            color: #94a3b8;
+        }
+        
+        .info-box {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        
+        .info-box.warning {
+            background: #fef2f2;
+            border-color: #fecaca;
+        }
+        
+        .info-box.success {
+            background: #f0fdf4;
+            border-color: #bbf7d0;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-color: #2c5aa0;
+        }
+        
+        .stat-number {
+            font-size: 42px;
+            font-weight: 800;
+            color: #2c5aa0;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            color: #64748b;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #2c5aa0;
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 20px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -34px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: #2c5aa0;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px rgba(44, 90, 160, 0.2);
+        }
+        
+        .timeline-date {
+            color: #2c5aa0;
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="library-header">
+            <h1>📚 Библиотека шаблонов</h1>
+            <p>Лига защитников потребителей | Готовые блоки для копирования на страницы сайта</p>
+            <div class="copy-notice">
+                <i class="fas fa-copy"></i> Копируй разметку → Вставляй на страницу → Получай готовый блок
+            </div>
+        </div>
+        
+        <div class="components-nav">
+            <h3><i class="fas fa-bookmark"></i> Быстрый переход к компонентам</h3>
+            <div class="nav-grid">
+                <a href="#text-block" class="nav-link">
+                    <i class="fas fa-align-left"></i> Текстовый блок
+                </a>
+                <a href="#columns-2" class="nav-link">
+                    <i class="fas fa-columns"></i> 2 в ряд
+                </a>
+                <a href="#columns-3" class="nav-link">
+                    <i class="fas fa-grip"></i> 3 в ряд
+                </a>
+                <a href="#with-icons" class="nav-link">
+                    <i class="fas fa-icons"></i> С иконками
+                </a>
+                <a href="#quote" class="nav-link">
+                    <i class="fas fa-quote-right"></i> Цитата
+                </a>
+                <a href="#info-box" class="nav-link">
+                    <i class="fas fa-info-circle"></i> Инфо-блок
+                </a>
+                <a href="#stats" class="nav-link">
+                    <i class="fas fa-chart-bar"></i> Статистика
+                </a>
+                <a href="#timeline" class="nav-link">
+                    <i class="fas fa-stream"></i> Таймлайн
+                </a>
+                <a href="#faq" class="nav-link">
+                    <i class="fas fa-question-circle"></i> FAQ
+                </a>
+                <a href="#steps" class="nav-link">
+                    <i class="fas fa-footsteps"></i> Шаги
+                </a>
+                <a href="#call-to-action" class="nav-link">
+                    <i class="fas fa-bullhorn"></i> Призыв к действию
+                </a>
+                <a href="#legal-text" class="nav-link">
+                    <i class="fas fa-gavel"></i> Юридический текст
+                </a>
+            </div>
+        </div>
+        
+        <!-- КОМПОНЕНТ 1: Единый текстовой блок -->
+        <div class="component-card" id="text-block">
+            <div class="component-header">
+                <h2><i class="fas fa-align-left"></i> Единый текстовой блок</h2>
+                <p>Стандартный блок текста с заголовком и подзаголовком. Используйте для вводного текста разделов.</p>
+            </div>
+            <div class="component-body">
+                <div class="preview-area">
+                    <h2>Защита прав потребителей: основные принципы</h2>
+                    <p class="page-subtitle">Краткое руководство по основным правам потребителей и способам их защиты</p>
+                    
+                    <p>Защита прав потребителей — это комплекс мер, направленных на обеспечение безопасности, 
+                    качества товаров и услуг, а также на предоставление потребителям достоверной информации. 
+                    Основные принципы защиты прав потребителей закреплены в законодательстве РФ и международных актах.</p>
+                    
+                    <p>Потребитель имеет право на безопасность товаров и услуг, на информацию об изготовителе 
+                    и товарах, на качество товаров, на возмещение убытков и компенсацию морального вреда.</p>
+                </div>
+                
+                <div class="code-header">
+                    <h4><i class="fas fa-code"></i> HTML разметка</h4>
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="fas fa-copy"></i> Копировать код
+                    </button>
+                </div>
+                
+                <pre><code>&lt;div class="container"&gt;
+    &lt;h2&gt;Защита прав потребителей: основные принципы&lt;/h2&gt;
+    &lt;p class="page-subtitle"&gt;Краткое руководство по основным правам потребителей и способам их защиты&lt;/p&gt;
+    
+    &lt;p&gt;Защита прав потребителей — это комплекс мер, направленных на обеспечение безопасности, 
+    качества товаров и услуг, а также на предоставление потребителям достоверной информации. 
+    Основные принципы защиты прав потребителей закреплены в законодательстве РФ и международных актах.&lt;/p&gt;
+    
+    &lt;p&gt;Потребитель имеет право на безопасность товаров и услуг, на информацию об изготовителе 
+    и товарах, на качество товаров, на возмещение убытков и компенсацию морального вреда.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                
+                <div class="usage-tips">
+                    <h4><i class="fas fa-lightbulb"></i> Использование</h4>
+                    <p>Идеально подходит для вводных разделов страниц, описаний услуг, пояснительных текстов.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- КОМПОНЕНТ 2: 2 карточки в один ряд -->
+        <div class="component-card" id="columns-2">
+            <div class="component-header">
+                <h2><i class="fas fa-columns"></i> 2 карточки в один ряд</h2>
+                <p>Сетка из двух равных карточек. Подходит для сравнения, парных элементов, "за/против".</p>
+            </div>
+            <div class="component-body">
+                <div class="preview-area">
+                    <div class="articles-grid" style="grid-template-columns: repeat(2, 1fr);">
+                        <!-- Карточка 1 -->
+                        <article class="article-card">
+                            <div class="article-category">Ваши права</div>
+                            <h3 class="article-title">Возврат товара</h3>
+                            <div class="article-text">
+                                <p>Вы имеете право вернуть товар в течение 14 дней без объяснения причин, если он не подошёл по форме, габаритам, фасону, расцветке, размеру или комплектации.</p>
+                                <ul class="article-features">
+                                    <li><i class="fas fa-check-circle"></i> Товар должен быть новым</li>
+                                    <li><i class="fas fa-check-circle"></i> Сохранён товарный вид</li>
+                                    <li><i class="fas fa-check-circle"></i> Приложен чек или доказательства покупки</li>
+                                </ul>
+                            </div>
+                            <div class="article-action">
+                                <a href="#" class="button button-small">Подробнее</a>
+                            </div>
+                        </article>
+                        
+                        <!-- Карточка 2 -->
+                        <article class="article-card">
+                            <div class="article-category">Обязанности продавца</div>
+                            <h3 class="article-title">Гарантийный ремонт</h3>
+                            <div class="article-text">
+                                <p>Продавец обязан устранить недостатки товара в течение 45 дней с момента предъявления требования. На время ремонта должен быть предоставлен аналогичный товар.</p>
+                                <ul class="article-features">
+                                    <li><i class="fas fa-check-circle"></i> Бесплатный ремонт</li>
+                                    <li><i class="fas fa-check-circle"></i> Срок не более 45 дней</li>
+                                    <li><i class="fas fa-check-circle"></i> Аналогичный товар на время ремонта</li>
+                                </ul>
+                            </div>
+                            <div class="article-action">
+                                <a href="#" class="button button-small">Подробнее</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                
+                <div class="code-header">
+                    <h4><i class="fas fa-code"></i> HTML разметка</h4>
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="fas fa-copy"></i> Копировать код
+                    </button>
+                </div>
+                
+                <pre><code>&lt;div class="articles-grid" style="grid-template-columns: repeat(2, 1fr);"&gt;
+    &lt;!-- Карточка 1 --&gt;
+    &lt;article class="article-card"&gt;
+        &lt;div class="article-category"&gt;Ваши права&lt;/div&gt;
+        &lt;h3 class="article-title"&gt;Возврат товара&lt;/h3&gt;
+        &lt;div class="article-text"&gt;
+            &lt;p&gt;Вы имеете право вернуть товар в течение 14 дней без объяснения причин, если он не подошёл по форме, габаритам, фасону, расцветке, размеру или комплектации.&lt;/p&gt;
+            &lt;ul class="article-features"&gt;
+                &lt;li&gt;&lt;i class="fas fa-check-circle"&gt;&lt;/i&gt; Товар должен быть новым&lt;/li&gt;
+                &lt;li&gt;&lt;i class="fas fa-check-circle"&gt;&lt;/i&gt; Сохранён товарный вид&lt;/li&gt;
+                &lt;li&gt;&lt;i class="fas fa-check-circle"&gt;&lt;/i&gt; Приложен чек или доказательства покупки&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div class="article-action"&gt;
+            &lt;a href="#" class="button button-small"&gt;Подробнее&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/article&gt;
+    
+    &lt;!-- Карточка 2 --&gt;
+    &lt;article class="article-card"&gt;
+        &lt;div class="article-category"&gt;Обязанности продавца&lt;/div&gt;
+        &lt;h3 class="article-title"&gt;Гарантийный ремонт&lt;/h3&gt;
+        &lt;div class="article-text"&gt;
+            &lt;p&gt;Продавец обязан устранить недостатки товара в течение 45 дней с момента предъявления требования. На время ремонта должен быть предоставлен аналогичный товар.&lt;/p&gt;
+            &lt;ul class="article-features"&gt;
+                &lt;li&gt;&lt;i class="fas fa-check-circle"&gt;&lt;/i&gt; Бесплатный ремонт&lt;/li&gt;
+                &lt;li&gt;&lt;i class="fas fa-check-circle"&gt;&lt;/i&gt; Срок не более 45 дней&lt;/li&gt;
+                &lt;li&gt;&lt;i class="fas fa-check-circle"&gt;&lt;/i&gt; Аналогичный товар на время ремонта&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div class="article-action"&gt;
+            &lt;a href="#" class="button button-small"&gt;Подробнее&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/article&gt;
+&lt;/div&gt;</code></pre>
+                
+                <div class="usage-tips">
+                    <h4><i class="fas fa-lightbulb"></i> Использование</h4>
+                    <p>Отлично подходит для сравнения двух вариантов, "плюсов и минусов", парных услуг или продуктов.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- КОМПОНЕНТ 3: 3 карточки в один ряд -->
+        <div class="component-card" id="columns-3">
+            <div class="component-header">
+                <h2><i class="fas fa-grip"></i> 3 карточки в один ряд</h2>
+                <p>Сетка из трёх равных карточек. Идеально для списка услуг, этапов работы, преимуществ.</p>
+            </div>
+            <div class="component-body">
+                <div class="preview-area">
+                    <div class="articles-grid">
+                        <!-- Карточка 1 -->
+                        <article class="article-card">
+                            <div class="article-category">Первый шаг</div>
+                            <h3 class="article-title">Консультация</h3>
+                            <div class="article-text">
+                                <p>Бесплатная первичная консультация по вашей ситуации. Анализируем документы, определяем перспективы.</p>
+                            </div>
+                            <div class="article-footer">
+                                <span class="article-date">1-2 дня</span>
+                                <span class="read-time">Бесплатно</span>
+                            </div>
+                        </article>
+                        
+                        <!-- Карточка 2 -->
+                        <article class="article-card">
+                            <div class="article-category">Второй шаг</div>
+                            <h3 class="article-title">Подготовка документов</h3>
+                            <div class="article-text">
+                                <p>Составляем претензии, исковые заявления, жалобы. Помогаем собрать необходимые доказательства.</p>
+                            </div>
+                            <div class="article-footer">
+                                <span class="article-date">3-5 дней</span>
+                                <span class="read-time">от 3 000 ₽</span>
+                            </div>
+                        </article>
+                        
+                        <!-- Карточка 3 -->
+                        <article class="article-card">
+                            <div class="article-category">Третий шаг</div>
+                            <h3 class="article-title">Судебное представительство</h3>
+                            <div class="article-text">
+                                <p>Полное сопровождение в суде: от подачи иска до получения решения и исполнительного листа.</p>
+                            </div>
+                            <div class="article-footer">
+                                <span class="article-date">1-3 месяца</span>
+                                <span class="read-time">от 15 000 ₽</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                
+                <div class="code-header">
+                    <h4><i class="fas fa-code"></i> HTML разметка</h4>
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="fas fa-copy"></i> Копировать код
+                    </button>
+                </div>
+                
+                <pre><code>&lt;div class="articles-grid"&gt;
+    &lt;!-- Карточка 1 --&gt;
+    &lt;article class="article-card"&gt;
+        &lt;div class="article-category"&gt;Первый шаг&lt;/div&gt;
+        &lt;h3 class="article-title"&gt;Консультация&lt;/h3&gt;
+        &lt;div class="article-text"&gt;
+            &lt;p&gt;Бесплатная первичная консультация по вашей ситуации. Анализируем документы, определяем перспективы.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="article-footer"&gt;
+            &lt;span class="article-date"&gt;1-2 дня&lt;/span&gt;
+            &lt;span class="read-time"&gt;Бесплатно&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/article&gt;
+    
+    &lt;!-- Карточка 2 --&gt;
+    &lt;article class="article-card"&gt;
+        &lt;div class="article-category"&gt;Второй шаг&lt;/div&gt;
+        &lt;h3 class="article-title"&gt;Подготовка документов&lt;/h3&gt;
+        &lt;div class="article-text"&gt;
+            &lt;p&gt;Составляем претензии, исковые заявления, жалобы. Помогаем собрать необходимые доказательства.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="article-footer"&gt;
+            &lt;span class="article-date"&gt;3-5 дней&lt;/span&gt;
+            &lt;span class="read-time"&gt;от 3 000 ₽&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/article&gt;
+    
+    &lt;!-- Карточка 3 --&gt;
+    &lt;article class="article-card"&gt;
+        &lt;div class="article-category"&gt;Третий шаг&lt;/div&gt;
+        &lt;h3 class="article-title"&gt;Судебное представительство&lt;/h3&gt;
+        &lt;div class="article-text"&gt;
+            &lt;p&gt;Полное сопровождение в суде: от подачи иска до получения решения и исполнительного листа.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="article-footer"&gt;
+            &lt;span class="article-date"&gt;1-3 месяца&lt;/span&gt;
+            &lt;span class="read-time"&gt;от 15 000 ₽&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/article&gt;
+&lt;/div&gt;</code></pre>
+                
+                <div class="usage-tips">
+                    <h4><i class="fas fa-lightbulb"></i> Использование</h4>
+                    <p>Списки услуг, этапы процесса, преимущества компании, категории товаров/услуг.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- КОМПОНЕНТ 4: Блок с иконками -->
+        <div class="component-card" id="with-icons">
+            <div class="component-header">
+                <h2><i class="fas fa-icons"></i> Блок с иконками</h2>
+                <p>Список преимуществ или особенностей с иконками. Визуально привлекательный и информативный.</p>
+            </div>
+            <div class="component-body">
+                <div class="preview-area">
+                    <h3>Почему выбирают нас</h3>
+                    <p class="page-subtitle">Профессиональный подход к защите ваших прав</p>
+                    
+                    <div class="articles-grid" style="grid-template-columns: repeat(2, 1fr);">
+                        <article class="article-card">
+                            <div style="font-size: 40px; color: #2c5aa0; margin-bottom: 15px;">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h4>Опытные юристы</h4>
+                            <p>В нашей команде только практикующие юристы с опытом работы от 10 лет в сфере защиты прав потребителей.</p>
+                        </article>
+                        
+                        <article class="article-card">
+                            <div style="font-size: 40px; color: #2c5aa0; margin-bottom: 15px;">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h4>Выигранные дела</h4>
+                            <p>Более 500 успешно завершённых дел по защите прав потребителей в 2023-2024 годах.</p>
+                        </article>
+                        
+                        <article class="article-card">
+                            <div style="font-size: 40px; color: #2c5aa0; margin-bottom: 15px;">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h4>Честные условия</h4>
+                            <p>Прозрачное ценообразование, оплата только за результат. Первая консультация бесплатно.</p>
+                        </article>
+                        
+                        <article class="article-card">
+                            <div style="font-size: 40px; color: #2c5aa0; margin-bottom: 15px;">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h4>Экономия времени</h4>
+                            <p>Ведём дело от первой консультации до получения денег. Вы занимаетесь своими делами.</p>
+                        </article>
+                    </div>
+                </div>
+                
+                <div class="code-header">
+                    <h4><i class="fas fa-code"></i> HTML разметка</h4>
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="fas fa-copy"></i> Копировать код
+                    </button>
+                </div>
+                
+                <pre><code>&lt;h3&gt;Почему выбирают нас&lt;/h3&gt;
+&lt;p class="page-subtitle"&gt;Профессиональный подход к защите ваших прав&lt;/p&gt;
+
+&lt;div class="articles-grid" style="grid-template-columns: repeat(2, 1fr);"&gt;
+    &lt;article class="article-card"&gt;
+        &lt;div style="font-size: 40px; color: #2c5aa0; margin-bottom: 15px;"&gt;
+            &lt;i class="fas fa-user-tie"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;h4&gt;Опытные юристы&lt;/h4&gt;
+        &lt;p&gt;В нашей команде только практикующие юристы с опытом работы от 10 лет в сфере защиты прав потребителей.&lt;/p&gt;
+    &lt;/article&gt;
+    
+    &lt;article class="article-card"&gt;
+        &lt;div style="font-size: 40px; color: #2c5aa0; margin-bottom: 15px;"&gt;
+            &lt;i class="fas fa-balance-scale"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;h4&gt;Выигранные дела&lt;/h4&gt;
+        &lt;p&gt;Более 500 успешно завершённых дел по защите прав потребителей в 2023-2024 годах.&lt;/p&gt;
+    &lt;/article&gt;
+    
+    &lt;article class="article-card"&gt;
+        &lt;div style="font-size: 40px; color: #2c5aa0; margin-bottom: 15px;"&gt;
+            &lt;i class="fas fa-handshake"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;h4&gt;Честные условия&lt;/h4&gt;
+        &lt;p&gt;Прозрачное ценообразование, оплата только за результат. Первая консультация бесплатно.&lt;/p&gt;
+    &lt;/article&gt;
+    
+    &lt;article class="article-card"&gt;
+        &lt;div style="font-size: 40px; color: #2c5aa0; margin-bottom: 15px;"&gt;
+            &lt;i class="fas fa-clock"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;h4&gt;Экономия времени&lt;/h4&gt;
+        &lt;p&gt;Ведём дело от первой консультации до получения денег. Вы занимаетесь своими делами.&lt;/p&gt;
+    &lt;/article&gt;
+&lt;/div&gt;</code></pre>
+                
+                <div class="usage-tips">
+                    <h4><i class="fas fa-lightbulb"></i> Использование</h4>
+                    <p>Список преимуществ компании, ключевые компетенции, "почему мы", особенности услуг.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- КОМПОНЕНТ 5: Цитата -->
+        <div class="component-card" id="quote">
+            <div class="component-header">
+                <h2><i class="fas fa-quote-right"></i> Цитата</h2>
+                <p>Выделенная цитата для важных мыслей, высказываний экспертов, ключевых тезисов.</p>
+            </div>
+            <div class="component-body">
+                <div class="preview-area">
+                    <div class="quote-block">
+                        <div class="quote-text">
+                            "Знание закона и умение отстоять свои права — это не привилегия, а необходимость в современном мире. Каждый потребитель должен понимать, что закон на его стороне."
+                        </div>
+                        <div class="quote-author">
+                            Александр Сергеевич Филин, Председатель Лиги защитников потребителей
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="code-header">
+                    <h4><i class="fas fa-code"></i> HTML разметка</h4>
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="fas fa-copy"></i> Копировать код
+                    </button>
+                </div>
+                
+                <pre><code>&lt;div class="quote-block"&gt;
+    &lt;div class="quote-text"&gt;
+        "Знание закона и умение отстоять свои права — это не привилегия, а необходимость в современном мире. Каждый потребитель должен понимать, что закон на его стороне."
+    &lt;/div&gt;
+    &lt;div class="quote-author"&gt;
+        Александр Сергеевич Филин, Председатель Лиги защитников потребителей
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                
+                <div class="usage-tips">
+                    <h4><i class="fas fa-lightbulb"></i> Использование</h4>
+                    <p>Ключевые цитаты на странице "О нас", важные высказывания в статьях, цитаты экспертов.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- КОМПОНЕНТ 6: Инфо-блок -->
+        <div class="component-card" id="info-box">
+            <div class="component-header">
+                <h2><i class="fas fa-info-circle"></i> Инфо-блок</h2>
+                <p>Выделенные блоки для важной информации, предупреждений, подсказок, рекомендаций.</p>
+            </div>
+            <div class="component-body">
+                <div class="preview-area">
+                    <!-- Обычный инфо-блок -->
+                    <div class="info-box">
+                        <h4><i class="fas fa-info-circle"></i> Важная информация</h4>
+                        <p>Срок предъявления претензии по недостаткам товара составляет 2 года с момента передачи товара потребителю, если более длительные сроки не установлены законом или договором.</p>
+                    </div>
+                    
+                    <!-- Предупреждение -->
+                    <div class="info-box warning">
+                        <h4><i class="fas fa-exclamation-triangle"></i> Внимание!</h4>
+                        <p>Технически сложные товары можно вернуть только при обнаружении существенного недостатка. К таким товарам относятся смартфоны, ноутбуки, телевизоры и другая бытовая техника.</p>
+                    </div>
+                    
+                    <!-- Успех -->
+                    <div class="info-box success">
+                        <h4><i class="fas fa-check-circle"></i> Полезный совет</h4>
+                        <p>Сохраняйте все документы: чеки, гарантийные талоны, договоры. Они понадобятся при обращении в суд или Роспотребнадзор.</p>
+                    </div>
+                </div>
+                
+                <div class="code-header">
+                    <h4><i class="fas fa-code"></i> HTML разметка</h4>
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="fas fa-copy"></i> Копировать код
+                    </button>
+                </div>
+                
+                <pre><code>&lt;!-- Обычный инфо-блок --&gt;
+&lt;div class="info-box"&gt;
+    &lt;h4&gt;&lt;i class="fas fa-info-circle"&gt;&lt;/i&gt; Важная информация&lt;/h4&gt;
+    &lt;p&gt;Срок предъявления претензии по недостаткам товара составляет 2 года с момента передачи товара потребителю, если более длительные сроки не установлены законом или договором.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Предупреждение --&gt;
+&lt;div class="info-box warning"&gt;
+    &lt;h4&gt;&lt;i class="fas fa-exclamation-triangle"&gt;&lt;/i&gt; Внимание!&lt;/h4&gt;
+    &lt;p&gt;Технически сложные товары можно вернуть только при обнаружении существенного недостатка. К таким товарам относятся смартфоны, ноутбуки, телевизоры и другая бытовая техника.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Успех --&gt;
+&lt;div class="info-box success"&gt;
+    &lt;h4&gt;&lt;i class="fas fa-check-circle"&gt;&lt;/i&gt; Полезный совет&lt;/h4&gt;
+    &lt;p&gt;Сохраняйте все документы: чеки, гарантийные талоны, договоры. Они понадобятся при обращении в суд или Роспотребнадзор.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                
+                <div class="usage-tips">
+                    <h4><i class="fas fa-lightbulb"></i> Использование</h4>
+                    <p>Важные заметки в статьях, предупреждения, советы, пояснения к сложным юридическим терминам.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- КОМПОНЕНТ 7: Статистика -->
+        <div class="component-card" id="stats">
+            <div class="component-header">
+                <h2><i class="fas fa-chart-bar"></i> Блок статистики</h2>
+                <p>Визуальное представление цифр и достижений. Увеличивает доверие и демонстрирует опыт.</p>
+            </div>
+            <div class="component-body">
+                <div class="preview-area">
+                    <h3 class="text-center">Наши достижения в цифрах</h3>
+                    <p class="page-subtitle text-center">Результаты работы за 2023-2024 годы</p>
+                    
+                    <div class="stat-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Выигранных дел</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-number">28</div>
+                            <div class="stat-label">Лет опыта</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-number">15</div>
+                            <div class="stat-label">Профессиональных юристов</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-number">95%</div>
+                            <div class="stat-label">Успешных дел</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="code-header">
+                    <h4><i class="fas fa-code"></i> HTML разметка</h4>
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="fas fa-copy"></i> Копировать код
+                    </button>
+                </div>
+                
+                <pre><code>&lt;h3 class="text-center"&gt;Наши достижения в цифрах&lt;/h3&gt;
+&lt;p class="page-subtitle text-center"&gt;Результаты работы за 2023-2024 годы&lt;/p&gt;
+
+&lt;div class="stat-grid"&gt;
+    &lt;div class="stat-item"&gt;
+        &lt;div class="stat-number"&gt;500+&lt;/div&gt;
+        &lt;div class="stat-label"&gt;Выигранных дел&lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="stat-item"&gt;
+        &lt;div class="stat-number"&gt;28&lt;/div&gt;
+        &lt;div class="stat-label"&gt;Лет опыта&lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="stat-item"&gt;
+        &lt;div class="stat-number"&gt;15&lt;/div&gt;
+        &lt;div class="stat-label"&gt;Профессиональных юристов&lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="stat-item"&gt;
+        &lt;div class="stat-number"&gt;95%&lt;/div&gt;
+        &lt;div class="stat-label"&gt;Успешных дел&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                
+                <div class="usage-tips">
+                    <h4><i class="fas fa-lightbulb"></i> Использование</h4>
+                    <p>Страница "О нас", главная страница, раздел "Почему мы" — везде, где нужно показать достижения.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- КОМПОНЕНТ 8: Таймлайн -->
+        <div class="component-card" id="timeline">
+            <div class="component-header">
+                <h2><i class="fas fa-stream"></i> Таймлайн (хронология)</h2>
+                <p>Визуальное представление процесса, этапов работы, хронологии событий.</p>
+            </div>
+            <div class="component-body">
+                <div class="preview-area">
+                    <h3>Процесс защиты ваших прав</h3>
+                    <p class="page-subtitle">Пошаговая инструкция от обращения до решения</p>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">День 1-2</div>
+                            <div class="timeline-content">
+                                <h4>Консультация и анализ</h4>
+                                <p>Изучаем вашу ситуацию, документы, определяем правовую позицию и перспективы дела.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">День 3-5</div>
+                            <div class="timeline-content">
+                                <h4>Подготовка претензии</h4>
+                                <p>Составляем юридически грамотную претензию, собираем необходимые доказательства.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">День 6-20</div>
+                            <div class="timeline-content">
+                                <h4>Досудебное урегулирование</h4>
+                                <p>Направляем претензию продавцу/исполнителю, ведём переговоры, контролируем сроки ответа.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">День 21-90</div>
+                            <div class="timeline-content">
+                                <h4>Судебный процесс</h4>
+                                <p>При необходимости подаём иск в суд, представляем ваши интересы на всех заседаниях.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="code-header">
+                    <h4><i class="fas fa-code"></i> HTML разметка</h4>
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="fas fa-copy"></i> Копировать код
+                    </button>
+                </div>
+                
+                <pre><code>&lt;h3&gt;Процесс защиты ваших прав&lt;/h3&gt;
+&lt;p class="page-subtitle"&gt;Пошаговая инструкция от обращения до решения&lt;/p&gt;
+
+&lt;div class="timeline"&gt;
+    &lt;div class="timeline-item"&gt;
+        &lt;div class="timeline-date"&gt;День 1-2&lt;/div&gt;
+        &lt;div class="timeline-content"&gt;
+            &lt;h4&gt;Консультация и анализ&lt;/h4&gt;
+            &lt;p&gt;Изучаем вашу ситуацию, документы, определяем правовую позицию и перспективы дела.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="timeline-item"&gt;
+        &lt;div class="timeline-date"&gt;День 3-5&lt;/div&gt;
+        &lt;div class="timeline-content"&gt;
+            &lt;h4&gt;Подготовка претензии&lt;/h4&gt;
+            &lt;p&gt;Составляем юридически грамотную претензию, собираем необходимые доказательства.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="timeline-item"&gt;
+        &lt;div class="timeline-date"&gt;День 6-20&lt;/div&gt;
+        &lt;div class="timeline-content"&gt;
+            &lt;h4&gt;Досудебное урегулирование&lt;/h4&gt;
+            &lt;p&gt;Направляем претензию продавцу/исполнителю, ведём переговоры, контролируем сроки ответа.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="timeline-item"&gt;
+        &lt;div class="timeline-date"&gt;День 21-90&lt;/div&gt;
+        &lt;div class="timeline-content"&gt;
+            &lt;h4&gt;Судебный процесс&lt;/h4&gt;
+            &lt;p&gt;При необходимости подаём иск в суд, представляем ваши интересы на всех заседаниях.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                
+                <div class="usage-tips">
+                    <h4><i class="fas fa-lightbulb"></i> Использование</h4>
+                    <p>Этапы работы компании, процесс оказания услуги, хронология событий дела, история компании.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- КОМПОНЕНТ 9: FAQ (Частые вопросы) -->
+        <div class="component-card" id="faq">
+            <div class="component-header">
+                <h2><i class="fas fa-question-circle"></i> FAQ (Частые вопросы)</h2>
+                <p>Структурированный список вопросов и ответов. Уменьшает количество обращений в поддержку.</p>
+            </div>
+            <div class="component-body">
+                <div class="preview-area">
+                    <h3>Часто задаваемые вопросы</h3>
+                    <p class="page-subtitle">Ответы на популярные вопросы о защите прав потребителей</p>
+                    
+                    <div class="faq-grid">
+                        <div class="faq-item">
+                            <h3><i class="fas fa-question-circle"></i> Как вернуть некачественный товар?</h3>
+                            <p>Составьте претензию в двух экземплярах, приложите чек и паспорт. Продавец обязан принять товар и вернуть деньги в течение 10 дней.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3><i class="fas fa-question-circle"></i> Что делать, если продавец не отвечает на претензию?</h3>
+                            <p>Обращайтесь в суд или Роспотребнадзор. Срок ответа на претензию — 10 дней по закону "О защите прав потребителей".</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3><i class="fas fa-question-circle"></i> Какие документы нужны для обращения в суд?</h3>
+                            <p>Исковое заявление, копия претензии, документы на товар, чек, расчёт требований, квитанция об оплате госпошлины.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3><i class="fas fa-question-circle"></i> Можно ли вернуть товар без чека?</h3>
+                            <p>Да, можно. Подойдут другие доказательства покупки: гарантийный талон, выписка с карты, показания свидетелей.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="code-header">
+                    <h4><i class="fas fa-code"></i> HTML разметка</h4>
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="fas fa-copy"></i> Копировать код
+                    </button>
+                </div>
+                
+                <pre><code>&lt;h3&gt;Часто задаваемые вопросы&lt;/h3&gt;
+&lt;p class="page-subtitle"&gt;Ответы на популярные вопросы о защите прав потребителей&lt;/p&gt;
+
+&lt;div class="faq-grid"&gt;
+    &lt;div class="faq-item"&gt;
+        &lt;h3&gt;&lt;i class="fas fa-question-circle"&gt;&lt;/i&gt; Как вернуть некачественный товар?&lt;/h3&gt;
+        &lt;p&gt;Составьте претензию в двух экземплярах, приложите чек и паспорт. Продавец обязан принять товар и вернуть деньги в течение 10 дней.&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="faq-item"&gt;
+        &lt;h3&gt;&lt;i class="fas fa-question-circle"&gt;&lt;/i&gt; Что делать, если продавец не отвечает на претензию?&lt;/h3&gt;
+        &lt;p&gt;Обращайтесь в суд или Роспотребнадзор. Срок ответа на претензию — 10 дней по закону "О защите прав потребителей".&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="faq-item"&gt;
+        &lt;h3&gt;&lt;i class="fas fa-question-circle"&gt;&lt;/i&gt; Какие документы нужны для обращения в суд?&lt;/h3&gt;
+        &lt;p&gt;Исковое заявление, копия претензии, документы на товар, чек, расчёт требований, квитанция об оплате госпошлины.&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="faq-item"&gt;
+        &lt;h3&gt;&lt;i class="fas fa-question-circle"&gt;&lt;/i&gt; Можно ли вернуть товар без чека?&lt;/h3&gt;
+        &lt;p&gt;Да, можно. Подойдут другие доказательства покупки: гарантийный талон, выписка с карты, показания свидетелей.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                
+                <div class="usage-tips">
+                    <h4><i class="fas fa-lightbulb"></i> Использование</h4>
+                    <p>Страница "Потребителю", разделы услуг, страницы статей — везде, где могут возникнуть вопросы.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- КОМПОНЕНТ 10: Шаги -->
+        <div class="component-card" id="steps">
+            <div class="component-header">
+                <h2><i class="fas fa-footsteps"></i> Блок шагов (инструкция)</h2>
+                <p>Пошаговая инструкция с номерами шагов. Идеально для объяснения процесса.</p>
+            </div>
+            <div class="component-body">
+                <div class="preview-area">
+                    <h3>Как вернуть деньги за некачественный товар</h3>
+                    <p class="page-subtitle">Пошаговая инструкция для потребителя</p>
+                    
+                    <div class="info-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <h3>Подготовка документов</h3>
+                            <p>Соберите все документы: чек, гарантийный талон, паспорт, документы на товар.</p>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <h3>Составление претензии</h3>
+                            <p>Напишите претензию в двух экземплярах с чёткими требованиями и обоснованием.</p>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <h3>Вручение претензии</h3>
+                            <p>Передайте претензию продавцу под подпись или отправьте заказным письмом с уведомлением.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="code-header">
+                    <h4><i class="fas fa-code"></i> HTML разметка</h4>
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="fas fa-copy"></i> Копировать код
+                    </button>
+                </div>
+                
+                <pre><code>&lt;h3&gt;Как вернуть деньги за некачественный товар&lt;/h3&gt;
+&lt;p class="page-subtitle"&gt;Пошаговая инструкция для потребителя&lt;/p&gt;
+
+&lt;div class="info-steps"&gt;
+    &lt;div class="step"&gt;
+        &lt;div class="step-number"&gt;1&lt;/div&gt;
+        &lt;h3&gt;Подготовка документов&lt;/h3&gt;
+        &lt;p&gt;Соберите все документы: чек, гарантийный талон, паспорт, документы на товар.&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="step"&gt;
+        &lt;div class="step-number"&gt;2&lt;/div&gt;
+        &lt;h3&gt;Составление претензии&lt;/h3&gt;
+        &lt;p&gt;Напишите претензию в двух экземплярах с чёткими требованиями и обоснованием.&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="step"&gt;
+        &lt;div class="step-number"&gt;3&lt;/div&gt;
+        &lt;h3&gt;Вручение претензии&lt;/h3&gt;
+        &lt;p&gt;Передайте претензию продавцу под подпись или отправьте заказным письмом с уведомлением.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                
+                <div class="usage-tips">
+                    <h4><i class="fas fa-lightbulb"></i> Использование</h4>
+                    <p>Инструкции для потребителей, этапы работы с клиентом, порядок оказания услуг.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- КОМПОНЕНТ 11: Призыв к действию (CTA) -->
+        <div class="component-card" id="call-to-action">
+            <div class="component-header">
+                <h2><i class="fas fa-bullhorn"></i> Призыв к действию (CTA)</h2>
+                <p>Яркий блок, побуждающий пользователя к действию: позвонить, написать, оставить заявку.</p>
+            </div>
+            <div class="component-body">
+                <div class="preview-area">
+                    <div style="background: linear-gradient(135deg, #2c5aa0, #1e3d6f); color: white; padding: 50px; border-radius: 16px; text-align: center;">
+                        <h2 style="color: white; margin-bottom: 15px;">Нужна помощь в защите прав?</h2>
+                        <p style="color: rgba(255,255,255,0.9); font-size: 18px; max-width: 700px; margin: 0 auto 30px;">
+                            Получите бесплатную консультацию нашего юриста. Проанализируем вашу ситуацию и предложим оптимальное решение.
+                        </p>
+                        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                            <a href="tel:+79803816854" class="button" style="background: white; color: #2c5aa0;">
+                                <i class="fas fa-phone"></i> Позвонить
+                            </a>
+                            <a href="contacts.html" class="button button-outline" style="color: white; border-color: white;">
+                                <i class="fas fa-envelope"></i> Написать
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="code-header">
+                    <h4><i class="fas fa-code"></i> HTML разметка</h4>
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="fas fa-copy"></i> Копировать код
+                    </button>
+                </div>
+                
+                <pre><code>&lt;div style="background: linear-gradient(135deg, #2c5aa0, #1e3d6f); color: white; padding: 50px; border-radius: 16px; text-align: center;"&gt;
+    &lt;h2 style="color: white; margin-bottom: 15px;"&gt;Нужна помощь в защите прав?&lt;/h2&gt;
+    &lt;p style="color: rgba(255,255,255,0.9); font-size: 18px; max-width: 700px; margin: 0 auto 30px;"&gt;
+        Получите бесплатную консультацию нашего юриста. Проанализируем вашу ситуацию и предложим оптимальное решение.
+    &lt;/p&gt;
+    &lt;div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;"&gt;
+        &lt;a href="tel:+79803816854" class="button" style="background: white; color: #2c5aa0;"&gt;
+            &lt;i class="fas fa-phone"&gt;&lt;/i&gt; Позвонить
+        &lt;/a&gt;
+        &lt;a href="contacts.html" class="button button-outline" style="color: white; border-color: white;"&gt;
+            &lt;i class="fas fa-envelope"&gt;&lt;/i&gt; Написать
+        &lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                
+                <div class="usage-tips">
+                    <h4><i class="fas fa-lightbulb"></i> Использование</h4>
+                    <p>В конце статей, на главной странице, в конце страниц услуг — везде, где нужно побудить к действию.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- КОМПОНЕНТ 12: Юридический текст -->
+        <div class="component-card" id="legal-text">
+            <div class="component-header">
+                <h2><i class="fas fa-gavel"></i> Юридический текст</h2>
+                <p>Блок для размещения официальной информации, ссылок на законы, нормативных документов.</p>
+            </div>
+            <div class="component-body">
+                <div class="preview-area">
+                    <div class="full-width-card">
+                        <h3 class="full-card-title">Законодательная база</h3>
+                        <div class="full-card-content">
+                            <p>Деятельность нашей организации осуществляется в соответствии со следующими нормативно-правовыми актами:</p>
+                            
+                            <div class="laws-list">
+                                <a href="https://www.consultant.ru/document/cons_doc_LAW_305/" class="law-item" target="_blank" rel="noopener">
+                                    <i class="far fa-file"></i>
+                                    <div class="law-text">
+                                        <strong>Закон РФ «О защите прав потребителей» № 2300-1 от 07.02.1992</strong>
+                                        <span>Редакция от 08.08.2024</span>
+                                    </div>
+                                    <i class="fas fa-external-link-alt law-icon"></i>
+                                </a>
+                                
+                                <a href="https://www.consultant.ru/document/cons_doc_LAW_373622/a3adf34c119aa4d7bff7097d62de3a4692d5eba9/" class="law-item" target="_blank" rel="noopener">
+                                    <i class="far fa-file"></i>
+                                    <div class="law-text">
+                                        <strong>Правила продажи товаров по договору розничной купли-продажи</strong>
+                                        <span>Утверждены постановлением Правительства РФ № 2463 от 31.12.2020, редакция от 17.05.2024</span>
+                                    </div>
+                                    <i class="fas fa-external-link-alt law-icon"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="code-header">
+                    <h4><i class="fas fa-code"></i> HTML разметка</h4>
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="fas fa-copy"></i> Копировать код
+                    </button>
+                </div>
+                
+                <pre><code>&lt;div class="full-width-card"&gt;
+    &lt;h3 class="full-card-title"&gt;Законодательная база&lt;/h3&gt;
+    &lt;div class="full-card-content"&gt;
+        &lt;p&gt;Деятельность нашей организации осуществляется в соответствии со следующими нормативно-правовыми актами:&lt;/p&gt;
+        
+        &lt;div class="laws-list"&gt;
+            &lt;a href="https://www.consultant.ru/document/cons_doc_LAW_305/" class="law-item" target="_blank" rel="noopener"&gt;
+                &lt;i class="far fa-file"&gt;&lt;/i&gt;
+                &lt;div class="law-text"&gt;
+                    &lt;strong&gt;Закон РФ «О защите прав потребителей» № 2300-1 от 07.02.1992&lt;/strong&gt;
+                    &lt;span&gt;Редакция от 08.08.2024&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;i class="fas fa-external-link-alt law-icon"&gt;&lt;/i&gt;
+            &lt;/a&gt;
+            
+            &lt;a href="https://www.consultant.ru/document/cons_doc_LAW_373622/a3adf34c119aa4d7bff7097d62de3a4692d5eba9/" class="law-item" target="_blank" rel="noopener"&gt;
+                &lt;i class="far fa-file"&gt;&lt;/i&gt;
+                &lt;div class="law-text"&gt;
+                    &lt;strong&gt;Правила продажи товаров по договору розничной купли-продажи&lt;/strong&gt;
+                    &lt;span&gt;Утверждены постановлением Правительства РФ № 2463 от 31.12.2020, редакция от 17.05.2024&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;i class="fas fa-external-link-alt law-icon"&gt;&lt;/i&gt;
+            &lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                
+                <div class="usage-tips">
+                    <h4><i class="fas fa-lightbulb"></i> Использование</h4>
+                    <p>Страницы со ссылками на законы, разделы "Законодательство", страница "О нас" для юридической информации.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>📚 Библиотека шаблонов "Лига защитников потребителей" | 2024</p>
+            <p style="font-size: 12px; color: #94a3b8; margin-top: 10px;">
+                Чтобы использовать любой компонент: 1) Скопируйте HTML разметку 2) Вставьте на свою страницу 
+                3) Убедитесь, что подключены style.css и Font Awesome
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        // Функция копирования кода
+        function copyCode(button) {
+            const codeBlock = button.parentElement.nextElementSibling;
+            const code = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i> Скопировано!';
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('Ошибка копирования: ', err);
+                alert('Не удалось скопировать код. Попробуйте выделить текст вручную.');
+            });
+        }
+        
+        // Плавная прокрутка для навигации
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

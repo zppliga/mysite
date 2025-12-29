@@ -1,132 +1,389 @@
+<!-- consumer.html - Страница "Потребителю" -->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Потребителю | Лига защитников потребителей</title>
-    <meta name="description" content="Полезная информация для потребителей: статьи, законодательство, образцы документов. Защитите свои права!">
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Полезная информация для потребителей: инструкции, образцы документов, алгоритмы действий, советы по защите прав.">
+    
+    <!-- Подключаем стили -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Подключаем шрифт Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Подключаем Font Awesome для иконок -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <!-- Подключаем загрузчик шапки и меню -->
-        <script src="load-header.js" defer></script>
 </head>
+
 <body>
-    <!-- Основной контент -->
+    <!-- Контейнер для шапки (загружается через JavaScript) -->
+    <div id="header-container"></div>
+
+    <!-- Основной контент страницы -->
     <main class="main">
-        <!-- Единый заголовок страницы -->
+        <!-- Заголовок страницы -->
         <section class="page-header">
             <div class="container">
                 <h1 class="page-title">Потребителю</h1>
-                <p class="page-subtitle">Всё, что нужно знать для защиты своих прав</p>
+                <p class="page-subtitle">Вся необходимая информация для защиты ваших прав как потребителя</p>
             </div>
         </section>
 
-        <!-- Три плитки в один ряд -->
+        <!-- Вступительная информация -->
         <section class="content-section">
             <div class="container">
-                <div class="articles-grid">
-                    <!-- Плитка 1: Статьи -->
-                    <article class="article-card">
-                        <div class="article-category">Практично</div>
-                        <h3 class="article-title">Статьи</h3>
-                        <div class="article-text">
-                            <p>Найдите ответы на свои вопросы. Узнайте, как суды защищают права потребителей.</p>
-                            <ul class="article-features">
-                                <li><i class="fas fa-check-circle"></i> Анализ судебной практики</li>
-                                <li><i class="fas fa-check-circle"></i> Разъяснения законодательства</li>
-                                <li><i class="fas fa-check-circle"></i> Советы экспертов</li>
-                            </ul>
+                <!-- Информационный блок -->
+                <div class="universe-card full-width-card">
+                    <div class="universe-header">
+                        <div class="universe-icon">
+                            <i class="fas fa-info-circle"></i>
                         </div>
-                        <div class="article-action">
-                            <a href="articles.html" class="button button-small">Далее
-                                <i class="fa-solid fa-circle-arrow-right"></i>
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- Плитка 2: Законодательство -->
-                    <article class="article-card">
-                        <div class="article-category">Актуально</div>
-                        <h3 class="article-title">Законодательство</h3>
-                        <div class="article-text">
-                            <p>Применяйте законы и правила, чтобы отстоять свои права и интересы</p>
-                            <ul class="article-features">
-                                <li><i class="fas fa-check-circle"></i> Закон о защите прав потребителей</li>
-                                <li><i class="fas fa-check-circle"></i> Правила продажи товаров</li>
-                                <li><i class="fas fa-check-circle"></i> Судебная практика</li>
-                            </ul>
-                        </div>
-                        <div class="article-action">
-                            <a href="articles.html" class="button button-small">Далее
-                                <i class="fa-solid fa-circle-arrow-right"></i>
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- Плитка 3: Образцы документов -->
-                    <article class="article-card">
-                        <div class="article-category">Бесплатно</div>
-                        <h3 class="article-title">Образцы документов</h3>
-                        <div class="article-text">
-                            <p>Используйте шаблоны юридических документов для самостоятельной защиты</p>
-                            <ul class="article-features">
-                                <li><i class="fas fa-check-circle"></i> Претензии к продавцам и исполнителям</li>
-                                <li><i class="fas fa-check-circle"></i> Исковые заявления в суд</li>
-                                <li><i class="fas fa-check-circle"></i> Жалобы в контролирующие органы</li>
-                            </ul>
-                        </div>
-                        <div class="article-action">
-                            <a href="articles.html" class="button button-small">Далее
-                                <i class="fa-solid fa-circle-arrow-right"></i>
-                            </a>
-                        </div>
-                    </article>
+                        <h3 class="universe-title">Потребитель имеет право на:</h3>
+                    </div>
+                    <div class="universe-text">
+                        
+                        <!-- Список прав потребителя -->
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> <strong>Качество товара</strong> - товар должен соответствовать обязательным требованиям стандартов, условиям договора;</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Безопасность</strong> - товар должен быть безопасным для жизни и здоровья;</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Информацию</strong> - полную и достоверную информацию о товаре и продавце (исполнителе);</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Возврат и обмен</strong> - право на возврат некачественного товара, обмен качественного;</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Компенсацию убытков</strong> - возмещение убытков, причиненных некачественным товаром;</li>
+                        </ul>
+                    </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Дополнительная информация -->
-                <div class="consumer-info">
-                    <h2>Как пользоваться материалами?</h2>
-                    <div class="info-steps">
-                        <div class="step">
-                            <div class="step-number">1</div>
-                            <h3>Изучите информацию</h3>
-                            <p>Прочитайте статьи по вашей ситуации, ознакомьтесь с законодательной базой</p>
+        <!-- Секция: Пошаговые инструкции -->
+        <section class="content-section bg-light">
+            <div class="container">
+                <h2 class="section-title">Алгоритмы действий</h2>
+                <p class="section-subtitle">Пошаговые инструкции для разных ситуаций</p>
+                
+                <!-- Универсальная сетка для инструкций -->
+                <div class="universe-grid">
+                    <!-- Инструкция 1: Возврат товара -->
+                    <div class="universe-card">
+                        <div class="universe-category">Товары</div>
+                        <div class="universe-header">
+                            <div class="universe-icon">
+                                <i class="fas fa-undo-alt"></i>
+                            </div>
+                            <h3 class="universe-title">Возврат товара</h3>
                         </div>
-                        <div class="step">
-                            <div class="step-number">2</div>
-                            <h3>Используйте образцы</h3>
-                            <p>Скачайте подходящий шаблон документа и заполните его по инструкции</p>
+                        <div class="universe-text">
+                            <p><strong>Что делать, если купили некачественный товар:</strong></p>
+                            <!-- Нумерованные шаги -->
+                            <ol class="step-list">
+                                <li><strong>Шаг 1:</strong> Проверьте сроки возврата (14 дней для качественного товара)</li>
+                                <li><strong>Шаг 2:</strong> Подготовьте документы (чек, гарантийный талон, паспорт)</li>
+                                <li><strong>Шаг 3:</strong> Напишите заявление на возврат в двух экземплярах</li>
+                                <li><strong>Шаг 4:</strong> Обратитесь к продавцу с товаром и документами</li>
+                                <li><strong>Шаг 5:</strong> При отказе — обращайтесь в Роспотребнадзор или суд</li>
+                            </ol>
                         </div>
-                        <div class="step">
-                            <div class="step-number">3</div>
-                            <h3>Обратитесь за помощью</h3>
-                            <p>Если возникли вопросы - свяжитесь с нами для получения консультации</p>
+                        <div class="universe-action">
+                            <a href="documents/return-form.pdf" class="button button-small button-outline" target="_blank">
+                                <i class="fas fa-download"></i> Скачать образец заявления
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Инструкция 2: Некачественные услуги -->
+                    <div class="universe-card">
+                        <div class="universe-category">Услуги</div>
+                        <div class="universe-header">
+                            <div class="universe-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h3 class="universe-title">Некачественные услуги</h3>
+                        </div>
+                        <div class="universe-text">
+                            <p><strong>Действия при оказании некачественных услуг:</strong></p>
+                            <ol class="step-list">
+                                <li><strong>Шаг 1:</strong> Зафиксируйте недостатки (фото, видео, акт)</li>
+                                <li><strong>Шаг 2:</strong> Направьте претензию исполнителю в письменном виде</li>
+                                <li><strong>Шаг 3:</strong> Требуйте устранения недостатков в разумный срок</li>
+                                <li><strong>Шаг 4:</strong> При отказе — требуйте уменьшения цены или расторжения договора</li>
+                                <li><strong>Шаг 5:</strong> Обращайтесь в суд для взыскания убытков и компенсации</li>
+                            </ol>
+                        </div>
+                        <div class="universe-action">
+                            <a href="documents/complaint-form.pdf" class="button button-small button-outline" target="_blank">
+                                <i class="fas fa-download"></i> Скачать образец претензии
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Инструкция 3: Онлайн-покупки -->
+                    <div class="universe-card">
+                        <div class="universe-category">Интернет</div>
+                        <div class="universe-header">
+                            <div class="universe-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <h3 class="universe-title">Онлайн-покупки</h3>
+                        </div>
+                        <div class="universe-text">
+                            <p><strong>Особенности возврата товаров, купленных в интернете:</strong></p>
+                            <ol class="step-list">
+                                <li><strong>Шаг 1:</strong> Помните — у вас 7 дней на возврат без объяснения причин</li>
+                                <li><strong>Шаг 2:</strong> Сохраняйте все чеки, скриншоты и переписку</li>
+                                <li><strong>Шаг 3:</strong> Уведомите продавца о возврате в письменной форме</li>
+                                <li><strong>Шаг 4:</strong> Отправьте товар обратно с описью вложения</li>
+                                <li><strong>Шаг 5:</strong> Требуйте возврата денег в течение 10 дней</li>
+                            </ol>
+                        </div>
+                        <div class="universe-action">
+                            <a href="documents/online-return-form.pdf" class="button button-small button-outline" target="_blank">
+                                <i class="fas fa-download"></i> Скачать образец уведомления
+                            </a>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Частые вопросы -->
-                <div class="faq-section bg-light">
-                    <h2>Частые вопросы потребителей</h2>
-                    <div class="faq-grid">
-                        <div class="faq-item">
-                            <h3><i class="fas fa-question-circle"></i> Как вернуть некачественный товар?</h3>
-                            <p>Составьте претензию в двух экземплярах, приложите чек и паспорт. Требуйте возврата денег в течение 10 дней.</p>
+        <!-- Секция: Образцы документов -->
+        <section class="content-section">
+            <div class="container">
+                <h2 class="section-title">Образцы документов</h2>
+                <p class="section-subtitle">Готовые шаблоны для защиты ваших прав</p>
+                
+                <!-- Сетка для документов -->
+                <div class="universe-grid">
+                    <!-- Документ 1: Претензия -->
+                    <div class="universe-card document-card">
+                        <div class="document-icon">
+                            <i class="fas fa-file-alt"></i>
                         </div>
-                        <div class="faq-item">
-                            <h3><i class="fas fa-question-circle"></i> Что делать, если продавец не отвечает на претензию?</h3>
-                            <p>Обращайтесь в суд или Роспотребнадзор. Срок ответа на претензию - 10 дней по закону.</p>
+                        <h3 class="universe-title">Претензия продавцу</h3>
+                        <div class="universe-text">
+                            <p>Образец досудебной претензии к продавцу некачественного товара. Составляется в двух экземплярах.</p>
+                            <div class="document-info">
+                                <span><i class="far fa-file"></i> Формат: PDF</span>
+                                <span><i class="fas fa-weight"></i> 245 КБ</span>
+                            </div>
                         </div>
-                        <div class="faq-item">
-                            <h3><i class="fas fa-question-circle"></i> Какие документы нужны для обращения в суд?</h3>
-                            <p>Исковое заявление, копия претензии, документы на товар, чек, расчет требований, квитанция об оплате госпошлины.</p>
+                        <div class="universe-action">
+                            <a href="documents/complaint-to-seller.pdf" class="button button-small" download>
+                                <i class="fas fa-download"></i> Скачать (PDF)
+                            </a>
+                            <a href="#" class="button button-small button-outline" onclick="viewDocument('complaint')">
+                                <i class="fas fa-eye"></i> Посмотреть
+                            </a>
                         </div>
-                        <div class="faq-item">
-                            <h3><i class="fas fa-question-circle"></i> Можно ли вернуть товар без чека?</h3>
-                            <p>Да, можно. Подойдут другие доказательства покупки: гарантийный талон, выписка с карты, показания свидетелей.</p>
+                    </div>
+
+                    <!-- Документ 2: Заявление на возврат -->
+                    <div class="universe-card document-card">
+                        <div class="document-icon">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                        <h3 class="universe-title">Заявление на возврат денег</h3>
+                        <div class="universe-text">
+                            <p>Типовое заявление на возврат денежных средств за некачественный товар или услугу.</p>
+                            <div class="document-info">
+                                <span><i class="far fa-file-word"></i> Формат: DOCX</span>
+                                <span><i class="fas fa-weight"></i> 189 КБ</span>
+                            </div>
+                        </div>
+                        <div class="universe-action">
+                            <a href="documents/refund-application.docx" class="button button-small" download>
+                                <i class="fas fa-download"></i> Скачать (DOCX)
+                            </a>
+                            <a href="#" class="button button-small button-outline" onclick="viewDocument('refund')">
+                                <i class="fas fa-eye"></i> Посмотреть
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Документ 3: Исковое заявление -->
+                    <div class="universe-card document-card">
+                        <div class="document-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <h3 class="universe-title">Исковое заявление в суд</h3>
+                        <div class="universe-text">
+                            <p>Пример искового заявления о защите прав потребителя в мировой суд.</p>
+                            <div class="document-info">
+                                <span><i class="far fa-file-word"></i> Формат: DOCX</span>
+                                <span><i class="fas fa-weight"></i> 356 КБ</span>
+                            </div>
+                        </div>
+                        <div class="universe-action">
+                            <a href="documents/lawsuit.docx" class="button button-small" download>
+                                <i class="fas fa-download"></i> Скачать (DOCX)
+                            </a>
+                            <a href="#" class="button button-small button-outline" onclick="viewDocument('lawsuit')">
+                                <i class="fas fa-eye"></i> Посмотреть
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Документ 4: Жалоба в Роспотребнадзор -->
+                    <div class="universe-card document-card">
+                        <div class="document-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h3 class="universe-title">Жалоба в Роспотребнадзор</h3>
+                        <div class="universe-text">
+                            <p>Образец жалобы на нарушение прав потребителей в контролирующие органы.</p>
+                            <div class="document-info">
+                                <span><i class="far fa-file-pdf"></i> Формат: PDF</span>
+                                <span><i class="fas fa-weight"></i> 210 КБ</span>
+                            </div>
+                        </div>
+                        <div class="universe-action">
+                            <a href="documents/complaint-to-rospotrebnadzor.pdf" class="button button-small" download>
+                                <i class="fas fa-download"></i> Скачать (PDF)
+                            </a>
+                            <a href="#" class="button button-small button-outline" onclick="viewDocument('rospotrebnadzor')">
+                                <i class="fas fa-eye"></i> Посмотреть
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция: Часто задаваемые вопросы -->
+        <section class="content-section bg-light">
+            <div class="container">
+                <h2 class="section-title">Часто задаваемые вопросы</h2>
+                <p class="section-subtitle">Ответы на популярные вопросы потребителей</p>
+                
+                <!-- FAQ в аккордеоне -->
+                <div class="universe-card full-width-card faq-card">
+                    <div class="universe-header">
+                        <div class="universe-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <h3 class="universe-title">Вопросы и ответы</h3>
+                    </div>
+                    
+                    <!-- Вопрос 1 -->
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(1)">
+                            <i class="fas fa-chevron-right"></i>
+                            В течение какого времени можно вернуть товар?
+                        </button>
+                        <div class="faq-answer">
+                            <p>Качественный товар можно вернуть в течение 14 дней с момента покупки (не считая дня покупки), если он не подошел по форме, габаритам, фасону, расцветке, размеру или комплектации. Технически сложные товары имеют особые условия возврата.</p>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 2 -->
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(2)">
+                            <i class="fas fa-chevron-right"></i>
+                            Обязательно ли сохранять чек для возврата товара?
+                        </button>
+                        <div class="faq-answer">
+                            <p>Нет, отсутствие чека не является основанием для отказа в возврате товара. Вы можете подтвердить факт покупки другими способами: показаниями свидетелей, выпиской с банковской карты, гарантийным талоном с отметкой магазина.</p>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 3 -->
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(3)">
+                            <i class="fas fa-chevron-right"></i>
+                            Какой штраф может быть взыскан с продавца?
+                        </button>
+                        <div class="faq-answer">
+                            <p>Согласно ст. 13 Закона "О защите прав потребителей", с продавца может быть взыскан штраф в размере 50% от суммы, присужденной судом в пользу потребителя, за несоблюдение добровольного порядка удовлетворения требований.</p>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 4 -->
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(4)">
+                            <i class="fas fa-chevron-right"></i>
+                            Можно ли вернуть товар без упаковки?
+                        </button>
+                        <div class="faq-answer">
+                            <p>Да, можно. Отсутствие упаковки или ее повреждение не является основанием для отказа в возврате товара, если товар сохранил свои потребительские свойства и не имеет следов использования.</p>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 5 -->
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(5)">
+                            <i class="fas fa-chevron-right"></i>
+                            Какие товары не подлежат возврату и обмену?
+                        </button>
+                        <div class="faq-answer">
+                            <p>Существует Перечень непродовольственных товаров надлежащего качества, не подлежащих возврату или обмену (утвержден Постановлением Правительства РФ №55). В него входят, например, лекарства, изделия из драгметаллов, нижнее белье, парфюмерия, технически сложные товары бытового назначения.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция: Полезные контакты -->
+        <section class="content-section">
+            <div class="container">
+                <h2 class="section-title">Полезные контакты</h2>
+                <p class="section-subtitle">Организации, куда можно обратиться за помощью</p>
+                
+                <!-- Сетка контактов -->
+                <div class="universe-grid">
+                    <!-- Контакт 1: Роспотребнадзор -->
+                    <div class="universe-card contact-card">
+                        <div class="universe-header">
+                            <div class="universe-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3 class="universe-title">Роспотребнадзор</h3>
+                        </div>
+                        <div class="universe-text">
+                            <p>Федеральная служба по надзору в сфере защиты прав потребителей и благополучия человека.</p>
+                            <div class="contact-details">
+                                <p><i class="fas fa-phone"></i> <a href="tel:88001000004">8-800-100-00-04</a></p>
+                                <p><i class="fas fa-globe"></i> <a href="https://rospotrebnadzor.ru" target="_blank">rospotrebnadzor.ru</a></p>
+                                <p><i class="fas fa-envelope"></i> <a href="mailto:info@rospotrebnadzor.ru">info@rospotrebnadzor.ru</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Контакт 2: Прокуратура -->
+                    <div class="universe-card contact-card">
+                        <div class="universe-header">
+                            <div class="universe-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h3 class="universe-title">Прокуратура РФ</h3>
+                        </div>
+                        <div class="universe-text">
+                            <p>Надзорный орган за соблюдением законодательства, включая защиту прав потребителей.</p>
+                            <div class="contact-details">
+                                <p><i class="fas fa-phone"></i> <a href="tel:88001002727">8-800-100-27-27</a></p>
+                                <p><i class="fas fa-globe"></i> <a href="https://genproc.gov.ru" target="_blank">genproc.gov.ru</a></p>
+                                <p><i class="fas fa-map-marker-alt"></i> Приемная в Белгороде: ул. Преображенская, 38</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Контакт 3: Общественная приемная -->
+                    <div class="universe-card contact-card">
+                        <div class="universe-header">
+                            <div class="universe-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h3 class="universe-title">Общественная приемная</h3>
+                        </div>
+                        <div class="universe-text">
+                            <p>Государственная организация, предоставляющая бесплатные юридические консультации.</p>
+                            <div class="contact-details">
+                                <p><i class="fas fa-phone"></i> <a href="tel:+74722782080">+7 (4722) 78-20-80</a></p>
+                                <p><i class="fas fa-clock"></i> Пн-Пт: 9:00-18:00</p>
+                                <p><i class="fas fa-map-marker-alt"></i> г. Белгород, ул. Попова, 25</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -134,24 +391,283 @@
         </section>
     </main>
 
-    <!-- Подвал -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <p>© <span id="currentYear"></span> Лига защитников потребителей.</p>
-                    <p>Информация предоставляется в ознакомительных целях.</p>
-                </div>
-                <div class="footer-contacts">
-                    <h3>Контакты</h3>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:zppliga@mail.ru">zppliga@mail.ru</a></p>
-                    <p><i class="fas fa-phone"></i> <a href="tel:+79803816854">+7 (980) 381-68-54</a></p>
-                    <p><i class="fas fa-map-marker-alt"></i> г. Белгород, ул. Князя Трубецкого, д. 17</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+    <!-- Контейнер для подвала (загружается через JavaScript) -->
+    <div id="footer-container"></div>
+    
+    <!-- Подключение скриптов -->
+    <script src="scr/load-header.js" defer></script>
+    <script src="scr/load-footer.js" defer></script>
+    <script src="scr/script.js" defer></script>
+    
+    <!-- Скрипт для работы с FAQ -->
+    <script>
+        // Функция для переключения FAQ
+        function toggleFAQ(id) {
+            const question = event.currentTarget;
+            const answer = question.nextElementSibling;
+            const icon = question.querySelector('i');
+            
+            // Переключаем классы
+            question.classList.toggle('active');
+            answer.classList.toggle('active');
+            
+            // Меняем иконку
+            if (question.classList.contains('active')) {
+                icon.classList.remove('fa-chevron-right');
+                icon.classList.add('fa-chevron-down');
+            } else {
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-right');
+            }
+        }
+        
+        // Функция для просмотра документа
+        function viewDocument(type) {
+            event.preventDefault();
+            let url = '';
+            
+            switch(type) {
+                case 'complaint':
+                    url = 'documents/complaint-to-seller.pdf';
+                    break;
+                case 'refund':
+                    url = 'documents/refund-application.docx';
+                    break;
+                case 'lawsuit':
+                    url = 'documents/lawsuit.docx';
+                    break;
+                case 'rospotrebnadzor':
+                    url = 'documents/complaint-to-rospotrebnadzor.pdf';
+                    break;
+            }
+            
+            if (url) {
+                window.open(url, '_blank');
+            }
+        }
+        
+        // Инициализация FAQ при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            // Первый вопрос открыт по умолчанию
+            const firstQuestion = document.querySelector('.faq-question');
+            if (firstQuestion) {
+                toggleFAQ.call(firstQuestion, 1);
+            }
+        });
+    </script>
+    
+    <!-- Стили для специфических элементов страницы -->
+    <style>
+        /* Стили для полноразмерной карточки */
+        .full-width-card {
+            width: 100%;
+        }
+        
+        /* Стили для нумерованных списков шагов */
+        .step-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 15px 0;
+        }
+        
+        .step-list li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.5;
+            color: var(--color-text-secondary);
+        }
+        
+        .step-list li:before {
+            content: counter(step);
+            counter-increment: step;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--color-primary);
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .step-list {
+            counter-reset: step;
+        }
+        
+        /* Стили для карточек документов */
+        .document-card {
+            text-align: center;
+        }
+        
+        .document-icon {
+            font-size: 48px;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+        
+        .document-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 15px 0;
+            font-size: 14px;
+            color: var(--color-text-muted);
+        }
+        
+        .document-info span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .document-card .universe-action {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        /* Стили для FAQ */
+        .faq-card {
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        .faq-card .universe-header {
+            padding: 25px;
+            margin-bottom: 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .faq-question {
+            width: 100%;
+            padding: 20px 25px;
+            text-align: left;
+            background: none;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--color-text-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: background-color var(--transition-base);
+        }
+        
+        .faq-question:hover {
+            background-color: var(--color-bg-light);
+        }
+        
+        .faq-question.active {
+            background-color: var(--color-bg-light);
+        }
+        
+        .faq-question i {
+            transition: transform var(--transition-base);
+            font-size: 14px;
+            color: var(--color-primary);
+        }
+        
+        .faq-question.active i {
+            transform: rotate(90deg);
+        }
+        
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all var(--transition-base);
+        }
+        
+        .faq-answer.active {
+            padding: 0 25px 25px 60px;
+            max-height: 500px;
+        }
+        
+        .faq-answer p {
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+        
+        /* Стили для контактных карточек */
+        .contact-card .contact-details {
+            margin-top: 15px;
+        }
+        
+        .contact-card .contact-details p {
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-text-secondary);
+        }
+        
+        .contact-card .contact-details a {
+            color: var(--color-primary);
+        }
+        
+        .contact-card .contact-details a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Адаптивность для мобильных */
+        @media (max-width: 768px) {
+            .step-list li {
+                padding-left: 30px;
+            }
+            
+            .faq-question {
+                padding: 15px 20px;
+                font-size: 15px;
+            }
+            
+            .faq-answer.active {
+                padding: 0 20px 20px 50px;
+            }
+            
+            .document-card .universe-action {
+                flex-direction: column;
+            }
+            
+            .contact-card .contact-details p {
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .faq-question {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+            
+            .faq-answer.active {
+                padding: 0 15px 15px 40px;
+            }
+            
+            .document-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .step-list li {
+                font-size: 14px;
+            }
+        }
+    </style>
 </body>
 </html>

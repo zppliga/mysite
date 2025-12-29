@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оптимизированная цветовая палитра | Лига защитников потребителей</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background-color: #ffffff;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .header h1 {
+            color: #2c5aa0;
+            font-size: 36px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            color: #64748b;
+            font-size: 18px;
+        }
+        
+        .optimization-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 10px;
+            box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);
+        }
+        
+        .color-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 50px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .color-table th {
+            background-color: #2c5aa0;
+            color: white;
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .color-table td {
+            padding: 16px;
+            border-bottom: 1px solid #f1f5f9;
+            vertical-align: top;
+        }
+        
+        .color-table tr:hover {
+            background-color: #f8fafc;
+        }
+        
+        .color-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .color-swatch {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            margin-right: 20px;
+            display: inline-block;
+            vertical-align: middle;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+        }
+        
+        .color-info {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        .color-code {
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 6px;
+            color: #1e293b;
+        }
+        
+        .color-name {
+            color: #64748b;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .color-var {
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            background: #f1f5f9;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #334155;
+        }
+        
+        .color-preview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .color-card {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .color-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .color-card-header {
+            height: 120px;
+            padding: 20px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .color-card-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+            border-radius: 0 0 0 60px;
+        }
+        
+        .color-card-body {
+            padding: 20px;
+        }
+        
+        .color-card-body h4 {
+            margin-bottom: 12px;
+            color: #1e293b;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .color-card-body p {
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+        
+        .usage-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 12px;
+        }
+        
+        .usage-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge-primary { background-color: rgba(44, 90, 160, 0.1); color: #2c5aa0; }
+        .badge-bg { background-color: rgba(248, 250, 252, 0.3); color: #64748b; border: 1px solid #e2e8f0; }
+        .badge-text { background-color: rgba(30, 41, 59, 0.1); color: #1e293b; }
+        .badge-border { background-color: rgba(226, 232, 240, 0.3); color: #475569; border: 1px dashed #cbd5e1; }
+        .badge-functional { background-color: rgba(16, 185, 129, 0.1); color: #10b981; }
+        .badge-all { background-color: rgba(100, 116, 139, 0.1); color: #64748b; }
+        
+        .gradient-card {
+            min-width: 100%;
+        }
+        
+        .gradient-preview {
+            height: 80px;
+            border-radius: 8px;
+            margin: 20px 0;
+            background: linear-gradient(to right, #2c5aa0, #5b8cda, #ffffff);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .comparison {
+            display: flex;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .comparison-box {
+            flex: 1;
+            min-width: 300px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .comparison-before {
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            border-left: 4px solid #94a3b8;
+        }
+        
+        .comparison-after {
+            background: linear-gradient(135deg, #f8fafc, #ffffff);
+            border-left: 4px solid #2c5aa0;
+        }
+        
+        .comparison-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .comparison-before .comparison-title {
+            color: #64748b;
+        }
+        
+        .comparison-after .comparison-title {
+            color: #2c5aa0;
+        }
+        
+        .comparison-stats {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .stat {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+        
+        .comparison-before .stat-number {
+            color: #94a3b8;
+        }
+        
+        .comparison-after .stat-number {
+            color: #2c5aa0;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #e2e8f0;
+            color: #64748b;
+            font-size: 14px;
+        }
+        
+        .footer-note {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 13px;
+            border-left: 3px solid #10b981;
+        }
+        
+        @media (max-width: 768px) {
+            .color-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .color-card, .comparison-box {
+                min-width: 100%;
+            }
+            
+            .color-swatch {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Оптимизированная цветовая палитра сайта</h1>
+            <p>Лига защитников потребителей | После оптимизации</p>
+            <div class="optimization-badge">
+                ✓ Упрощено с 16 до 9 основных цветов
+            </div>
+        </div>
+        
+        <div class="comparison">
+            <div class="comparison-box comparison-before">
+                <div class="comparison-title">
+                    <span style="color: #94a3b8;">●</span> ДО оптимизации
+                </div>
+                <p>16 разрозненных цветов, 7 оттенков серого, визуальный шум, сложность поддержки.</p>
+                <div class="comparison-stats">
+                    <div class="stat">
+                        <div class="stat-number">16</div>
+                        <div class="stat-label">Цветов</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">7</div>
+                        <div class="stat-label">Серых оттенков</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">Сложно</div>
+                        <div class="stat-label">Поддержка</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="comparison-box comparison-after">
+                <div class="comparison-title">
+                    <span style="color: #2c5aa0;">●</span> ПОСЛЕ оптимизации
+                </div>
+                <p>9 семантических цветов, чёткая иерархия, CSS-переменные, профессиональный минимализм.</p>
+                <div class="comparison-stats">
+                    <div class="stat">
+                        <div class="stat-number">9</div>
+                        <div class="stat-label">Цветов</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Уровня серого</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">Просто</div>
+                        <div class="stat-label">Поддержка</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2 style="color: #1e293b; margin: 40px 0 20px; font-size: 28px;">CSS Variables система цветов</h2>
+        
+        <table class="color-table">
+            <thead>
+                <tr>
+                    <th style="width: 200px;">Цвет и переменная</th>
+                    <th>Описание и использование</th>
+                    <th style="width: 200px;">Применение</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="color-swatch" style="background-color: #2c5aa0;"></div>
+                        <div class="color-info">
+                            <div class="color-code">#2c5aa0</div>
+                            <div class="color-name">Professional Blue</div>
+                            <div class="color-var">--color-primary</div>
+                        </div>
+                    </td>
+                    <td>
+                        <strong>ПЕРВИЧНЫЙ АКЦЕНТНЫЙ ЦВЕТ</strong><br>
+                        Основной брендовый цвет сайта. Профессиональный глубокий синий.
+                    </td>
+                    <td>
+                        <div class="usage-badges">
+                            <span class="usage-badge badge-primary">Основные кнопки</span>
+                            <span class="usage-badge badge-primary">Активное меню</span>
+                            <span class="usage-badge badge-primary">Главные ссылки</span>
+                            <span class="usage-badge badge-all">Все страницы</span>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <div class="color-swatch" style="background-color: #1e3d6f;"></div>
+                        <div class="color-info">
+                            <div class="color-code">#1e3d6f</div>
+                            <div class="color-name">Deep Navy</div>
+                            <div class="color-var">--color-primary-hover</div>
+                        </div>
+                    </td>
+                    <td>
+                        <strong>АКЦЕНТ ПРИ НАВЕДЕНИИ</strong><br>
+                        Более тёмный вариант основного цвета для hover-состояний.
+                    </td>
+                    <td>
+                        <div class="usage-badges">
+                            <span class="usage-badge badge-primary">Кнопки :hover</span>
+                            <span class="usage-badge badge-primary">Ссылки :hover</span>
+                            <span class="usage-badge badge-all">Все страницы</span>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <div class="color-swatch" style="background-color: rgba(44, 90, 160, 0.1); border: 1px dashed #cbd5e1;"></div>
+                        <div class="color-info">
+                            <div class="color-code">rgba(44,90,160,0.1)</div>
+                            <div class="color-name">Light Blue Tint</div>
+                            <div class="color-var">--color-primary-light</div>
+                        </div>
+                    </td>
+                    <td>
+                        <strong>ЛЁГКИЙ АКЦЕНТНЫЙ ФОН</strong><br>
+                        Полупрозрачная версия основного цвета для фонов и выделений.
+                    </td>
+                    <td>
+                        <div class="usage-badges">
+                            <span class="usage-badge badge-primary">Фон меток</span>
+                            <span class="usage-badge badge-primary">Круглые иконки</span>
+                            <span class="usage-badge badge-all">Все страницы</span>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <div class="color-swatch" style="background-color: #ffffff; border: 1px solid #e2e8f0;"></div>
+                        <div class="color-info">
+                            <div class="color-code">#ffffff</div>
+                            <div class="color-name">Pure White</div>
+                            <div class="color-var">--color-bg-main</div>
+                        </div>
+                    </td>
+                    <td>
+                        <strong>ОСНОВНОЙ ФОН СТРАНИЦЫ</strong><br>
+                        Чистый белый для основного фона и карточек контента.
+                    </td>
+                    <td>
+                        <div class="usage-badges">
+                            <span class="usage-badge badge-bg">Фон страницы</span>
+                            <span class="usage-badge badge-bg">Карточки</span>
+                            <span class="usage-badge badge-bg">Шапка</span>
+                            <span class="usage-badge badge-all">Все страницы</span>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <div class="color-swatch" style="background-color: #f8fafc;"></div>
+                        <div class="color-info">
+                            <div class="color-code">#f8fafc</div>
+                            <div class="color-name">Light Gray</div>
+                            <div class="color-var">--color-bg-light</div>
+                        </div>
+                    </td>
+                    <td>
+                        <strong>СВЕТЛЫЙ ФОН СЕКЦИЙ</strong><br>
+                        Единый светло-серый фон для выделенных секций и подвала.
+                    </td>
+                    <td>
+                        <div class="usage-badges">
+                            <span class="usage-badge badge-bg">Герой-секция</span>
+                            <span class="usage-badge badge-bg">Секции .bg-light</span>
+                            <span class="usage-badge badge-bg">Подвал сайта</span>
+                            <span class="usage-badge badge-all">Все страницы</span>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <div class="color-swatch" style="background-color: #1e293b;"></div>
+                        <div class="color-info">
+                            <div class="color-code">#1e293b</div>
+                            <div class="color-name">Dark Slate</div>
+                            <div class="color-var">--color-text-primary</div>
+                        </div>
+                    </td>
+                    <td>
+                        <strong>ОСНОВНОЙ ЦВЕТ ТЕКСТА</strong><br>
+                        Тёмный почти чёрный для заголовков и основного текста (высокий контраст).
+                    </td>
+                    <td>
+                        <div class="usage-badges">
+                            <span class="usage-badge badge-text">Заголовки</span>
+                            <span class="usage-badge badge-text">Основной текст</span>
+                            <span class="usage-badge badge-text">Логотип</span>
+                            <span class="usage-badge badge-all">Все страницы</span>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <div class="color-swatch" style="background-color: #64748b;"></div>
+                        <div class="color-info">
+                            <div class="color-code">#64748b</div>
+                            <div class="color-name">Slate Gray</div>
+                            <div class="color-var">--color-text-secondary</div>
+                        </div>
+                    </td>
+                    <td>
+                        <strong>ВТОРИЧНЫЙ ЦВЕТ ТЕКСТА</strong><br>
+                        Средний серый для параграфов, описаний и второстепенного текста.
+                    </td>
+                    <td>
+                        <div class="usage-badges">
+                            <span class="usage-badge badge-text">Параграфы</span>
+                            <span class="usage-badge badge-text">Описания</span>
+                            <span class="usage-badge badge-text">Подзаголовки</span>
+                            <span class="usage-badge badge-all">Все страницы</span>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <div class="color-swatch" style="background-color: #94a3b8;"></div>
+                        <div class="color-info">
+                            <div class="color-code">#94a3b8</div>
+                            <div class="color-name">Muted Gray</div>
+                            <div class="color-var">--color-text-muted</div>
+                        </div>
+                    </td>
+                    <td>
+                        <strong>НЕАКТИВНЫЙ ЦВЕТ ТЕКСТА</strong><br>
+                        Светло-серый для дат, мета-информации и неактивных элементов.
+                    </td>
+                    <td>
+                        <div class="usage-badges">
+                            <span class="usage-badge badge-text">Даты статей</span>
+                            <span class="usage-badge badge-text">Мета-информация</span>
+                            <span class="usage-badge badge-text">Иконки ссылок</span>
+                            <span class="usage-badge badge-all">Все страницы</span>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <div class="color-swatch" style="background-color: #e2e8f0;"></div>
+                        <div class="color-info">
+                            <div class="color-code">#e2e8f0</div>
+                            <div class="color-name">Border Gray</div>
+                            <div class="color-var">--color-border</div>
+                        </div>
+                    </td>
+                    <td>
+                        <strong>ЦВЕТ ГРАНИЦ И РАЗДЕЛИТЕЛЕЙ</strong><br>
+                        Единый светло-серый цвет для всех границ и разделительных линий.
+                    </td>
+                    <td>
+                        <div class="usage-badges">
+                            <span class="usage-badge badge-border">Границы карточек</span>
+                            <span class="usage-badge badge-border">Разделители</span>
+                            <span class="usage-badge badge-border">Таблицы</span>
+                            <span class="usage-badge badge-all">Все страницы</span>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <div class="color-swatch" style="background-color: #10b981;"></div>
+                        <div class="color-info">
+                            <div class="color-code">#10b981</div>
+                            <div class="color-name">Success Green</div>
+                            <div class="color-var">--color-success</div>
+                        </div>
+                    </td>
+                    <td>
+                        <strong>ЦВЕТ УСПЕХА</strong><br>
+                        Яркий зелёный для позитивных действий, подтверждений и галочек.
+                    </td>
+                    <td>
+                        <div class="usage-badges">
+                            <span class="usage-badge badge-functional">Иконки галочек</span>
+                            <span class="usage-badge badge-functional">Успешные действия</span>
+                            <span class="usage-badge badge-all">Все страницы</span>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <div class="color-swatch" style="background-color: #ef4444;"></div>
+                        <div class="color-info">
+                            <div class="color-code">#ef4444</div>
+                            <div class="color-name">Warning Red</div>
+                            <div class="color-var">--color-warning</div>
+                        </div>
+                    </td>
+                    <td>
+                        <strong>ЦВЕТ ПРЕДУПРЕЖДЕНИЯ</strong><br>
+                        Яркий красный для ошибок, предупреждений и критичных элементов.
+                    </td>
+                    <td>
+                        <div class="usage-badges">
+                            <span class="usage-badge badge-functional">Выходные дни</span>
+                            <span class="usage-badge badge-functional">Ошибки</span>
+                            <span class="usage-badge badge-contacts">Контакты</span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2 style="color: #1e293b; margin: 40px 0 20px; font-size: 28px;">Градиенты и тени</h2>
+        
+        <div class="color-card gradient-card">
+            <div class="color-card-body">
+                <h4>Основной градиент (сохранён!)</h4>
+                <div class="color-var" style="margin-bottom: 10px;">--gradient-primary</div>
+                <div class="gradient-preview"></div>
+                <p><strong>Использование:</strong> Декоративная линия под заголовками страниц</p>
+                <p><strong>Код:</strong> <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-family: monospace;">linear-gradient(to right, #2c5aa0, #5b8cda, #ffffff)</code></p>
+                <div class="usage-badges" style="margin-top: 15px;">
+                    <span class="usage-badge badge-all">Все страницы</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="color-preview" style="margin-top: 30px;">
+            <div class="color-card">
+                <div class="color-card-header" style="background-color: #f8fafc; color: #1e293b;">
+                    <div style="font-family: monospace; font-size: 14px;">--shadow-sm</div>
+                    <div style="font-size: 12px; opacity: 0.8;">0 2px 10px rgba(0,0,0,0.05)</div>
+                </div>
+                <div class="color-card-body">
+                    <h4>Лёгкая тень</h4>
+                    <p>Для шапки и мелких элементов</p>
+                </div>
+            </div>
+            
+            <div class="color-card">
+                <div class="color-card-header" style="background-color: #f8fafc; color: #1e293b;">
+                    <div style="font-family: monospace; font-size: 14px;">--shadow-md</div>
+                    <div style="font-size: 12px; opacity: 0.8;">0 5px 15px rgba(44,90,160,0.15)</div>
+                </div>
+                <div class="color-card-body">
+                    <h4>Средняя тень</h4>
+                    <p>Для кнопок при наведении</p>
+                </div>
+            </div>
+            
+            <div class="color-card">
+                <div class="color-card-header" style="background-color: #f8fafc; color: #1e293b;">
+                    <div style="font-family: monospace; font-size: 14px;">--shadow-lg</div>
+                    <div style="font-size: 12px; opacity: 0.8;">0 10px 30px rgba(0,0,0,0.08)</div>
+                </div>
+                <div class="color-card-body">
+                    <h4>Большая тень</h4>
+                    <p>Для карточек при наведении</p>
+                </div>
+            </div>
+        </div>
+        
+        <h2 style="color: #1e293b; margin: 40px 0 20px; font-size: 28px;">Преимущества новой системы</h2>
+        
+        <div class="color-preview">
+            <div class="color-card">
+                <div class="color-card-header" style="background-color: #2c5aa0;">
+                    <div style="font-size: 24px;">🎨</div>
+                </div>
+                <div class="color-card-body">
+                    <h4>Семантические имена</h4>
+                    <p>Не "синий" или "серый", а --color-primary и --color-text-secondary</p>
+                </div>
+            </div>
+            
+            <div class="color-card">
+                <div class="color-card-header" style="background-color: #10b981;">
+                    <div style="font-size: 24px;">♿</div>
+                </div>
+                <div class="color-card-body">
+                    <h4>Доступность</h4>
+                    <p>Высокий контраст (WCAG AAA), правильные соотношения цветов</p>
+                </div>
+            </div>
+            
+            <div class="color-card">
+                <div class="color-card-header" style="background-color: #ef4444;">
+                    <div style="font-size: 24px;">⚡</div>
+                </div>
+                <div class="color-card-body">
+                    <h4>Лёгкость поддержки</h4>
+                    <p>9 цветов вместо 16. Изменяй в одном месте — применяй везде</p>
+                </div>
+            </div>
+            
+            <div class="color-card">
+                <div class="color-card-header" style="background-color: #1e293b;">
+                    <div style="font-size: 24px;">🎯</div>
+                </div>
+                <div class="color-card-body">
+                    <h4>Минимализм + функциональность</h4>
+                    <p>Не скучно, но и не перегружено. Акцент на контенте</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="footer-note">
+                <strong>🚀 Оптимизация завершена:</strong> Цветовая палитра упрощена на 44%, повышена доступность, 
+                внедрена система CSS-переменных для лёгкой поддержки и масштабирования.
+            </div>
+            <p style="margin-top: 20px;">Оптимизированная цветовая система сайта "Лига защитников потребителей" | 2024</p>
+            <p style="font-size: 12px; color: #94a3b8; margin-top: 10px;">
+                Используйте эту страницу как руководство по дизайн-системе проекта
+            </p>
+        </div>
+    </div>
+</body>
+</html>

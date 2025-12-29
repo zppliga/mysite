@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>О нас | Лига защитников потребителей</title>
-    <meta name="description" content="Информация о деятельности Лиги защитников потребителей, наших целях и миссии">
+    <meta name="description" content="Информация о деятельности Лиги защитников потребителей, наших целях и миссии. Правовая помощь с 1997 года.">
     <!-- Подключаем стили -->
     <link rel="stylesheet" href="css/style.css">
     <!-- Подключаем шрифт Montserrat -->
@@ -15,15 +15,248 @@
     <!-- Подключаем Font Awesome для иконок -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Специальные стили для страницы "О нас" -->
+    <style>
+        /* ==================================================
+           БЛОК ЮРИДИЧЕСКОЙ ИНФОРМАЦИИ
+        ===================================================== */
+        
+        /* Контейнер для юридических блоков */
+        .legal-universal-section {
+            padding: 20px 0;
+        }
+        
+        /* Контейнер для вертикального ряда блоков */
+        .legal-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        /* Отдельный блок юридической информации */
+        .legal-universal-item {
+            display: flex;
+            background: var(--color-bg-card);
+            border-radius: 12px;
+            box-shadow: var(--shadow-card);
+            overflow: hidden;
+            transition: all var(--transition-base);
+            min-height: 120px;
+            border: 1px solid var(--color-border);
+        }
+        
+        /* Эффект при наведении на блок */
+        .legal-universal-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-border-hover);
+        }
+        
+        /* Левая часть блока */
+        .legal-left-side {
+            flex: 0 0 250px;
+            background: var(--color-bg-light);
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-right: 1px solid var(--color-border);
+        }
+        
+        /* Обертка для иконки */
+        .legal-icon-wrapper {
+            width: 50px;
+            height: 50px;
+            background: var(--color-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            color: white;
+            font-size: 1.2em;
+        }
+        
+        /* Заголовок в левой части */
+        .legal-left-side h3 {
+            color: var(--color-text-primary);
+            font-size: 1.1em;
+            font-weight: 600;
+            margin: 0;
+            line-height: 1.3;
+        }
+        
+        /* Правая часть блока */
+        .legal-right-side {
+            flex: 1;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        /* Содержимое правой части */
+        .legal-content {
+            font-size: 1em;
+            line-height: 1.6;
+            color: var(--color-text-secondary);
+        }
+        
+        /* Параграфы внутри контента */
+        .legal-content p {
+            margin: 10px 0;
+        }
+        
+        /* ==================================================
+           БЛОК БАНКОВСКИХ РЕКВИЗИТОВ
+        ===================================================== */
+        
+        /* Сетка для банковских реквизитов */
+        .legal-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        /* Блок реквизита */
+        .legal-item {
+            display: flex;
+            padding: 15px;
+            background: var(--color-bg-light);
+            border-radius: 8px;
+            border: 1px solid var(--color-border);
+        }
+        
+        /* Левая часть реквизита */
+        .legal-label {
+            flex: 0 0 150px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+        
+        /* Правая часть реквизита */
+        .legal-value {
+            flex: 1;
+            color: var(--color-text-secondary);
+        }
+        
+        /* ==================================================
+           АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ
+        ===================================================== */
+        
+        /* Планшеты и мобильные (до 768px) */
+        @media (max-width: 768px) {
+            /* Вертикальное расположение юридических блоков */
+            .legal-universal-item {
+                flex-direction: column;
+                min-height: auto;
+            }
+            
+            /* Левая часть на всю ширину */
+            .legal-left-side {
+                flex: none;
+                padding: 20px;
+                border-right: none;
+                border-bottom: 1px solid var(--color-border);
+            }
+            
+            /* Уменьшаем иконку */
+            .legal-icon-wrapper {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1em;
+                margin-bottom: 10px;
+            }
+            
+            /* Правая часть с меньшими отступами */
+            .legal-right-side {
+                padding: 20px;
+            }
+            
+            /* Вертикальное расположение банковских реквизитов */
+            .legal-item {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            /* Банковский лейбл на всю ширину */
+            .legal-label {
+                flex: none;
+            }
+        }
+        
+        /* Маленькие мобильные (до 480px) */
+        @media (max-width: 480px) {
+            /* Уменьшаем отступы контейнера */
+            .legal-container {
+                padding: 0 15px;
+            }
+            
+            /* Уменьшаем заголовок */
+            .legal-left-side h3 {
+                font-size: 1em;
+            }
+            
+            /* Уменьшаем контент */
+            .legal-content {
+                font-size: 0.95em;
+            }
+            
+            /* Уменьшаем отступы блоков */
+            .legal-left-side,
+            .legal-right-side {
+                padding: 15px;
+            }
+            
+            /* Уменьшаем банковские блоки */
+            .legal-item {
+                padding: 12px;
+            }
+            
+            /* Уменьшаем лейбл */
+            .legal-label {
+                font-size: 0.95em;
+            }
+            
+/* Базовая карточка */
+.legal-card {
+    background: var(--color-bg-card); /* Фон карточки */
+    border: 1px solid var(--color-border); /* Рамка */
+    border-radius: 12px; /* Закругленные углы */
+    padding: 25px; /* Внутренние отступы */
+    transition: all var(--transition-base); /* Плавные переходы */
+    box-shadow: var(--shadow-card); /* Легкая тень */
+    display: flex; /* Flexbox */
+    flex-direction: column; /* Вертикальное направление */
+    height: 100%; /* Полная высота */
+    position: relative; /* Для позиционирования */
+}
+
+/* Эффект при наведении */
+.legal-card:hover {
+    box-shadow: var(--shadow-lg); /* Усиленная тень */
+    transform: translateY(-5px); /* Сдвиг вверх */
+    border-color: var(--color-border-hover); /* Цвет рамки */
+}
+
+
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Шапка (через JavaScript) -->
+    <!-- Контейнер для шапки (загружается через JavaScript) -->
     <div id="header-container"></div>
     
     <!-- Основной контент страницы -->
     <main class="main">
-        <!-- Заголовок страницы -->
+        <!-- Заголовок страницы с информацией об организации -->
         <section class="page-header">
             <div class="container">
                 <h1 class="page-title">О нас</h1>
@@ -91,69 +324,71 @@
                 <!-- Блок 4: Юридическая информация -->
                 <div class="universe-card full-width-card">
                     <div class="universe-header">
-                        <div class="universe-icon"><i class="fas fa-balance-scale"></i>
-                        </div><h2 class="universe-title">Юридическая информация</h2></div>
+                        <div class="universe-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h2 class="universe-title">Юридическая информация</h2>
+                    </div>
                     
                     <div class="universe-text">
                         <!-- Блоки с юридическими реквизитами -->
                         <div class="legal-grid">
                             <!-- Блок 1: Полное название -->
                             <div class="legal-item">
-                                <div class="legal-label">Полное название:</div>
+                                <div class="legal-label">
+                                    Полное название:
+                                </div>
                                 <div class="legal-value">Белгородская региональная общественная организация «Лига защитников потребителей»</div>
                             </div>
                             
                             <!-- Блок 2: Сокращенное название -->
                             <div class="legal-item">
-                                <div class="legal-label">Сокращенное название:</div>
+                                <div class="legal-label">
+                                    Сокращенное название:
+                                </div>
                                 <div class="legal-value">БРОО ЛЗП</div>
                             </div>
                             
                             <!-- Блок 3: Местонахождение -->
                             <div class="legal-item">
-                                <div class="legal-label">Адрес:</div>
+                                <div class="legal-label">
+                                    Адрес:
+                                </div>
                                 <div class="legal-value">308009, Белгородская область, г. Белгород, ул. Князя Трубецкого, д. 17, помещ. 909</div>
                             </div>
                             
                             <!-- Блок 4: Реквизиты -->
                             <div class="legal-item">
-                                <div class="legal-label">Реквизиты:</div>
+                                <div class="legal-label">
+                                    Реквизиты:
+                                </div>
                                 <div class="legal-value">ИНН 3123466051, ОГРН 1203100001499, КПП 312301001</div>
                             </div>
                             
                             <!-- Блок 5: ОКВЭД -->
                             <div class="legal-item">
-                                <div class="legal-label">ОКВЭД 94.99:</div>
+                                <div class="legal-label">
+                                    ОКВЭД 94.99:
+                                </div>
                                 <div class="legal-value">Деятельность прочих общественных организаций и некоммерческих организаций, кроме религиозных и политических организаций</div>
                             </div>
                             
                             <!-- Блок 6: Председатель организации -->
                             <div class="legal-item">
-                                <div class="legal-label">Председатель организации:</div>
+                                <div class="legal-label">
+                                    Председатель организации:
+                                </div>
                                 <div class="legal-value">Филин Александр Сергеевич</div>
                             </div>
                             
                             <!-- Блок 7: Регистрация -->
                             <div class="legal-item">
-                                <div class="legal-label"> Регистрация:</div>
+                                <div class="legal-label">
+                                    Регистрация:
+                                </div>
                                 <div class="legal-value">
                                     <p>16.01.2020 Управление Министерства юстиции Российской Федерации по Белгородской области приняло решение о государственной регистрации Организации. Учетный номер в Управлении Минюста № 3112010638.</p>
                                     <p>27.01.2020 Организация зарегистрирована Управлением Федеральной налоговой службы по Белгородской области</p>
-                                </div>
-                            </div>
-                            <!-- Блок 8: Документы -->
-                            <div class="legal-item">
-                                <div class="legal-label">Документы:</div>
-                                <div class="legal-value">
-                                        <a href="doc/ustav.pdf" target="_blank" class="document-link">
-                                            <i class="fas fa-file-alt"></i>
-                                            <span>Устав организации</span>
-                                        </a>
-                                        <p></p>
-                                        <a href="doc/svidetelstvo.jpeg" target="_blank" class="document-link">
-                                            <i class="fas fa-file-alt"></i>
-                                            <span>Свидетельство о регистрации</span>
-                                        </a>
                                 </div>
                             </div>
                         </div>
@@ -165,8 +400,11 @@
                     <div class="universe-header">
                         <div class="universe-icon">
                             <i class="fas fa-university"></i>
-                        </div><h2 class="universe-title">Банковские реквизиты</h2></div>
-                    <div class="universe-text"><p>Вы можете сделать пожертвование или оплатить услуги.</p>
+                        </div>
+                        <h2 class="universe-title">Банковские реквизиты</h2>
+                    </div>
+                    <div class="universe-text">
+                        <p>Вы можете сделать пожертвование или оплатить услуги.</p>
                         
                         <!-- Блоки с банковскими реквизитами -->
                         <div class="legal-grid">
@@ -189,16 +427,17 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Блок 6: Кнопка для связи -->
+                <div class="text-center" style="margin-top: 40px;">
+                    <a href="contacts.html" class="button">
+                        <i class="fas fa-phone-alt"></i> Связаться с нами
+                    </a>
+                </div>
             </div>
         </section>
     </main>
 
-
-<style>
-/* Стили  */
-
-
-</style>
     <!-- Контейнер для подвала (загружается через JavaScript) -->
     <div id="footer-container"></div>
     

@@ -1,0 +1,1484 @@
+/* ==================================================
+   ЦВЕТОВАЯ СИСТЕМА И ПЕРЕМЕННЫЕ
+===================================================== */
+
+/* Основные цвета бренда */
+:root {
+    /* Основной синий цвет - профессиональный и доверительный */
+    --color-primary: #3f75c5;
+    --color-primary-dark: #2c5aa0; /* Темнее для ховеров */
+    --color-primary-light: rgba(63, 117, 197, 0.1); /* Легкий фон */
+    
+    /* Цвета фона */
+    --color-bg-main: #ffffff; /* Основной фон страницы */
+    --color-bg-light: #f8fafc; /* Светлый фон секций */
+    --color-bg-card: #ffffff; /* Фон карточек */
+    
+    /* Цвета текста */
+    --color-text-primary: #1e293b; /* Основной текст */
+    --color-text-secondary: #64748b; /* Вторичный текст */
+    --color-text-muted: #94a3b8; /* Текст меток */
+    
+    /* Цвета границ */
+    --color-border: #e2e8f0; /* Основные границы */
+    --color-border-hover: #cbd5e1; /* Границы при наведении */
+    
+    /* Акцентные цвета */
+    --color-success: #10b981; /* Успех, подтверждение */
+    --color-warning: #ef4444; /* Внимание, ошибка */
+    
+    /* Градиенты */
+    --gradient-primary: linear-gradient(to right, #3f75c5, #5b8cda, #ffffff);
+    
+    /* Тени */
+    --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 5px 15px rgba(44, 90, 160, 0.15);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.05);
+    
+    /* Анимации */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* ==================================================
+   СБРОС СТИЛЕЙ И БАЗОВЫЕ НАСТРОЙКИ
+===================================================== */
+
+/* Убираем стандартные отступы и padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Padding и border включаются в ширину */
+}
+
+/* Основные настройки body */
+body {
+    font-family: 'Montserrat', sans-serif; /* Основной шрифт */
+    line-height: 1.6; /* Межстрочный интервал */
+    color: var(--color-text-primary); /* Цвет текста */
+    background-color: var(--color-bg-main); /* Фон страницы */
+}
+
+/* Заголовки всех уровней */
+h1, h2, h3 {
+    font-weight: 600; /* Полужирный шрифт */
+    line-height: 1.3; /* Интервал для заголовков */
+    margin-bottom: 20px; /* Отступ снизу */
+    color: var(--color-text-primary); /* Цвет заголовков */
+}
+
+/* Размеры заголовков */
+h1 { font-size: 36px; } /* Крупный заголовок */
+h2 { font-size: 28px; } /* Заголовок секции */
+h3 { font-size: 22px; } /* Подзаголовок */
+
+/* Параграфы */
+p {
+    margin-bottom: 0px; /* Отступ между параграфами */
+    color: var(--color-text-secondary); /* Цвет текста */
+}
+
+/* Ссылки */
+a {
+    color: var(--color-primary); /* Цвет ссылок */
+    text-decoration: none; /* Без подчеркивания */
+    transition: color var(--transition-fast); /* Плавное изменение цвета */
+}
+a:hover {
+    color: var(--color-primary-dark); /* Цвет при наведении */
+}
+
+/* ==================================================
+   УТИЛИТАРНЫЕ КЛАССЫ
+===================================================== */
+
+/* Центрирующий контейнер */
+.container {
+    width: 100%; /* Полная ширина */
+    max-width: 1200px; /* Максимальная ширина */
+    margin: 0 auto; /* Центрирование */
+    padding: 0 20px; /* Боковые отступы */
+}
+
+/* Выравнивание текста по центру */
+.text-center {
+    text-align: center; /* Центрирование текста */
+}
+
+/* Отступ сверху для центрированных блоков */
+.text-center.mt-30 {
+    margin-top: 30px; /* Верхний отступ */
+}
+
+/* Светлый фон для секций */
+.bg-light {
+    background-color: var(--color-bg-light); /* Светлый фон */
+}
+
+/* ==================================================
+   ШАПКА САЙТА (HEADER)
+===================================================== */
+
+/* Основной блок шапки */
+.header {
+    background-color: var(--color-bg-main); /* Фон шапки */
+    border-bottom: 1px solid var(--color-border); /* Линия снизу */
+    padding: 15px 0; /* Вертикальные отступы */
+    position: sticky; /* Липкая шапка */
+    top: 0; /* Прилипает к верху */
+    z-index: 100; /* Поверх контента */
+    box-shadow: var(--shadow-sm); /* Легкая тень */
+}
+
+/* Контейнер внутри шапки */
+.header-container {
+    display: flex; /* Flexbox для выравнивания */
+    justify-content: space-between; /* Элементы по краям */
+    align-items: center; /* Центрирование по вертикали */
+}
+
+/* Логотип в шапке */ 
+.logo {
+    display: flex; /* Гибкий контейнер */
+    align-items: center; /* Центрирование по вертикали */
+    gap: 12px; /* Отступ между логотипом и текстом */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+}
+
+/* Стили для изображения логотипа */
+.logo-img {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0; /* Не позволяет сжиматься */
+    display: block; /* Убираем лишние отступы */
+}
+
+/* Стили для текста логотипа */
+.logo-text {
+    white-space: nowrap; /* Запрещаем перенос текста */
+}
+
+/* Навигационное меню */
+.nav-list {
+    display: flex; /* Горизонтальное меню */
+    list-style: none; /* Без маркеров списка */
+    gap: 20px; /* Отступ между пунктами */
+}
+
+/* Ссылки в меню */
+.nav-link {
+    color: var(--color-text-secondary); /* Цвет текста */
+    font-weight: 500; /* Полужирный текст */
+    padding: 8px 16px; /* Внутренние отступы */
+    border-radius: 10px; /* Закругленные углы */
+    display: flex; /* Flex для иконки и текста */
+    align-items: center; /* Центрирование по вертикали */
+    gap: 8px; /* Отступ между иконкой и текстом */
+    transition: all var(--transition-base); /* Плавные переходы */
+}
+
+/* Активный пункт меню */
+.nav-link.active {
+    color: var(--color-bg-main); /* Белый текст */
+    background-color: var(--color-primary); /* Синий фон */
+}
+
+/* Эффект при наведении */
+.nav-link:hover {
+    color: var(--color-primary); /* Синий текст */
+    background-color: var(--color-primary-light); /* Светлый фон */
+    font-size: large;
+
+}
+
+/* Активный пункт при наведении */
+.nav-link.active:hover {
+    background-color: var(--color-primary-dark); /* Темный фон */
+    color: var(--color-bg-main); /* Белый текст */
+}
+
+/* Кнопка меню для мобильных (скрыта на ПК) */
+.menu-toggle {
+    display: none; /* Скрыта на десктопе */
+    background: none; /* Без фона */
+    border: none; /* Без рамки */
+    font-size: 24px; /* Размер иконки */
+    cursor: pointer; /* Курсор при наведении */
+    color: var(--color-text-primary); /* Цвет иконки */
+    padding: 5px; /* Внутренние отступы */
+}
+
+/* ==================================================
+   КНОПКИ (BUTTONS)
+===================================================== */
+
+/* Базовая кнопка */
+.button {
+    display: inline-flex; /* Flex для иконки и текста */
+    align-items: center; /* Центрирование по вертикали */
+    justify-content: center; /* Центрирование по горизонтали */
+    gap: 10px; /* Отступ между иконкой и текстом */
+    background-color: var(--color-primary); /* Фон кнопки */
+    color: var(--color-bg-main); /* Цвет текста */
+    padding: 12px 30px; /* Внутренние отступы */
+    border-radius: 10px; /* Закругленные углы */
+    font-weight: 500; /* Полужирный текст */
+    border: none; /* Без рамки */
+    cursor: pointer; /* Курсор при наведении */
+    transition: all var(--transition-base); /* Плавные переходы */
+    text-decoration: none; /* Без подчеркивания */
+    font-size: 15px; /* Размер шрифта */
+    font-family: 'Montserrat', sans-serif; /* Шрифт кнопки */
+}
+
+/* Эффект при наведении */
+.button:hover {
+    background-color: var(--color-primary-dark); /* Темный фон */
+    transform: translateY(-2px); /* Сдвиг вверх */
+    box-shadow: var(--shadow-md); /* Тень */
+    color: var(--color-bg-main); /* Белый текст */
+}
+
+/* Контурная кнопка */
+.button-outline {
+    background-color: transparent; /* Прозрачный фон */
+    color: var(--color-primary); /* Синий текст */
+    border: 2px solid var(--color-primary); /* Синяя рамка */
+}
+
+/* Контурная кнопка при наведении */
+.button-outline:hover {
+    background-color: var(--color-primary); /* Синий фон */
+    color: var(--color-bg-main); /* Белый текст */
+    border-color: var(--color-primary); /* Цвет рамки */
+}
+
+/* Маленькая кнопка */
+.button-small {
+    padding: 10px 25px; /* Меньшие отступы */
+    font-size: 14px; /* Меньший шрифт */
+}
+
+/* ==================================================
+   ГЕРОЙ-СЕКЦИЯ (HERO)
+===================================================== */
+
+/* Секция с главным баннером */
+.hero {
+    background-color: var(--color-bg-light); /* Светлый фон */
+    padding: 60px 0; /* Вертикальные отступы */
+    text-align: center; /* Текст по центру */
+    border-bottom: 1px solid var(--color-border); /* Линия снизу */
+}
+
+/* Заголовок героя */
+.hero-title {
+    color: var(--color-text-primary); /* Цвет заголовка */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+/* Текст героя */
+.hero-text {
+    font-size: 18px; /* Размер шрифта */
+    color: var(--color-text-secondary); /* Цвет текста */
+    max-width: 800px; /* Максимальная ширина */
+    margin: 0 auto 30px; /* Центрирование и отступ */
+    line-height: 1.7; /* Межстрочный интервал */
+}
+
+/* ==================================================
+   ЗАГОЛОВОК СТРАНИЦ (PAGE HEADER)
+===================================================== */
+
+/* Блок с заголовком страницы */
+.page-header {
+    padding: 40px 0 20px; /* Вертикальные отступы */
+    margin-bottom: 0px; /* Отступ снизу */
+}
+
+/* Заголовок страницы */
+.page-title {
+    color: var(--color-text-primary); /* Цвет заголовка */
+    font-size: 28px; /* Размер шрифта */
+    font-weight: 500; /* Полужирный текст */
+    margin-bottom: 10px; /* Отступ снизу */
+    padding-bottom: 15px; /* Отступ внутри снизу */
+    position: relative; /* Для псевдоэлемента */
+}
+
+/* Декоративная линия под заголовком */
+.page-title::after {
+    content: ''; /* Пустой контент */
+    position: absolute; /* Абсолютное позиционирование */
+    bottom: 0; /* Прижато к низу */
+    left: 0; /* Прижато к левому краю */
+    width: 100%; /* Ширина линии */
+    height: 3px; /* Высота линии */
+    background: var(--gradient-primary); /* Градиентный фон */  
+    border-radius: 2px; /* Закругленные края */
+}
+
+/* Подзаголовок страницы */
+.page-subtitle {
+    color: var(--color-text-secondary); /* Цвет текста */
+    font-size: 18px; /* Размер шрифта */
+    margin-top: 10px; /* Отступ сверху */
+    font-weight: 400; /* Обычная толщина */
+    line-height: 1.5; /* Межстрочный интервал */
+}
+
+/* Заголовок секции */
+.section-title {
+    color: var(--color-text-primary); /* Цвет заголовка */
+    font-size: 28px; /* Размер шрифта */
+    margin-bottom: 10px; /* Отступ снизу */
+}
+
+/* Подзаголовок секции */
+.section-subtitle {
+    color: var(--color-text-secondary); /* Цвет текста */
+    font-size: 16px; /* Размер шрифта */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+/* ==================================================
+   ОСНОВНЫЕ СЕКЦИИ (CONTENT SECTIONS)
+===================================================== */
+
+/* Блок с контентом */
+.content-section {
+    padding: 30px 0px; /* Вертикальные отступы */
+    padding-bottom: 50px;
+}
+
+/* ==================================================
+   УНИВЕРСАЛЬНЫЙ БЛОК (UNIVERSE-CARD)
+===================================================== */
+
+/* Сетка для универсальных карточек */
+.universe-grid {
+    display: grid; /* CSS Grid */
+    gap: 30px; /* Отступ между карточками */
+    margin-top: 10px; /* Отступ сверху */
+    margin-bottom: 30px; /* Отступ снизу */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Автоподбор колонок */
+}
+
+/* Базовая карточка */
+.universe-card {
+    background: var(--color-bg-card); /* Фон карточки */
+    border: 1px solid var(--color-border); /* Рамка */
+    border-radius: 12px; /* Закругленные углы */
+    padding: 25px; /* Внутренние отступы */
+    transition: all var(--transition-base); /* Плавные переходы */
+    box-shadow: var(--shadow-card); /* Легкая тень */
+    display: flex; /* Flexbox */
+    flex-direction: column; /* Вертикальное направление */
+    height: 100%; /* Полная высота */
+    position: relative; /* Для позиционирования */
+    margin-bottom: 20px;
+}
+
+/* Эффект при наведении */
+.universe-card:hover {
+    box-shadow: var(--shadow-lg); /* Усиленная тень */
+    transform: translateY(-5px); /* Сдвиг вверх */
+    border-color: var(--color-border-hover); /* Цвет рамки */
+}
+
+/* Категория/метка карточки */
+.universe-category {
+    display: inline-block; /* Строчно-блочный элемент */
+    font-weight: 500; /* Полужирный текст */
+    padding: 5px 12px; /* Внутренние отступы */
+    border-radius: 20px; /* Закругленные углы */
+    margin: 0 0 15px; /* Отступ снизу */
+    align-self: flex-end; /* Выравнивание по началу */
+    background-color: var(--color-primary-light); /* Светлый фон */
+    color: var(--color-primary); /* Синий текст */
+    font-size: 10px; /* Меньший шрифт */
+    text-transform: uppercase; /* Заглавные буквы */
+    letter-spacing: 0.3px; /* Разряженный текст */
+}
+
+/* Шапка карточки (иконка + заголовок) */
+.universe-header {
+    display: flex; /* Flexbox */
+    align-items: center; /* Выравнивание по верху */
+    gap: 15px; /* Отступ между элементами */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+/* Квадратная иконка */
+.universe-icon {
+    width: 60px; /* Ширина */
+    height: 60px; /* Высота */
+    background: var(--color-primary-light); /* Светлый фон */
+    border-radius: 16px; /* Закругленные углы */
+    display: flex; /* Flex для центрирования */
+    align-items: center; /* Центрирование по вертикали */
+    justify-content: center; /* Центрирование по горизонтали */
+    flex-shrink: 0; /* Не сжимается */
+    transition: all var(--transition-base); /* Плавные переходы */
+}
+
+/* Иконка внутри блока */
+.universe-icon i {
+    font-size: 24px; /* Размер иконки */
+    color: var(--color-primary); /* Цвет иконки */
+    transition: color var(--transition-base); /* Плавное изменение цвета */
+}
+
+/* Эффект иконки при наведении */
+.universe-card:hover .universe-icon {
+    background: linear-gradient(135deg, #3f75c5, #2c5aa0); /* Градиентный фон */
+    background-color: var(--color-primary); /* Синий фон */
+    *transform: scale(1.2); /* Только увеличение на 10% */
+    *transform: rotate(5deg); /* Поворот */
+}
+
+.universe-card:hover .universe-icon i {
+    color: var(--color-bg-main); /* Белая иконка */
+    transform: scale(1.1); /* Иконка внутри немного увеличивается */
+
+}
+
+/* Заголовок карточки */
+.universe-title {
+    color: var(--color-text-primary); /* Цвет заголовка */
+    margin: 0; /* Без отступов */
+    font-size: 1.3em; /* Размер шрифта */
+    font-weight: 600; /* Полужирный текст */
+    line-height: 1.3; /* Межстрочный интервал */
+    flex: 1; /* Занимает доступное пространство */
+}
+
+/* Ссылка в заголовке */
+.universe-title a {
+    color: inherit; /* Наследует цвет */
+    text-decoration: none; /* Без подчеркивания */
+    transition: color var(--transition-fast); /* Плавное изменение цвета */
+}
+
+.universe-title a:hover {
+    color: var(--color-primary); /* Синий цвет */
+}
+
+/* Текстовый контент карточки */
+.universe-text {
+    color: var(--color-text-secondary); /* Цвет текста */
+    line-height: 1.6; /* Межстрочный интервал */
+    flex-grow: 2; /* Занимает доступное пространство */
+    margin: 0 0 10px; /* Отступ снизу */
+}
+
+/* Последний параграф без отступа */
+.universe-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* Футер карточки (дата, время, метки) */
+.universe-footer {
+    display: flex; /* Flexbox */
+    justify-content: right; /* Распределение по краям */
+    align-items: center; /* Центрирование по вертикали */
+    margin-top: auto; /* Прижато к низу */
+    padding-top: 10px; /* Отступ сверху */
+    border-top: 1px solid var(--color-border); /* Линия сверху */
+    color: var(--color-text-muted); /* Цвет текста */
+    font-size: 14px; /* Меньший шрифт */
+}
+
+/* Блок действия (кнопка) */
+.universe-action {
+    margin-top: auto; /* Прижато к низу */
+    padding-top: 20px; /* Отступ сверху */
+    text-align: center; /* Текст по центру */
+}
+
+/* ==================================================
+   СПИСКИ С ИКОНКАМИ (FEATURE LISTS)
+===================================================== */
+
+/* Список с галочками */
+.feature-list {
+    list-style: none; /* Без маркеров */
+    padding: 0; /* Без отступов */
+    margin: 15px 0; /* Вертикальные отступы */
+}
+
+/* Элемент списка */
+.feature-list li {
+    margin: 10px 0; /* Отступы между элементами */
+    padding-left: 0; /* Без левого отступа */
+    display: flex; /* Flex для иконки и текста */
+    align-items: flex-start; /* Выравнивание по верху */
+    gap: 12px; /* Отступ до иконки */
+    color: var(--color-text-secondary); /* Цвет текста */
+    line-height: 1.5; /* Межстрочный интервал */
+}
+
+/* Иконка в списке */
+.feature-list i {
+    color: var(--color-success); /* Зеленый цвет */
+    font-size: 14px; /* Размер иконки */
+    margin-top: 2px; /* Выравнивание по верху */
+    flex-shrink: 0; /* Не сжимается */
+}
+
+/* ==================================================
+   КАРТОЧКА ЗАКОНА (LAW CARD)
+===================================================== */
+
+/* Специальный стиль для карточек законов */
+.law-card .universe-icon {
+    background: rgba(63, 117, 197, 0.15); /* Очень светлый фон */
+    border-radius: 12px; /* Закругленные углы */
+}
+
+.law-card:hover .universe-icon {
+    background-color: var(--color-primary); /* Синий фон */
+}
+
+.law-card .universe-footer i {
+    color: var(--color-text-muted); /* Цвет иконки */
+    font-size: 12px; /* Меньший размер */
+}
+
+/* ==================================================
+   КОНТАКТЫ (CONTACTS SPECIFIC)
+===================================================== */
+
+/* Элемент контакта (телефон, email) */
+.contact-item {
+    display: flex; /* Flexbox */
+    align-items: flex-start; /* Выравнивание по верху */
+    gap: 15px; /* Отступ до иконки */
+    margin-bottom: 20px; /* Отступ снизу */
+    padding-bottom: 20px; /* Отступ внутри снизу */
+    border-bottom: 1px solid var(--color-border); /* Линия снизу */
+}
+
+/* Последний элемент без линии */
+.contact-item:last-child {
+    border-bottom: none; /* Без линии */
+    margin-bottom: 0; /* Без отступа */
+    padding-bottom: 0; /* Без отступа */
+}
+
+/* Текст контакта */
+.contact-text {
+    flex-grow: 1; /* Занимает доступное пространство */
+    min-width: 0; /* Для переноса текста */
+}
+
+/* Заголовок в контакте */
+.contact-text strong {
+    display: block; /* Блочный элемент */
+    color: var(--color-text-primary); /* Цвет текста */
+    margin-bottom: 4px; /* Отступ снизу */
+    font-size: 16px; /* Размер шрифта */
+}
+
+/* Телефон/email в контакте */
+.contact-text a, .contact-text span {
+    display: block; /* Блочный элемент */
+    color: var(--color-text-secondary); /* Цвет текста */
+    font-size: 16px; /* Размер шрифта */
+    line-height: 1.5; /* Межстрочный интервал */
+}
+
+/* Эффект при наведении */
+.contact-text a:hover {
+    color: var(--color-primary); /* Синий цвет */
+}
+
+/* График работы */
+.schedule-day {
+    display: flex; /* Flexbox */
+    justify-content: space-between; /* Распределение по краям */
+    align-items: center; /* Центрирование по вертикали */
+    padding: 12px 0; /* Вертикальные отступы */
+    border-bottom: 1px solid var(--color-border); /* Линия снизу */
+}
+
+/* Последний день без линии */
+.schedule-day:last-child {
+    border-bottom: none; /* Без линии */
+}
+
+/* Название дня */
+.day-name {
+    color: var(--color-text-secondary); /* Цвет текста */
+    font-weight: 500; /* Полужирный текст */
+}
+
+/* Время работы */
+.day-time {
+    color: var(--color-text-primary); /* Цвет текста */
+    font-weight: 600; /* Жирный текст */
+}
+
+/* Выходной день */
+.day-off {
+    color: var(--color-warning); /* Красный цвет */
+    font-weight: 600; /* Жирный текст */
+}
+
+/* Примечания к контактам */
+.contact-note, .schedule-note p {
+    display: flex; /* Flex для иконки и текста */
+    align-items: flex-start; /* Выравнивание по верху */
+    gap: 10px; /* Отступ до иконки */
+    color: var(--color-text-muted); /* Цвет текста */
+    font-size: 14px; /* Меньший шрифт */
+    margin: 12px 0 0; /* Отступы */
+}
+
+/* Иконка в примечании */
+.contact-note i, .schedule-note i {
+    color: var(--color-primary); /* Синий цвет */
+    font-size: 14px; /* Размер иконки */
+    margin-top: 2px; /* Выравнивание */
+    flex-shrink: 0; /* Не сжимается */
+}
+
+/* Дополнительная информация */
+.contact-info p, .contact-details p {
+    display: flex; /* Flex для иконки и текста */
+    align-items: flex-start; /* Выравнивание по верху */
+    gap: 10px; /* Отступ до иконки */
+    color: var(--color-text-secondary); /* Цвет текста */
+    margin: 8px 0; /* Вертикальные отступы */
+    font-size: 15px; /* Размер шрифта */
+}
+
+/* Иконка в информации */
+.contact-info i, .contact-details i {
+    color: var(--color-primary); /* Синий цвет */
+    font-size: 14px; /* Размер иконки */
+    margin-top: 2px; /* Выравнивание */
+    flex-shrink: 0; /* Не сжимается */
+}
+        /* ==================================================
+           СТИЛИ ДЛЯ СТРАНИЦЫ КОНТАКТОВ
+        ===================================================== */
+        
+        /* Секция с контактами */
+        .contacts-universal-section {
+            padding: 20px 0 60px;
+        }
+        
+        /* Контейнер для контактных блоков */
+        .contacts-universal-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        /* Контактный блок */
+        .contact-universal-item {
+            display: flex;
+            background: var(--color-bg-card);
+            border-radius: 12px;
+            box-shadow: var(--shadow-card);
+            overflow: hidden;
+            transition: all var(--transition-base);
+            min-height: 160px;
+            border: 1px solid var(--color-border);
+        }
+        
+        /* Эффект при наведении */
+        .contact-universal-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-border-hover);
+        }
+        
+        /* Левая часть блока */
+        .contact-left-side {
+            flex: 0 0 200px;
+            background: var(--color-bg-light);
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-right: 1px solid var(--color-border);
+        }
+        
+        /* Обертка для иконки */
+        .contact--icon-wrapper {
+            width: 60px;
+            height: 60px;
+            background: var(--color-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            color: var(--color-bg-main);
+            font-size: 1.3em;
+        }
+        
+        /* Заголовок в левой части */
+        .contact-left-side h3 {
+            color: var(--color-text-primary);
+            font-size: 1.1em;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        /* Правая часть блока */
+        .contact-right-side {
+            flex: 1;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        /* Содержимое правой части */
+        .contact-content {
+            font-size: 1em;
+            line-height: 1.6;
+            color: var(--color-text-secondary);
+        }
+        
+        /* Сильный текст в контенте */
+        .contact-content strong {
+            color: var(--color-text-primary);
+            font-weight: 600;
+        }
+        
+        /* Параграфы в контенте */
+        .contact-content p {
+            margin: 10px 0;
+        }
+        
+        /* Ссылки в контенте */
+        .contact-content a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+        
+        /* Эффект при наведении на ссылку */
+        .contact-content a:hover {
+            color: var(--color-primary-dark);
+            text-decoration: underline;
+        }
+        
+        /* Ссылка с адресом (особый стиль) */
+        .contact-content a[href*="yandex.ru"] {
+            display: block;
+            margin-top: 5px;
+            color: var(--color-text-secondary);
+            font-weight: 500;
+        }
+        
+        .contact-content a[href*="yandex.ru"]:hover {
+            color: var(--color-primary);
+        }
+        
+        /* ==================================================
+           АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ
+        ===================================================== */
+        
+        /* Планшеты и мобильные (до 768px) */
+        @media (max-width: 768px) {
+            /* Вертикальное расположение контактных блоков */
+            .contact-universal-item {
+                flex-direction: column;
+                min-height: auto;
+            }
+            
+            /* Левая часть на всю ширину */
+            .contact-left-side {
+                flex: none;
+                padding: 20px;
+                border-right: none;
+                border-bottom: 1px solid var(--color-border);
+            }
+            
+            /* Уменьшаем иконку */
+            .contact--icon-wrapper {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2em;
+                margin-bottom: 12px;
+            }
+            
+            /* Правая часть с меньшими отступами */
+            .contact-right-side {
+                padding: 20px;
+            }
+            
+            /* Уменьшаем контейнер */
+            .contacts-universal-container {
+                gap: 15px;
+            }
+        }
+        
+        /* Маленькие мобильные (до 480px) */
+        @media (max-width: 480px) {
+            /* Уменьшаем отступы контейнера */
+            .contacts-universal-container {
+                padding: 0 15px;
+                gap: 12px;
+            }
+            
+            /* Уменьшаем заголовок */
+            .contact-left-side h3 {
+                font-size: 1em;
+            }
+            
+            /* Уменьшаем контент */
+            .contact-content {
+                font-size: 0.95em;
+            }
+            
+            /* Уменьшаем отступы блоков */
+            .contact-left-side,
+            .contact-right-side {
+                padding: 15px;
+            }
+            
+            /* Уменьшаем иконку */
+            .contact--icon-wrapper {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1em;
+            }
+        }
+        /* ==================================================
+           БЛОК ЮРИДИЧЕСКОЙ ИНФОРМАЦИИ
+        ===================================================== */
+        
+        /* Контейнер для юридических блоков */
+        .legal-universal-section {
+            padding: 20px 0;
+        }
+        
+        /* Контейнер для вертикального ряда блоков */
+        .legal-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        /* Отдельный блок юридической информации */
+        .legal-universal-item {
+            display: flex;
+            background: var(--color-bg-card);
+            border-radius: 12px;
+            box-shadow: var(--shadow-card);
+            overflow: hidden;
+            transition: all var(--transition-base);
+            min-height: 120px;
+            border: 1px solid var(--color-border);
+        }
+        
+        /* Эффект при наведении на блок */
+        .legal-universal-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-border-hover);
+        }
+        
+        /* Левая часть блока */
+        .legal-left-side {
+            flex: 0 0 250px;
+            background: var(--color-bg-light);
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-right: 1px solid var(--color-border);
+        }
+        
+        /* Обертка для иконки */
+        .legal-icon-wrapper {
+            width: 50px;
+            height: 50px;
+            background: var(--color-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            color: white;
+            font-size: 1.2em;
+        }
+        
+        /* Заголовок в левой части */
+        .legal-left-side h3 {
+            color: var(--color-text-primary);
+            font-size: 1.1em;
+            font-weight: 600;
+            margin: 0;
+            line-height: 1.3;
+        }
+        
+        /* Правая часть блока */
+        .legal-right-side {
+            flex: 1;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        /* Содержимое правой части */
+        .legal-content {
+            font-size: 1em;
+            line-height: 1.6;
+            color: var(--color-text-secondary);
+        }
+        
+        /* Параграфы внутри контента */
+        .legal-content p {
+            margin: 10px 0;
+        }
+        
+        /* ==================================================
+           БЛОК БАНКОВСКИХ РЕКВИЗИТОВ
+        ===================================================== */
+        
+        /* Сетка для банковских реквизитов */
+        .legal-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        /* Блок реквизита */
+        .legal-item {
+            display: flex;
+            padding: 15px;
+            background: var(--color-bg-light);
+            border-radius: 8px;
+            border: 1px solid var(--color-border);
+        }
+        
+        /* Левая часть реквизита */
+        .legal-label {
+            flex: 0 0 270px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+        
+        /* Правая часть реквизита */
+        .legal-value {
+            flex: 1;
+            color: var(--color-text-secondary);
+        }
+        
+        /* ==================================================
+           АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ
+        ===================================================== */
+        
+        /* Планшеты и мобильные (до 768px) */
+        @media (max-width: 768px) {
+            /* Вертикальное расположение юридических блоков */
+            .legal-universal-item {
+                flex-direction: column;
+                min-height: auto;
+            }
+            
+            /* Левая часть на всю ширину */
+            .legal-left-side {
+                flex: none;
+                padding: 20px;
+                border-right: none;
+                border-bottom: 1px solid var(--color-border);
+            }
+            
+            /* Уменьшаем иконку */
+            .legal-icon-wrapper {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1em;
+                margin-bottom: 10px;
+            }
+            
+            /* Правая часть с меньшими отступами */
+            .legal-right-side {
+                padding: 20px;
+            }
+            
+            /* Вертикальное расположение банковских реквизитов */
+            .legal-item {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            /* Банковский лейбл на всю ширину */
+            .legal-label {
+                flex: none;
+            }
+        }
+        
+        /* Маленькие мобильные (до 480px) */
+        @media (max-width: 480px) {
+            /* Уменьшаем отступы контейнера */
+            .legal-container {
+                padding: 0 15px;
+            }
+            
+            /* Уменьшаем заголовок */
+            .legal-left-side h3 {
+                font-size: 1em;
+            }
+            
+            /* Уменьшаем контент */
+            .legal-content {
+                font-size: 0.95em;
+            }
+            
+            /* Уменьшаем отступы блоков */
+            .legal-left-side,
+            .legal-right-side {
+                padding: 15px;
+            }
+            
+            /* Уменьшаем банковские блоки */
+            .legal-item {
+                padding: 12px;
+            }
+            
+            /* Уменьшаем лейбл */
+            .legal-label {
+                font-size: 0.95em;
+            }
+            
+/* Базовая карточка */
+.legal-card {
+    background: var(--color-bg-card); /* Фон карточки */
+    border: 1px solid var(--color-border); /* Рамка */
+    border-radius: 12px; /* Закругленные углы */
+    padding: 25px; /* Внутренние отступы */
+    transition: all var(--transition-base); /* Плавные переходы */
+    box-shadow: var(--shadow-card); /* Легкая тень */
+    display: flex; /* Flexbox */
+    flex-direction: column; /* Вертикальное направление */
+    height: 100%; /* Полная высота */
+    position: relative; /* Для позиционирования */
+}
+
+/* Эффект при наведении */
+.legal-card:hover {
+    box-shadow: var(--shadow-lg); /* Усиленная тень */
+    transform: translateY(-5px); /* Сдвиг вверх */
+    border-color: var(--color-border-hover); /* Цвет рамки */
+}
+
+
+/* ==================================================
+   ХЛЕБНЫЕ КРОШКИ (BREADCRUMBS)
+===================================================== */
+
+/* Навигационная цепочка */
+.breadcrumbs {
+    background-color: var(--color-bg-light); /* Светлый фон */
+    border-bottom: 1px solid var(--color-border); /* Линия снизу */
+    padding: 12px 0; /* Вертикальные отступы */
+    font-size: 14px; /* Меньший шрифт */
+}
+
+/* Контейнер крошек */
+.breadcrumbs .container {
+    display: flex; /* Flexbox */
+    align-items: center; /* Центрирование по вертикали */
+    gap: 10px; /* Отступ между элементами */
+}
+
+/* Ссылка в крошках */
+.breadcrumbs a {
+    color: var(--color-text-secondary); /* Цвет текста */
+    text-decoration: none; /* Без подчеркивания */
+    display: flex; /* Flex для иконки и текста */
+    align-items: center; /* Центрирование по вертикали */
+    gap: 6px; /* Отступ до иконки */
+    transition: color var(--transition-fast); /* Плавное изменение цвета */
+}
+
+/* Эффект при наведении */
+.breadcrumbs a:hover {
+    color: var(--color-primary); /* Синий цвет */
+}
+
+/* Разделитель */
+.breadcrumbs i.fa-chevron-right {
+    color: var(--color-text-muted); /* Серый цвет */
+    font-size: 12px; /* Меньший размер */
+}
+
+/* Текущая страница */
+.breadcrumbs span {
+    color: var(--color-text-primary); /* Темный цвет */
+    font-weight: 500; /* Полужирный текст */
+}
+
+       /* Стили для универсальных блоков контактов */
+        .contacts-universal-section {
+            padding: 20px 0;
+        }
+        
+        .contacts-universal-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            gap: 20px;
+        }
+        
+        .contact-universal-item {
+            display: flex;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 0px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            min-height: 180px;
+        }
+        
+        .contact-universal-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+        }
+        
+        .contact-left-side {
+            flex: 0 0 200px;
+            background: linear-gradient(135deg, #f8fafc 0%, #eef2f7 100%);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-right: 1px solid #e2e8f0;
+        }
+        
+        .contact-icon-wrapper {
+            width: 70px;
+            height: 70px;
+            background: #3b82f6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            color: white;
+            font-size: 1.5em;
+        }
+        
+        .contact-left-side h3 {
+            color: #1e293b;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        .contact-right-side {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .contact-content {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #475569;
+        }
+        
+        .contact-content strong {
+            color: #1e293b;
+            font-weight: 600;
+        }
+        
+        .contact-content p {
+            margin: 8px 0;
+        }
+        
+        .contact-content a {
+            color: #3b82f6;
+            text-decoration: none;
+            transition: color 0.2s;
+            display: inline-block;
+            margin-right: 15px;
+        }
+        
+        .contact-content a:hover {
+            color: #2563eb;
+            text-decoration: underline;
+        }
+        
+        .contact-button {
+            margin-top: 20px;
+        }
+        
+        .contact-button .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #3b82f6;
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .contact-button .button:hover {
+            background: #2563eb;
+        }
+    
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .contact-universal-item {
+                flex-direction: column;
+                min-height: auto;
+                margin-bottom: 20px;
+            }
+            
+            .contact-left-side {
+                flex: none;
+                padding: 20px;
+                border-right: none;
+                border-bottom: 1px solid #e2e8f0;
+            }
+            
+            .contact-icon-wrapper {
+                width: 60px;
+                height: 60px;
+                font-size: 1.3em;
+            }
+            
+            .contact-right-side {
+                padding: 20px;
+            }
+            
+            .contact-content a {
+                display: block;
+                margin-bottom: 5px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .contacts-universal-container {
+                padding: 0 15px;
+            }
+            
+            .contact-left-side h3 {
+                font-size: 1.2em;
+            }
+            
+            .contact-content {
+                font-size: 0.95em;
+            }
+            
+        }
+/* ==================================================
+   ПОДВАЛ САЙТА (FOOTER)
+===================================================== */
+
+/* Основной блок подвала */
+.site-footer {
+    background: var(--color-bg-light); /* Светлый фон */
+    border-top: 1px solid var(--color-border); /* Линия сверху */
+    padding: 20px 0; /* Вертикальные отступы */
+    margin-top: 30px; /* Отступ сверху */
+    text-align: center; /* Текст по центру */
+}
+
+/* Текст подвала */
+.footer-text {
+    color: var(--color-text-secondary); /* Цвет текста */
+    font-size: 15px; /* Размер шрифта */
+    margin: 0; /* Без отступов */
+    line-height: 1.5; /* Межстрочный интервал */
+}
+
+/* ==================================================
+   АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ
+===================================================== */
+
+/* Планшеты (до 992px) */
+@media (max-width: 992px) {
+    .universe-grid {
+        grid-template-columns: repeat(2, 1fr); /* Две колонки */
+    }
+}
+
+/* Планшеты и мобильные (до 768px) */
+@media (max-width: 768px) {
+    /* Навигация на мобильных */
+    .nav {
+        display: none; /* Скрыта по умолчанию */
+        position: absolute; /* Абсолютное позиционирование */
+        top: 100%; /* Под шапкой */
+        left: 0; /* Прижато к левому краю */
+        right: 0; /* Прижато к правому краю */
+        background-color: var(--color-bg-main); /* Белый фон */
+        padding: 20px; /* Внутренние отступы */
+        border-top: 1px solid var(--color-border); /* Линия сверху */
+        box-shadow: var(--shadow-lg); /* Тень */
+        z-index: 99; /* Поверх контента */
+    }
+    
+    /* Показать меню */
+    .nav.active {
+        display: block; /* Отображаем */
+    }
+    
+    /* Вертикальное меню */
+    .nav-list {
+        flex-direction: column; /* Вертикальное направление */
+        gap: 12px; /* Отступ между пунктами */
+    }
+    
+    /* Показать кнопку меню */
+    .menu-toggle {
+        display: block; /* Отображаем */
+    }
+    
+    /* Уменьшаем заголовки */
+    h1 { font-size: 32px; }
+    h2 { font-size: 26px; }
+    h3 { font-size: 20px; }
+    .page-title { font-size: 28px; }
+    .hero-title { font-size: 32px; }
+    
+    /* Уменьшаем отступы */
+    .hero { padding: 40px 0; }
+    .content-section { padding: 30px 0; }
+    .site-footer { margin-top: 60px; padding: 30px 0; }
+    
+    /* Одна колонка для сеток */
+    .universe-grid {
+        grid-template-columns: 1fr; /* Одна колонка */
+        gap: 20px; /* Меньший отступ */
+    }
+    
+    /* Уменьшаем карточки */
+    .universe-card {
+        padding: 20px; /* Меньшие отступы */
+    }
+    
+    /* Контейнер с иконкой */
+    .universe-icon {
+        width: 50px; /*  ширина */
+        height: 50px; /*  высота */
+    }
+    /* Иконка внутри (сам значок) */
+    .universe-icon i {
+        font-size: 20px; /*  шрифт */
+    }
+    
+    /* Полная ширина для кнопок */
+    .button {
+        width: 100%; /* Полная ширина */
+        justify-content: center; /* Центрирование */
+    }
+    
+    /* Вертикальные контакты */
+    .contact-item {
+        flex-direction: column; /* Вертикальное направление */
+        align-items: flex-start; /* Выравнивание по левому краю */
+        gap: 8px; /* Меньший отступ */
+    }
+    
+    /* Вертикальный график */
+    .schedule-day {
+        flex-direction: column; /* Вертикальное направление */
+        align-items: flex-start; /* Выравнивание по левому краю */
+        gap: 4px; /* Меньший отступ */
+    }
+}
+
+/* Маленькие мобильные (до 480px) */
+@media (max-width: 480px) {
+    .logo-text {
+        display: none; /* Скрываем текст на очень маленьких экранах */
+    }
+    
+    .logo {
+        gap: 0;
+    }
+    
+    .logo-img {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .container {
+        padding: 0 16px; /* Меньшие боковые отступы */
+    }
+    
+    /* Уменьшаем герой-секцию */
+    .hero {
+        padding: 30px 0; /* Меньшие отступы */
+    }
+    
+    .hero-title {
+        font-size: 28px; /* Меньший заголовок */
+    }
+    
+    .hero-text {
+        font-size: 16px; /* Меньший текст */
+    }
+    
+    /* Уменьшаем заголовки страниц */
+    .page-title {
+        font-size: 24px; /* Меньший заголовок */
+    }
+    
+    .page-subtitle {
+        font-size: 16px; /* Меньший подзаголовок */
+    }
+    
+    /* Уменьшаем карточки */
+    .universe-card {
+        padding: 16px; /* Меньшие отступы */
+    }
+    
+    /* Уменьшаем кнопки */
+    .button {
+        padding: 10px 20px; /* Меньшие отступы */
+        font-size: 14px; /* Меньший шрифт */
+    }
+    
+    /* Адаптивные хлебные крошки */
+    .breadcrumbs .container {
+        flex-wrap: wrap; /* Перенос строк */
+        gap: 8px; /* Меньший отступ */
+    }
+    
+    .breadcrumbs {
+        font-size: 13px; /* Меньший шрифт */
+        padding: 8px 0; /* Меньшие отступы */
+    }
+}
