@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лига защитников потребителей</title>
+    <meta name="description" content="Защита прав потребителей в Белгороде. Юридическая помощь потребителям.">
+    
+    <!-- Подключаем стили -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Подключаем шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="doc/logo.svg" type="image/svg+xml">
+</head>
+
+<body>
+    <!-- Главный контейнер -->
+    <div class="container">
+        <!-- Шапка сайта (Header) -->
+        <header class="header">
+          <div class="header__container">
+            <!-- Логотип -->
+            <a href="#home" class="logo" data-page="home">
+                <img src="doc/logo.svg" alt="Лига защитников потребителей" class="logo__img">
+                <span class="logo__text">Лига защитников потребителей</span>
+            </a>
+            
+            <!-- Кнопка меню для мобильных -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        </header>
+
+        <!-- Основное содержимое -->
+        <div class="main-wrapper">
+            <!-- Основной контент -->
+            <main class="main-content" id="content-body">
+                <!-- Блок для отображения контента -->
+                <div id="page-content">
+                    <!-- Контент будет загружаться здесь через JavaScript -->
+                    <div class="loading-spinner">
+                        <div class="loading-spinner__icon">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </div>
+                        <p class="loading-spinner__text">Загрузка страницы...</p>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Sidebar (правое меню) -->
+            <aside class="sidebar" id="sidebar">
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="#home" class="nav__link nav__link--active" data-page="home">
+                                <i class="nav__icon fas fa-home"></i>
+                                <span class="nav__text">Начало</span>
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#consumer" class="nav__link" data-page="consumer">
+                                <i class="nav__icon fas fa-user-shield"></i>
+                                <span class="nav__text">Потребителю</span>
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#zakon" class="nav__link" data-page="zakon">
+                                <i class="nav__icon fa fa-book"></i>
+                                <span class="nav__text">Законодательство</span>
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#articles" class="nav__link" data-page="articles">
+                                <i class="nav__icon fas fa-newspaper"></i>
+                                <span class="nav__text">Статьи</span>
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#about" class="nav__link" data-page="about">
+                                <i class="nav__icon fas fa-info-circle"></i>
+                                <span class="nav__text">О нас</span>
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#contacts" class="nav__link" data-page="contacts">
+                                <i class="nav__icon fas fa-address-book"></i>
+                                <span class="nav__text">Контакты</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+        </div>
+
+        <!-- Подвал сайта -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__container">
+                    <p class="footer__text">
+                        © 2026, Лига защитников потребителей. Все права защищены.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- Плавающая кнопка "Наверх" -->
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Вернуться к началу страницы">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <!-- Подключение JavaScript -->
+     
+    <script src="script.js" defer></script>
+</body>
+</html>
