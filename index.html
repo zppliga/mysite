@@ -43,17 +43,42 @@
         <!-- Основное содержимое -->
         <div class="main-wrapper">
             <!-- Основной контент -->
-            <main class="main-content" id="content-body">
-                <!-- Блок для отображения контента -->
-                <div id="page-content">
-                    <!-- Контент будет загружаться здесь через JavaScript -->
-                    <div class="loading-spinner">
-                        <div class="loading-spinner__icon">
-                            <i class="fas fa-spinner fa-spin"></i>
+            <main class="main-content" id="main-content">
+                <section class="section">
+                    <div class="container">
+                        <div class="banner banner--primary">
+                            <h1 class="banner__title">Мы защищаем права потребителей!</h1>
+                            <p class="banner__text">
+                                Актуальные статьи, анализ судебной практики и комментарии законодательства РФ о защите прав потребителей. Просто о сложном.
+                            </p>
+                            <div class="banner__actions">
+                                <a href="#consumer" class="btn btn--primary" data-page="consumer">
+                                    <i class="fas fa-shield-alt"></i> Узнайте о своих правах
+                                </a>
+                                <a href="#contacts" class="btn btn--outline" data-page="contacts">
+                                    <i class="fas fa-phone"></i> Получите консультацию!
+                                </a>
+                            </div>
                         </div>
-                        <p class="loading-spinner__text">Загрузка страницы...</p>
                     </div>
-                </div>
+
+                    <div class="container">
+                        <div class="section__header">
+                            <div class="section__title--main">Чем мы помогаем?</div>
+                        </div>
+                        <div class="grid grid--2">
+                            <div class="card card--article">
+                                <div class="card__header">
+                                    <div class="card__icon"><i class="fas fa-comments"></i></div>                        
+                                    <h2 class="card__title">Консультируем</h2>
+                                </div>
+                                <div class="card__content">
+                                    <p class="card__text">Разъясним ваши права и предложим эффективное решение проблемы.</p>
+                                </div>
+                            </div>
+                            </div>
+                    </div>
+                </section>
             </main>
 
             <!-- Sidebar (правое меню) -->
