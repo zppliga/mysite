@@ -841,6 +841,35 @@ list-style: none;
   
 }
 
+/* Ссылка-кнопка "Подробнее" */
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.link:hover {
+  color: var(--color-primary-dark);
+}
+
+/* Ссылка "Назад к статьям" */
+.article-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.article-back:hover {
+  color: var(--color-primary);
+}
+
 /* ----- 5.10 Заголовки страниц ----- */
 .page-header {
   margin-bottom: 30px;
